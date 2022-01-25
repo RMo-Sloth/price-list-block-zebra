@@ -1,26 +1,18 @@
 <?php
 /**
  * Plugin Name:       Price List Block Zebra
- * Description:       Example block written with ESNext standard and JSX support – build step required.
+ * Description:       A wordpress block for creating price lists. You can use it to create a menu for a restaurant, prices for a barber shop or anything like it. All editing is done inside the block editor. No confusing menus, no settings. Just easy to use!
  * Requires at least: 5.8
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Author:            robmo
+ * License:           GPL-2.0-or-later ( modify later )
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html ( modify later )
  * Text Domain:       price-list-block-zebra
  *
- * @package           create-block
+ * @package           price-list-block-zebra
  */
 
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/writing-your-first-block-type/
- */
-function create_block_price_list_block_zebra_block_init() {
-	register_block_type( __DIR__ );
-}
-add_action( 'init', 'create_block_price_list_block_zebra_block_init' );
+add_action( 'init', function() {
+	register_block_type( __DIR__ . '/block.json');
+});

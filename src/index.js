@@ -25,7 +25,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('create-block/price-list-block-zebra', {
+registerBlockType('price-list-block-zebra/price-list-block-zebra', {
 	/**
 	 * @see ./edit.js
 	 */

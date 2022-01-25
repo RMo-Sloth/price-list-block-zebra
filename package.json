@@ -1,16 +1,17 @@
 {
 	"name": "price-list-block-zebra",
 	"version": "0.1.0",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
-	"author": "The WordPress Contributors",
-	"license": "GPL-2.0-or-later",
+	"description": "A wordpress block for creating price lists. You can use it to create a menu for a restaurant, prices for a barber shop or anything like it. All editing is done inside the block editor. No confusing menus, no settings. Just easy to use!",
+	"author": "robmo",
+	"license": "GPL-2.0-or-later ( modify later )",
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
-		"start": "wp-scripts start",
+		"start": "wp-env start && wp-scripts start",
+		"stop": "wp-env stop",
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
