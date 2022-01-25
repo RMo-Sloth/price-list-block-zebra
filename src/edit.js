@@ -1,8 +1,4 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
+// @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -32,10 +28,7 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<p {...useBlockProps()}>
-			{__(
-				'Price List Block Zebra – hello from the editor!',
-				'price-list-block-zebra'
-			)}
+			{__( 'I am the block in the editor.', 'price-list-block-zebra' )}
 		</p>
 	);
 }
