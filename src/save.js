@@ -20,8 +20,8 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function Save({ attributes }) {
 
 	return (
-		<p {...useBlockProps.save()}>
-			{ attributes.price_data.map( details => <ReadPriceRecord record={details} /> ) }
-		</p>
+		<div {...useBlockProps.save()}>
+			{ attributes.price_records.map( record => <ReadPriceRecord record={record} /> ) }
+		</div>
 	);
 }
