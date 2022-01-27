@@ -1,5 +1,4 @@
-// @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
-import { __ } from '@wordpress/i18n';
+import ReadPriceRecord from './components/price-records/read/ReadPriceRecord';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -22,7 +21,7 @@ export default function Save({ attributes }) {
 
 	return (
 		<p {...useBlockProps.save()}>
-			{ attributes.price_data.map( (details, index) => (<div key={index}>Name: { details.name }</div>  ) ) }
+			{ attributes.price_data.map( details => <ReadPriceRecord record={details} /> ) }
 		</p>
 	);
 }
