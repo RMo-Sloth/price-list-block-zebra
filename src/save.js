@@ -18,10 +18,11 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function Save() {
+export default function Save({ attributes }) {
+
 	return (
 		<p {...useBlockProps.save()}>
-			{__( 'I am what the block looks like.', 'price-list-block-zebra' )}
+			{ attributes.price_data.map( (details, index) => (<div key={index}>Name: { details.name }</div>  ) ) }
 		</p>
 	);
 }

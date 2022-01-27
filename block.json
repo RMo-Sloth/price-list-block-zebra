@@ -3,16 +3,17 @@
 	"apiVersion": 2,
 	"attributes": {
 		"price_data": {
-			"default": [],
+			"default": [{"name": "Burger", "price": 10.00 }],
 			"query": {
 				"name": {
-					"type": "string"
+					"type": "string",
+					"default": ""
 				},
 				"price": {
-					"type": "number"
+					"type": "number",
+					"default": 0
 				}
 			},
-			"source": "query",
 			"type": "array"
 		}
 	},

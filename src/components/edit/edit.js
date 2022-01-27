@@ -25,10 +25,17 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
-	return (
-		<p {...useBlockProps()}>
-			{__( 'I am the block in the editor.', 'price-list-block-zebra' )}
-		</p>
-	);
+export default function Edit({ attributes, setAttributes }) {
+
+	function add_price() {
+		const price_data = [...attributes.price_data, { name: 'Chocolate', price: 12.00 }];
+		setAttributes( { price_data } );
+	}
+	
+	console.log( attributes );
+	const price_data_DOM = attributes.price_data.map( (details, index) => <p key={index}>Name: { details.name }</p> );
+	return ( <div { ...useBlockProps() }>
+		{ price_data_DOM }
+		<button onClick={add_price}>Add New</button>
+	</div>);
 }
