@@ -33,7 +33,7 @@ export default function Edit({ attributes, setAttributes }) {
 	}
 	
 	return ( <div { ...useBlockProps() }>
-		{ attributes.price_records.map( (details, index) => <p key={index}>Name: { details.name }</p> ) }
+		{ attributes.price_records.map( record => <p>Name: { record.name }</p> ) }
 		<button onClick={add_price}>Add New</button>
 	</div>);
 }
