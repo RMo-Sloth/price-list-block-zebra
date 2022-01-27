@@ -21,7 +21,7 @@ export default function Save({ attributes }) {
 
 	return (
 		<div {...useBlockProps.save()}>
-			{ attributes.price_records.map( record => <ReadPriceRecord record={record} /> ) }
+			{ attributes.price_records.map( (record, index) => <ReadPriceRecord key={index} record={record} /> ) }
 		</div>
 	);
 }

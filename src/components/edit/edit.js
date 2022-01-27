@@ -1,3 +1,6 @@
+import CreatePriceRecord from '../price-records/create/CreatePriceRecord';
+import ReadPriceRecord from '../price-records/read/ReadPriceRecord';
+
 // @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
 import { __ } from '@wordpress/i18n';
 
@@ -33,7 +36,8 @@ export default function Edit({ attributes, setAttributes }) {
 	}
 	
 	return ( <div { ...useBlockProps() }>
-		{ attributes.price_records.map( record => <p>Name: { record.name }</p> ) }
+		{ attributes.price_records.map( (record, index) => <ReadPriceRecord key={index} record={ record } /> ) }
+		<CreatePriceRecord records={ attributes.price_records } />
 		<button onClick={add_price}>Add New</button>
 	</div>);
 }
