@@ -2,11 +2,18 @@ import { useState } from '@wordpress/element';
 import { __experimentalNumberControl as NumberControl, TextControl } from '@wordpress/components';
 import './UpdatePriceRecord.css';
 
-function UpdatePriceRecord( {record} ) {
-    console.log( record );
-    return (<div className='update-price-record'>
-        <TextControl className='name' value={record.name} required={true} />
-        <NumberControl className='price' value={record.price.toFixed(2)} required={true} />
+function UpdatePriceRecord( props ) {
+    const [product_name, set_name] = useState( props.record.name );
+    const [product_price, set_price] = useState( props.record.price.toFixed(2) );
+
+    function process_changes(){
+        if( product_name !== props.record.name || product_price !== props.record.price.toFixed(2) )
+            console.log('Should handle the records if it\'s modified');
+    }
+
+    return (<div className='update-price-record' onBlur={process_changes}>
+        <TextControl className='name' value={product_name} required={true} onChange={set_name} />
+        <NumberControl className='price' value={product_price} required={true} onChange={set_price}/>
     </div>)
 }
 
