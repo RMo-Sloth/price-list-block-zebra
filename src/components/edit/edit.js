@@ -29,15 +29,8 @@ import UpdatePriceRecord from '../price-records/update/UpdatePriceRecord';
  * @return {WPElement} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-
-	function add_price() {
-		const price_records = [...attributes.price_records, { name: 'Chocolate', price: 12.00 }];
-		setAttributes( { price_records } );
-	}
-	
 	return ( <div { ...useBlockProps() }>
 		{ attributes.price_records.map( (record, index) => <UpdatePriceRecord key={index} record={ record } /> ) }
-		<CreatePriceRecord records={ attributes.price_records } />
-		<button onClick={add_price}>Add New</button>
+		<CreatePriceRecord />
 	</div>);
 }
