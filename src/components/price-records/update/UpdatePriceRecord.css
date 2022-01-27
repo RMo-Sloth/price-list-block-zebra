@@ -1,0 +1,29 @@
+.update-price-record {
+    display: flex;
+    gap: 3px;
+}
+
+.update-price-record .name {
+    flex: 1 0 120px;
+}
+
+.update-price-record .price {
+    flex: 0 0 80px;
+}
+
+
+.update-price-record .name input {
+    border-radius: 0;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+}
+
+.update-price-record .price .components-input-control__backdrop {
+    display: none;
+}
+
+.update-price-record .price input {
+    border-radius: 0;
+    border-bottom: 1px solid rgb(117, 117, 117) !important;
+}
