@@ -33,7 +33,6 @@ export default function Edit({ attributes, setAttributes }) {
 	function add_record( record ) {
 		const records = [...attributes.price_records, record ];
 		setAttributes( { price_records: records } );
-		console.log( attributes.price_records );
 	}
 
 	return ( <div { ...useBlockProps() }>

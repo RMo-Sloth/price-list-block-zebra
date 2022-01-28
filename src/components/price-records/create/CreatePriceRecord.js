@@ -5,20 +5,28 @@ import './CreatePriceRecord.css';
 
 function CreatePriceRecord( props ) {
 
-    const [record, set_record] = useState( { name: '', price: 0 } );
+    const [record, set_record] = useState( { name: '', price: '1.00' } );
 
     function emit(){
-        props.onEmit( record );
-        set_record( { name: '', price: 0 } );
+        props.onEmit( {...record, price: +record.price} );
+        set_record( { name: '', price: '1.00' } );
     }
 
-    return ( <div className='create-price-record'>
-        <form>
+    function set_name( event ) {
+        const name = event.target.value;
+        set_record( {...record, name} );
+    }
 
+    function set_price( event ) {
+        const price = event.target.value;
+        set_record( {...record, price} );
+    }
 
-            <Button variant="secondary" type="button" onClick={emit}>{ __('Insert', 'price-list-block-zebra') }</Button>
-        </form>
-    </div> );
+    return ( <form className='create-price-record'>
+        <input type='text' className='name' value={record.name} onChange={set_name} />
+        <input type='number' className='price' value={record.price} onChange={set_price} />
+        <Button variant="secondary" type="button" onClick={emit}>{ __('Insert', 'price-list-block-zebra') }</Button>
+    </form> );
 }
 
 export default CreatePriceRecord;

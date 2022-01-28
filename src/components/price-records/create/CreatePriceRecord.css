@@ -1,5 +1,28 @@
 .create-price-record {
-    margin-top: 1rem;
+    margin-top: 4rem;
     display: flex;
-    justify-content: end;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.create-price-record .name {
+    flex: 1 0 120px;
+}
+
+.create-price-record .price {
+    width: 80px;
+    flex: 0 0 auto;
+}
+
+.create-price-record button {
+    flex: 0 0 auto;
+}
+
+.create-price-record .name, .create-price-record .price {
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    height: 36px;
+    border-radius: 0;
+    border-bottom: 1px solid rgb(117, 117, 117);
 }
