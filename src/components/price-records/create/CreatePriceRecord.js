@@ -5,13 +5,13 @@ import './CreatePriceRecord.css';
 
 function CreatePriceRecord( props ) {
 
-    const [record, set_record] = useState( { name: '', price: '1.00' } );
+    const [record, set_record] = useState( { name: '', price: '' } );
     const name_input_ref = createRef();
 
     function emit(){
         const price = Number( record.price ).toFixed(2).toString();
         props.onEmit( {...record, price } );
-        set_record( { name: '', price: '1.00' } );
+        set_record( { name: '', price: '' } );
         name_input_ref.current.focus();
     }
 
@@ -25,11 +25,17 @@ function CreatePriceRecord( props ) {
         set_record( {...record, price} );
     }
 
-    return ( <form className='create-price-record'>
-        <input ref={name_input_ref} type='text' className='name' value={record.name} onChange={set_name} />
-        <input type='number' className='price' value={record.price} onChange={set_price} />
-        <Button variant="secondary" type="button" onClick={emit}>{ __('Insert', 'price-list-block-zebra') }</Button>
-    </form> );
+    return ( <div>
+        <div className='create-price-record'>
+            <div className="name">
+                <input ref={name_input_ref} type='text' placeholder='enter a name' value={record.name} onChange={set_name} />
+            </div>
+            <div className="price">
+                <input type='number' placeholder='0.00' value={record.price} onChange={set_price} />
+            </div>
+            <Button variant="secondary" type="button" onClick={emit} className="insert">{ __('Insert', 'price-list-block-zebra') }</Button>
+        </div>
+    </div> );
 }
 
 export default CreatePriceRecord;

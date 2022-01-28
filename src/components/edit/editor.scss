@@ -3,9 +3,9 @@
  */
 
 .wp-block-price-list-block-zebra-price-list-block-zebra {
-	border: none;
+	display: block;
+	border: 4px solid white;
 	border-radius: 0.5rem;
-	padding: 1rem;
 	background: white;
 	color: black;
 }

@@ -1,28 +1,40 @@
 .create-price-record {
-    margin-top: 4rem;
+    width: 100%;
+    padding-top: 2rem;
     display: flex;
-    flex-direction: row;
     gap: 4px;
 }
 
 .create-price-record .name {
-    flex: 1 0 120px;
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+}
+
+.create-price-record .name input {
+    width: 100%;
+    padding: 0 4px;
+
 }
 
 .create-price-record .price {
-    width: 80px;
-    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    flex: 0 0 60px;
 }
 
-.create-price-record button {
-    flex: 0 0 auto;
+.create-price-record .price input[type=number] {
+    width: 100%;
+    padding: 0 4px;
+    text-align: right;
+    -moz-appearance: textfield;
 }
 
-.create-price-record .name, .create-price-record .price {
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-    height: 36px;
-    border-radius: 0;
-    border-bottom: 1px solid rgb(117, 117, 117);
+.create-price-record .price input::-webkit-outer-spin-button, .create-price-record .price input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.create-price-record .insert {
+    flex: 0 0 auto;
 }
