@@ -9,7 +9,8 @@ function CreatePriceRecord( props ) {
     const name_input_ref = createRef();
 
     function emit(){
-        props.onEmit( {...record, price: +record.price} );
+        const price = Number( record.price ).toFixed(2).toString();
+        props.onEmit( {...record, price } );
         set_record( { name: '', price: '1.00' } );
         name_input_ref.current.focus();
     }
