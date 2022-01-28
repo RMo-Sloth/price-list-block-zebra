@@ -5,6 +5,26 @@
 
 .wp-block-price-list-block-zebra-price-list-block-zebra {
 	background-color: transparent;
-	// color: #fff;
-	// padding: 2px;
+	.record-row {
+		display: flex;
+		align-items: flex-end;
+		margin-bottom: 0.5em;
+		.name {
+			display: flex;
+			flex-wrap: wrap;
+			flex: 1 1 auto;
+			align-items: flex-end;
+			line-height: 1;
+			.spacer {
+				margin: 0 0.25em;
+				flex: 1 0 auto;
+				border-bottom-width: 1px;
+				border-bottom-style: dashed;
+			}
+		}
+		.price {
+			flex: 0 0 auto;
+			line-height: 1;
+		}
+	}
 }
