@@ -4,10 +4,10 @@ import './UpdatePriceRecord.css';
 
 function UpdatePriceRecord( props ) {
     const [product_name, set_name] = useState( props.record.name );
-    const [product_price, set_price] = useState( props.record.price.toFixed(2) );
+    const [product_price, set_price] = useState( props.record.price );
 
     function process_changes(){
-        if( product_name !== props.record.name || product_price !== props.record.price.toFixed(2) )
+        if( product_name !== props.record.name || product_price !== props.record.price )
             console.log('Should handle the records if it\'s modified');
     }
 
