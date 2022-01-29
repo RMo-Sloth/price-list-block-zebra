@@ -15,14 +15,17 @@
 			flex: 1 1 auto;
 			align-items: flex-end;
 			line-height: 1;
+			.last-word {
+				margin-right: 0.25em;
+			}
 			.spacer {
-				margin: 0 0.25em;
 				flex: 1 0 auto;
 				border-bottom-width: 1px;
 				border-bottom-style: dashed;
 			}
 		}
 		.price {
+			margin-left: 0.25em;
 			flex: 0 0 auto;
 			line-height: 1;
 		}
