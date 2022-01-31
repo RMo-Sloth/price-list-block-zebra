@@ -1,6 +1,6 @@
 .create-price-record {
     width: 100%;
-    padding-top: 2rem;
+    padding-top: 1rem;
     display: flex;
     gap: 4px;
 
@@ -11,6 +11,8 @@
 
         input {
             width: 100%;
+            min-height: 24px;
+            height: 24px;
             padding: 0 4px;
         
         }
@@ -24,6 +26,8 @@
 
         input[type=number] {
             width: 100%;
+            min-height: 24px;
+            height: 24px;
             padding: 0 4px;
             text-align: right;
             -moz-appearance: textfield;
@@ -38,7 +42,6 @@
 
     .insert {
         flex: 0 0 auto;
-        height: 100%;
     }
 
 }

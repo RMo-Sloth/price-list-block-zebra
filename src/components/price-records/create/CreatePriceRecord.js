@@ -1,7 +1,9 @@
-import { Button } from '@wordpress/components';
+import { Button, Icon } from '@wordpress/components';
 import { useState, createRef } from '@wordpress/element'
 import { __ } from '@wordpress/i18n';
 import './CreatePriceRecord.scss';
+
+import { plus } from '@wordpress/icons';
 
 function CreatePriceRecord( props ) {
 
@@ -33,7 +35,9 @@ function CreatePriceRecord( props ) {
             <div className="price">
                 <input type='number' placeholder='0.00' value={record.price} onChange={set_price} />
             </div>
-            <Button variant="secondary" type="button" onClick={emit} className="insert">{ __('Insert', 'price-list-block-zebra') }</Button>
+            <Button isPrimary isSmall onClick={emit} className="insert">
+                <Icon icon={plus} size='20' />
+            </Button>
         </div>
     </div> );
 }
