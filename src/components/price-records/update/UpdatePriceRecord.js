@@ -1,5 +1,4 @@
 import { useState } from '@wordpress/element';
-import { __experimentalNumberControl as NumberControl, TextControl } from '@wordpress/components';
 import './UpdatePriceRecord.css';
 
 function UpdatePriceRecord( props ) {
@@ -12,8 +11,12 @@ function UpdatePriceRecord( props ) {
     }
 
     return (<div className='update-price-record' onBlur={process_changes}>
-        <TextControl className='name' value={product_name} required={true} onChange={set_name} />
-        <NumberControl className='price' value={product_price} required={true} onChange={set_price}/>
+        <div className="name">
+            <input type='text' value={product_name} required={true} onChange={set_name} />
+        </div>
+        <div className="price">
+            <input type='number' className='price' value={product_price} required={true} onChange={set_price}/>
+        </div>
     </div>)
 }
 

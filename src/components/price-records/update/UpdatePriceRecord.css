@@ -1,29 +1,36 @@
 .update-price-record {
+    width: 100%;
     display: flex;
-    gap: 3px;
+    gap: 4px;
+    margin-bottom: 4px;
 }
 
 .update-price-record .name {
-    flex: 1 0 120px;
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+}
+
+.update-price-record .name input {
+    width: 100%;
+    padding: 0 4px;
 }
 
 .update-price-record .price {
-    flex: 0 0 80px;
+    display: flex;
+    align-items: center;
+    flex: 0 0 60px;
+}
+
+.update-price-record .price input[type=number] {
+    width: 100%;
+    padding: 0 4px;
+    text-align: right;
+    -moz-appearance: textfield;;
 }
 
 
-.update-price-record .name input {
-    border-radius: 0;
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-}
-
-.update-price-record .price .components-input-control__backdrop {
-    display: none;
-}
-
-.update-price-record .price input {
-    border-radius: 0;
-    border-bottom: 1px solid rgb(117, 117, 117) !important;
+.update-price-record .price input::-webkit-outer-spin-button, .update-price-record .price input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

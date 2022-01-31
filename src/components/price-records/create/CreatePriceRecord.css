@@ -37,4 +37,5 @@
 
 .create-price-record .insert {
     flex: 0 0 auto;
+    height: 100%;
 }
