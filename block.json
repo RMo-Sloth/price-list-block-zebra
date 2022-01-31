@@ -3,7 +3,7 @@
 	"apiVersion": 2,
 	"attributes": {
 		"price_records": {
-			"default": [{"name": "Burger", "price": "10.00" }],
+			"default": [],
 			"query": {
 				"name": {
 					"type": "string",
@@ -28,6 +28,5 @@
 	},
 	"textdomain": "price-list-block-zebra",
 	"editorScript": "file:./build/index.js",
-	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css"
 }
