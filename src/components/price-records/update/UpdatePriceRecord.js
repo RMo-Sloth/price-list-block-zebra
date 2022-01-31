@@ -1,5 +1,5 @@
 import { useState } from '@wordpress/element';
-import './UpdatePriceRecord.css';
+import './UpdatePriceRecord.scss';
 
 function UpdatePriceRecord( props ) {
     const [product_name, set_name] = useState( props.record.name );
