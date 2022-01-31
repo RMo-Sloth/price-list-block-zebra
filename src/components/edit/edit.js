@@ -36,6 +36,11 @@ export default function Edit({ attributes, setAttributes }) {
 	}
 
 	return ( <div { ...useBlockProps() }>
+		<div className='price-record-top-labels'>
+			<div className="name">{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
+			<div className="price">{ __( 'Price', 'price-list-block-zebra' ) }</div>
+			<div className="action"></div>
+		</div>
 		{ attributes.price_records.map( (record, index) => <UpdatePriceRecord key={index} record={ record } /> ) }
 		<CreatePriceRecord onEmit={add_record} />
 	</div>);
