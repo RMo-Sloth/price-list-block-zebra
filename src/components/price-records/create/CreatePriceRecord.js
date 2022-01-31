@@ -1,7 +1,7 @@
 import { Button } from '@wordpress/components';
 import { useState, createRef } from '@wordpress/element'
 import { __ } from '@wordpress/i18n';
-import './CreatePriceRecord.css';
+import './CreatePriceRecord.scss';
 
 function CreatePriceRecord( props ) {
 
