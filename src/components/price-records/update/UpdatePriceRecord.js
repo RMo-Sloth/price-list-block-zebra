@@ -20,7 +20,7 @@ function UpdatePriceRecord( props ) {
             <input type='text' value={product_name} required={true} onChange={set_name} />
         </div>
         <div className="price">
-            <input type='number' className='price' value={product_price} required={true} onChange={set_price}/>
+            <input type='number' value={product_price} required={true} onChange={set_price}/>
         </div>
         <div className="delete">
             <DeletePriceRecord onEmit={remove} ></DeletePriceRecord>
