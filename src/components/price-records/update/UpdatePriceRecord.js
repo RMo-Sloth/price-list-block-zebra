@@ -12,7 +12,7 @@ function UpdatePriceRecord( props ) {
     }
 
     function remove() {
-        console.log( 'Trying to remove reord' );
+        props.onDelete( props.record );
     }
 
     return (<div className='update-price-record' onBlur={process_changes}>

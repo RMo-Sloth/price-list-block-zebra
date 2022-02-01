@@ -35,13 +35,18 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes( { price_records: records, price_record_latest_index: record.id } );
 	}
 
+	function delete_record( deleted_record ) {
+		const price_records = attributes.price_records.filter( record => record.id !== deleted_record.id );
+		setAttributes( {price_records} );
+	}
+
 	return ( <div { ...useBlockProps() }>
 		<div className='price-record-top-labels'>
 			<div className="name">{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
 			<div className="price">{ __( 'Price', 'price-list-block-zebra' ) }</div>
 			<div className="action"></div>
 		</div>
-		{ attributes.price_records.map( record => <UpdatePriceRecord key={record.id} record={ record } /> ) }
+		{ attributes.price_records.map( record => <UpdatePriceRecord key={record.id} record={ record } onDelete={delete_record}/> ) }
 		<CreatePriceRecord onEmit={add_record} latest_id={ attributes.price_record_latest_index } />
 	</div>);
 }
