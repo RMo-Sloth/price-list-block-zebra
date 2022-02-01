@@ -5,9 +5,9 @@ function ReadPriceRecord( props ){
     const name = props.record.name.split( ' ' );
     const name_jsx = name.map( (word, index) => {
         if( name.length === index + 1 ) 
-            return <span className='word last-word'>{word}</span>;
+            return <span className='word last-word' key={index}>{word}</span>;
         else
-            return <span className='word'>{word}&nbsp;</span>;
+            return <span className='word' key={index}>{word}&nbsp;</span>;
     });
 
     return <div class="record-row">

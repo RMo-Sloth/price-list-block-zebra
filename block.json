@@ -12,9 +12,17 @@
 				"price": {
 					"type": "string",
 					"default": "0"
+				},
+				"index": {
+					"type": "number",
+					"default": null
 				}
 			},
 			"type": "array"
+		},
+		"price_record_latest_index": {
+			"type": "number",
+			"default": 0
 		}
 	},
 	"name": "price-list-block-zebra/price-list-block-zebra",

@@ -29,10 +29,10 @@ import UpdatePriceRecord from '../price-records/update/UpdatePriceRecord';
  * @return {WPElement} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	
+
 	function add_record( record ) {
 		const records = [...attributes.price_records, record ];
-		setAttributes( { price_records: records } );
+		setAttributes( { price_records: records, price_record_latest_index: record.id } );
 	}
 
 	return ( <div { ...useBlockProps() }>
@@ -41,7 +41,7 @@ export default function Edit({ attributes, setAttributes }) {
 			<div className="price">{ __( 'Price', 'price-list-block-zebra' ) }</div>
 			<div className="action"></div>
 		</div>
-		{ attributes.price_records.map( (record, index) => <UpdatePriceRecord key={index} record={ record } /> ) }
-		<CreatePriceRecord onEmit={add_record} />
+		{ attributes.price_records.map( record => <UpdatePriceRecord key={record.id} record={ record } /> ) }
+		<CreatePriceRecord onEmit={add_record} latest_id={ attributes.price_record_latest_index } />
 	</div>);
 }
