@@ -40,13 +40,20 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes( {price_records} );
 	}
 
+	function update_record( updated_record ) {
+		const price_records = [ ...attributes.price_records ];
+		const index = price_records.findIndex( record => record.id === updated_record.id );
+		price_records[index] = updated_record;
+		setAttributes( { price_records } );
+	}
+
 	return ( <div { ...useBlockProps() }>
 		<div className='price-record-top-labels'>
 			<div className="name">{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
 			<div className="price">{ __( 'Price', 'price-list-block-zebra' ) }</div>
 			<div className="action"></div>
 		</div>
-		{ attributes.price_records.map( record => <UpdatePriceRecord key={record.id} record={ record } onDelete={delete_record}/> ) }
+		{ attributes.price_records.map( record => <UpdatePriceRecord key={record.id} record={ record } onDelete={delete_record} onUpdate={update_record}/> ) }
 		<CreatePriceRecord onEmit={add_record} latest_id={ attributes.price_record_latest_index } />
 	</div>);
 }
