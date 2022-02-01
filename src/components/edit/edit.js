@@ -1,15 +1,8 @@
 import CreatePriceRecord from '../price-records/create/CreatePriceRecord';
+import UpdatePriceRecord from '../price-records/update/UpdatePriceRecord';
 
 // @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
 import { __ } from '@wordpress/i18n';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -18,7 +11,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-import UpdatePriceRecord from '../price-records/update/UpdatePriceRecord';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -47,7 +39,7 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes( { price_records } );
 	}
 
-	return ( <div { ...useBlockProps() }>
+	return ( <div>
 		<div className='price-record-top-labels'>
 			<div className="name">{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
 			<div className="price">{ __( 'Price', 'price-list-block-zebra' ) }</div>

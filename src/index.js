@@ -4,11 +4,11 @@ import { registerBlockType } from '@wordpress/blocks';
 import './style.scss';
 
 // Internal dependencies
-import Edit from './components/edit/edit';
 import Save from './save';
+import Editor from './Editor';
 
 
 registerBlockType('price-list-block-zebra/price-list-block-zebra', {
-	edit: Edit,
+	edit: Editor,
 	save: Save,
 });

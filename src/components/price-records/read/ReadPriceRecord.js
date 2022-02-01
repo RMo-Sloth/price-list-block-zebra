@@ -10,12 +10,12 @@ function ReadPriceRecord( props ){
             return <span className='word' key={index}>{word}&nbsp;</span>;
     });
 
-    return <div class="record-row">
-        <div class='name'>
+    return <div className="record-row">
+        <div className='name'>
             { name_jsx }
-            <span class='spacer'></span>
+            <span className='spacer'></span>
         </div>
-        <div class='price'>{ props.record.price }</div>
+        <div className='price'>{ props.record.price }</div>
     </div>;
 }
 
