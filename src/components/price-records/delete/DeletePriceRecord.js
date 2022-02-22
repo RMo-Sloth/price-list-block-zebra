@@ -6,7 +6,7 @@ function DeletePriceRecord( props ) {
         props.onEmit();
     }
 
-    return <Button isDestructive isLink isSmall onClick={emit} >
+    return <Button isDestructive isPrimary isSmall onClick={emit} >
         <Icon icon={ trash } size='20' />
     </Button>;
 }
