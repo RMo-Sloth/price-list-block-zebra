@@ -1,7 +1,7 @@
 import { Button, Icon } from '@wordpress/components';
 import { useState, createRef } from '@wordpress/element'
 import { __ } from '@wordpress/i18n';
-import styles from './CreatePriceRecord.module.scss';
+import css from './CreatePriceRecord.module.scss';
 
 import { plus } from '@wordpress/icons';
 
@@ -28,14 +28,14 @@ function CreatePriceRecord( props ) {
         set_record( {...record, price} );
     }
 
-    return ( <div className={styles['create-price-record']}>
-        <div className={styles.name}>
+    return ( <div className={css['create-price-record']}>
+        <div className={css.name}>
             <input ref={name_input_ref} type='text' placeholder='enter a name' value={record.name} onChange={set_name} />
         </div>
-        <div className={styles.price}>
+        <div className={css.price}>
             <input type='number' placeholder='0.00' value={record.price} onChange={set_price} />
         </div>
-        <Button isPrimary isSmall onClick={emit} className={styles.insert}>
+        <Button isPrimary isSmall onClick={emit} className={css.insert}>
             <Icon icon={plus} size='20' />
         </Button>
     </div> );

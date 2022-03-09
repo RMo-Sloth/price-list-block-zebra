@@ -1,5 +1,5 @@
 import { useState } from '@wordpress/element';
-import './UpdatePriceRecord.scss';
+import css from './UpdatePriceRecord.module.scss';
 import DeletePriceRecord from '../delete/DeletePriceRecord';
 
 function UpdatePriceRecord( props ) {
@@ -26,14 +26,14 @@ function UpdatePriceRecord( props ) {
         set_price( event.target.value );
     }
 
-    return (<div className='update-price-record' onBlur={process_changes}>
-        <div className="name">
+    return (<div className={css['update-price-record']} onBlur={process_changes}>
+        <div className={css.name}>
             <input type='text' value={name} required={true} onChange={update_name} />
         </div>
-        <div className="price">
+        <div className={css.price}>
             <input type='number' value={price} required={true} onChange={update_price}/>
         </div>
-        <div className="delete">
+        <div className={css.delete}>
             <DeletePriceRecord onEmit={remove} ></DeletePriceRecord>
         </div>
     </div>)
