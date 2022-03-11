@@ -45,7 +45,7 @@ export default function Edit({ attributes, setAttributes }) {
 			<div className="price">{ __( 'Price', 'price-list-block-zebra' ) }</div>
 			<div className="action"></div>
 		</div>
-		{ attributes.price_records.map( record => <UpdatePriceRecord key={record.id} record={ record } onDelete={delete_record} onUpdate={update_record}/> ) }
+		{ attributes.price_records.map( (record, index) => <UpdatePriceRecord index={index} key={record.id} record={ record } onDelete={delete_record} onUpdate={update_record}/> ) }
 		<CreatePriceRecord onEmit={add_record} latest_id={ attributes.price_record_latest_index } />
 	</div>);
 }
