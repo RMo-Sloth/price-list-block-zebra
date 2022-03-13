@@ -34,6 +34,7 @@ function UpdatePriceRecord( props ) {
     }
 
     return (<div className={css['update-price-record']} onBlur={process_changes}>
+        <div className={css['drag-icon']}>...</div>
         <div className={css.name}>
             <input type='text' value={name} required={true} onChange={update_name} ref={el => name_input_element = el } />
         </div>

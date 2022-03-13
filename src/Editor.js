@@ -20,3 +20,20 @@ export default function Editor( props ) {
         </div> );
     }
 }
+
+/* 
+    DRAG_AND_DROP ( plan )
+    x create buttoninstde list-tiems
+    set 'draggable' icon for button on list items ( temp ... )
+    select list item
+        onDRagSTart
+        pass data ( log it )
+
+        onDragHover
+            place dragged item before/after hovered item ( index )
+            place hovered item before dragged item
+            // items.splice( index, 0, dragged_item )
+
+
+
+*/
