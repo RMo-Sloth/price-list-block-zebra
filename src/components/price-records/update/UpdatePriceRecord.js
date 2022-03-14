@@ -1,6 +1,7 @@
 import { useState, useEffect } from '@wordpress/element';
 import css from './UpdatePriceRecord.module.scss';
 import DeletePriceRecord from '../delete/DeletePriceRecord';
+import OrderButton from './order-button/OrderButton';
 
 function UpdatePriceRecord( props ) {
     let name_input_element;
@@ -33,8 +34,16 @@ function UpdatePriceRecord( props ) {
         set_price( event.target.value );
     }
 
-    return (<div className={css['update-price-record']} onBlur={process_changes}>
-        <div className={css['drag-icon']}>...</div>
+    function move_down() {
+        console.log( 'move down' );
+    }
+
+    function move_up() {
+        console.log('move up');
+    }
+
+    return (<div className={css['update-price-record']} onBlur={process_changes} > 
+        <OrderButton move_down={move_down} move_up={move_up} />
         <div className={css.name}>
             <input type='text' value={name} required={true} onChange={update_name} ref={el => name_input_element = el } />
         </div>
