@@ -35,11 +35,11 @@ function UpdatePriceRecord( props ) {
     }
 
     function move_down() {
-        console.log( 'move down' );
+        props.move_down( props.index );
     }
 
     function move_up() {
-        console.log('move up');
+        props.move_up( props.index );
     }
 
     return (<div className={css['update-price-record']} onBlur={process_changes} > 

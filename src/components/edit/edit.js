@@ -39,13 +39,29 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes( { price_records } );
 	}
 
+	function move_record_down( index, direction ) {
+		const price_records = [...attributes.price_records];
+		const [record] = price_records.splice( index, 1 );
+		price_records.splice( index + 1, 0, record  );
+
+		setAttributes( { price_records } );
+	}
+
+	function move_record_up( index, direction ) {
+		const price_records = [...attributes.price_records];
+		const [record] = price_records.splice( index, 1 );
+		price_records.splice( index - 1, 0, record  );
+
+		setAttributes( { price_records } );
+	}
+
 	return ( <div>
 		<div className='price-record-top-labels'>
 			<div className="name">{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
 			<div className="price">{ __( 'Price', 'price-list-block-zebra' ) }</div>
 			<div className="action"></div>
 		</div>
-		{ attributes.price_records.map( (record, index) => <UpdatePriceRecord index={index} key={record.id} record={ record } onDelete={delete_record} onUpdate={update_record}/> ) }
+		{ attributes.price_records.map( (record, index) => <UpdatePriceRecord move_down={move_record_down} move_up={move_record_up} index={index} key={record.id} record={ record } onDelete={delete_record} onUpdate={update_record}/> ) }
 		<CreatePriceRecord onEmit={add_record} latest_id={ attributes.price_record_latest_index } />
 	</div>);
 }
