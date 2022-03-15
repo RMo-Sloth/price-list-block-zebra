@@ -1,6 +1,5 @@
 import { Button, Icon } from '@wordpress/components';
 import { useState, createRef } from '@wordpress/element'
-import { __ } from '@wordpress/i18n';
 import css from './CreatePriceRecord.module.scss';
 
 import { plus } from '@wordpress/icons';
