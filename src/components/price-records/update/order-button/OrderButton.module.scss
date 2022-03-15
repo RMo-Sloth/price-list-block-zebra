@@ -14,4 +14,9 @@
             opacity: 1;
         }
     }
+    .arrow_up_placeholder, .arrow_down_placeholder {
+        display: flex;
+        width: 26px;
+        padding: 0 3px;
+    }
 }

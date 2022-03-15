@@ -5,13 +5,29 @@ import { arrowDown, arrowUp } from '@wordpress/icons';
 
 export default function OrderButton( props ) {
 
+    function MoveUpButton() { 
+        if( props.enable_move_up ) {
+            return (<Button isPrimary isSmall className={style.arrow_up} onClick={props.move_up}>
+                <Icon icon={arrowUp} size='20' />
+            </Button>);
+        } else {
+            return (<div className={style.arrow_up_placeholder}></div>);
+        }
+    }
+
+    function MoveDownButton() {
+        if( props.enable_move_down ) {
+            return (<Button isPrimary isSmall className={style.arrow_down} onClick={props.move_down}>
+                <Icon icon={arrowDown} size='20'/>
+            </Button>);
+        } else {
+            return (<div className={style.arrow_down_placeholder}></div>);
+        }
+    }
+
     return (<div className={style.order_button}>
-        <Button isPrimary isSmall className={style.arrow_up} onClick={props.move_up}>
-            <Icon icon={arrowUp} size='20' />
-        </Button>
-        <Button isPrimary isSmall className={style.arrow_down} onClick={props.move_down}>
-            <Icon icon={arrowDown} size='20'/>
-        </Button>
+        { MoveUpButton() }
+        { MoveDownButton() }
     </div>);
 }
 
