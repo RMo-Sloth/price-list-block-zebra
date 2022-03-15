@@ -1,0 +1,19 @@
+.price-record-top-labels {
+	display: flex;
+	width: 100%;
+	font-size: 14px;
+	gap: 4px;
+	font-weight: bold;
+	.name {
+		flex: 1 1 auto;
+		padding: 0 5px;
+	}
+	.price {
+		flex: 0 0 60px;
+		padding: 0 5px;
+	}
+	.action {
+		flex: 0 0 44px;
+	}
+
+}
