@@ -42,6 +42,14 @@ function UpdatePriceRecord( props ) {
         props.move_up( props.index );
     }
 
+    function delete_button() {
+        if( props.settings.delete ) {
+            return (<div className={css.delete}>
+                <DeletePriceRecord onEmit={remove} ></DeletePriceRecord>
+            </div>);
+        }
+    }
+
     return (<div className={css['update-price-record']} onBlur={process_changes} > 
         <OrderButton move_down={move_down} move_up={move_up}  enable_move_up={props.index > 0} enable_move_down={props.total_records > props.index + 1} />
         <div className={css.name}>
@@ -50,9 +58,7 @@ function UpdatePriceRecord( props ) {
         <div className={css.price}>
             <input type='number' value={price} required={true} onChange={update_price}/>
         </div>
-        <div className={css.delete}>
-            <DeletePriceRecord onEmit={remove} ></DeletePriceRecord>
-        </div>
+        { delete_button() }
     </div>)
 }
 

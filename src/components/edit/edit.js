@@ -40,13 +40,23 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes( { price_records } );
 	}
 
+	function create_price_record() {
+		if( attributes.settings.add )
+			return <CreatePriceRecord onEmit={add_record} latest_id={ attributes.price_record_latest_index } />
+	}
+
+	function action_label() {
+		if( attributes.settings.delete )
+			return <div className={style.action}></div>;
+	}
+
 	return ( <div>
 		<div className={style['price-record-top-labels']}>
 			<div className={style.name}>{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
 			<div className={style.price}>{ __( 'Price', 'price-list-block-zebra' ) }</div>
-			<div className={style.action}></div>
+			{ action_label() }
 		</div>
-		{ attributes.price_records.map( (record, index) => <UpdatePriceRecord key={record.id} move_down={move_record_down} move_up={move_record_up} onDelete={delete_record} onUpdate={update_record} index={index} total_records={attributes.price_records.length} record={ record } /> ) }
-		<CreatePriceRecord onEmit={add_record} latest_id={ attributes.price_record_latest_index } />
+		{ attributes.price_records.map( (record, index) => <UpdatePriceRecord key={record.id} move_down={move_record_down} move_up={move_record_up} onDelete={delete_record} onUpdate={update_record} index={index} total_records={attributes.price_records.length} record={ record } settings={attributes.settings} /> ) }
+		{ create_price_record() }
 	</div>);
 }
