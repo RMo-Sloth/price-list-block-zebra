@@ -1,15 +1,13 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import { CheckboxControl, Panel, PanelRow, PanelBody } from '@wordpress/components';
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 
 export default function BlockSettings( props ) {
-    const [settings, set_settings] = useState(() => ({
-        delete: true,
-        add: true,
-        edit_description: true,
-        edit_price: true,
-        order_items: true
-    }) );
+    const [settings, set_settings] = useState( props.settings );
+
+    useEffect( () => {
+        props.onChange( settings );
+    }, [settings]);
 
     function toggle_delete() {
         set_settings({
