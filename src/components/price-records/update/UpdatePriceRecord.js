@@ -50,8 +50,13 @@ function UpdatePriceRecord( props ) {
         }
     }
 
+    function order_button() {
+        if( props.settings.order_items )
+            return ( <OrderButton move_down={move_down} move_up={move_up}  enable_move_up={props.index > 0} enable_move_down={props.total_records > props.index + 1} /> );
+    }
+
     return (<div className={css['update-price-record']} onBlur={process_changes} > 
-        <OrderButton move_down={move_down} move_up={move_up}  enable_move_up={props.index > 0} enable_move_down={props.total_records > props.index + 1} />
+        { order_button() }
         <div className={css.name}>
             <input type='text' value={name} required={true} onChange={update_name} ref={el => name_input_element = el } />
         </div>

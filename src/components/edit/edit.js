@@ -50,8 +50,14 @@ export default function Edit({ attributes, setAttributes }) {
 			return <div className={style.action}></div>;
 	}
 
+	function order_label() {
+		if( attributes.settings.order_items )
+			return ( <div className={style.order}></div> );
+	}
+
 	return ( <div>
 		<div className={style['price-record-top-labels']}>
+			{ order_label() }
 			<div className={style.name}>{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
 			<div className={style.price}>{ __( 'Price', 'price-list-block-zebra' ) }</div>
 			{ action_label() }
