@@ -61,7 +61,7 @@ function UpdatePriceRecord( props ) {
             <input disabled={ !props.settings.edit_description } type='text' value={name} required={true} onChange={update_name} ref={el => name_input_element = el } />
         </div>
         <div className={css.price}>
-            <input type='number' value={price} required={true} onChange={update_price}/>
+            <input type='number' disabled={ !props.settings.edit_price } value={price} required={true} onChange={update_price}/>
         </div>
         { delete_button() }
     </div>)
