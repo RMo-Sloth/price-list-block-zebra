@@ -1,19 +1,13 @@
-import { useState, useEffect } from '@wordpress/element';
+import { useState } from '@wordpress/element';
 import css from './UpdatePriceRecord.module.scss';
 import DeletePriceRecord from '../delete/DeletePriceRecord';
 import OrderButton from './order-button/OrderButton';
 import DescriptionInput from './description-input/DescriptionInput';
 
 function UpdatePriceRecord( props ) {
-    let name_input_element;
     const [name, set_name] = useState( props.record.name );
     const [price, set_price] = useState( props.record.price );
-
-    useEffect( () => {
-        // if( props.index === 0 && props.settings.edit_description )
-        //     name_input_element.select();
-    }, []);
-
+    
     function process_changes(){
         if( name === props.record.name && price === props.record.price ) return;
 
@@ -69,7 +63,7 @@ function UpdatePriceRecord( props ) {
 
     return (<div className={css['update-price-record']} onBlur={process_changes} > 
         { order_button() }
-        <DescriptionInput editable={props.settings.edit_description} value={ name } onChange={update_name} />
+        <DescriptionInput editable={props.settings.edit_description} value={ name } onChange={update_name} focus={ props.index === 0 && props.settings.edit_description } />
         { price_input() }
         { delete_button() }
     </div>)
