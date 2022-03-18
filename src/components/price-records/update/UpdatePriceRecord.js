@@ -55,14 +55,24 @@ function UpdatePriceRecord( props ) {
             return ( <OrderButton move_down={move_down} move_up={move_up}  enable_move_up={props.index > 0} enable_move_down={props.total_records > props.index + 1} /> );
     }
 
+    function price_input() {
+        if( props.settings.edit_price ) {
+            return ( <div className={css.price}>
+                <input type='number' disabled={ false } value={price} required={true} onChange={update_price}/>
+            </div> );
+        } else {
+            return ( <div className={css.price}>
+                <span> { price } </span>
+            </div> ); 
+        }
+    }
+
     return (<div className={css['update-price-record']} onBlur={process_changes} > 
         { order_button() }
         <div className={css.name}>
             <input disabled={ !props.settings.edit_description } type='text' value={name} required={true} onChange={update_name} ref={el => name_input_element = el } />
         </div>
-        <div className={css.price}>
-            <input type='number' disabled={ !props.settings.edit_price } value={price} required={true} onChange={update_price}/>
-        </div>
+        { price_input() }
         { delete_button() }
     </div>)
 }
