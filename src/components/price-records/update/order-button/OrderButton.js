@@ -4,6 +4,7 @@ import style from './OrderButton.module.scss';
 import { arrowDown, arrowUp } from '@wordpress/icons';
 
 export default function OrderButton( props ) {
+    if( props.display === false ) return null;
 
     function MoveUpButton() { 
         if( props.enable_move_up ) {

@@ -44,11 +44,6 @@ function UpdatePriceRecord( props ) {
         }
     }
 
-    function order_button() {
-        if( props.settings.order_items )
-            return ( <OrderButton move_down={move_down} move_up={move_up}  enable_move_up={props.index > 0} enable_move_down={props.total_records > props.index + 1} /> );
-    }
-
     function price_input() {
         if( props.settings.edit_price ) {
             return ( <div className={css.price}>
@@ -62,7 +57,7 @@ function UpdatePriceRecord( props ) {
     }
 
     return (<div className={css['update-price-record']} onBlur={process_changes} > 
-        { order_button() }
+        <OrderButton display={props.settings.order_items } move_down={move_down} move_up={move_up}  enable_move_up={props.index > 0} enable_move_down={props.total_records > props.index + 1} />
         <DescriptionInput editable={props.settings.edit_description} value={ name } onChange={update_name} focus={ props.index === 0 && props.settings.edit_description } />
         { price_input() }
         { delete_button() }
