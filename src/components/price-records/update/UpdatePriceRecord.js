@@ -58,7 +58,7 @@ function UpdatePriceRecord( props ) {
     return (<div className={css['update-price-record']} onBlur={process_changes} > 
         { order_button() }
         <div className={css.name}>
-            <input type='text' value={name} required={true} onChange={update_name} ref={el => name_input_element = el } />
+            <input disabled={ !props.settings.edit_description } type='text' value={name} required={true} onChange={update_name} ref={el => name_input_element = el } />
         </div>
         <div className={css.price}>
             <input type='number' value={price} required={true} onChange={update_price}/>
