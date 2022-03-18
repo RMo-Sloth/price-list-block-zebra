@@ -27,11 +27,11 @@
 		"settings": {
 			"type": "object",
 			"default": {
-				"delete": true,
+				"delete": false,
 				"add": true,
 				"edit_description": true,
 				"edit_price": true,
-				"order_items": true
+				"order_items": false
 			}
 		}
 	},
