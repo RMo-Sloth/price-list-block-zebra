@@ -4,31 +4,6 @@
     gap: 4px;
     margin-bottom: 4px;
 
-    .name {
-        display: flex;
-        align-items: center;
-        flex: 1 1 auto;
-
-        input {
-            height: 24px;
-            min-height: 24px;
-            width: 100%;
-            padding: 0 4px;
-            &:disabled {
-                background: #666;
-                color: #DDD;
-            }
-        }
-
-        span {
-            height: 24px;
-            font-size: 14px;
-            padding: 0 4px;
-            width: 100%;
-        }
-
-    }
-
     .price {
         display: flex;
         align-items: center;
