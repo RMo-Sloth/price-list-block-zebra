@@ -2,9 +2,17 @@
 import { Button, Icon } from '@wordpress/components';
 import style from './OrderButton.module.scss';
 import { arrowDown, arrowUp } from '@wordpress/icons';
+import { useEffect } from '@wordpress/element';
 
 export default function OrderButton( props ) {
-    if( props.display === false ) return null;
+    
+    if( props.display === false ) return null; // Aborts code, returns nothing
+    
+    let button_ref;
+
+    useEffect(() => {
+        if( props.focus ) button_ref.focus();
+    }, [ props.focus ]);
 
     function MoveUpButton() { 
         if( props.enable_move_up ) {
@@ -18,7 +26,7 @@ export default function OrderButton( props ) {
 
     function MoveDownButton() {
         if( props.enable_move_down ) {
-            return (<Button isPrimary isSmall className={style.arrow_down} onClick={props.move_down}>
+            return (<Button isPrimary isSmall className={style.arrow_down} onClick={props.move_down} ref={ el => button_ref = el }>
                 <Icon icon={arrowDown} size='20'/>
             </Button>);
         } else {

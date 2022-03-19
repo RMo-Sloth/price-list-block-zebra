@@ -6,9 +6,10 @@ export default function DescriptionInput( props ) {
     const [value, set_value] = useState( props.value );
 
     useEffect(() => {
-        if( props.focus && props.editable )
+        if( props.focus === true )
             input_element.select();
-    }, []);
+
+    }, [ props.focus ]);
 
     useEffect( () => {
         props.onChange( value.trim() );
