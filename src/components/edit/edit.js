@@ -4,6 +4,7 @@ import UpdatePriceRecord from '../price-records/update/UpdatePriceRecord';
 // @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
 import { __ } from '@wordpress/i18n';
 import style from './editor.module.scss';
+import { FocusContextProvider } from '../../context/focus-context';
 
 export default function Edit({ attributes, setAttributes }) {
 
@@ -55,14 +56,17 @@ export default function Edit({ attributes, setAttributes }) {
 			return ( <div className={style.order}></div> );
 	}
 
-	return ( <div>
-		<div className={style['price-record-top-labels']}>
-			{ order_label() }
-			<div className={style.name}>{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
-			<div className={style.price}>{ __( 'Price', 'price-list-block-zebra' ) }</div>
-			{ action_label() }
-		</div>
-		{ attributes.price_records.map( (record, index) => <UpdatePriceRecord key={record.id} move_down={move_record_down} move_up={move_record_up} onDelete={delete_record} onUpdate={update_record} index={index} total_records={attributes.price_records.length} record={ record } settings={attributes.settings} /> ) }
-		{ create_price_record() }
-	</div>);
+	return ( 
+		<FocusContextProvider>
+			<div>
+				<div className={style['price-record-top-labels']}>
+					{ order_label() }
+					<div className={style.name}>{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
+					<div className={style.price}>{ __( 'Price', 'price-list-block-zebra' ) }</div>
+					{ action_label() }
+				</div>
+				{ attributes.price_records.map( (record, index) => <UpdatePriceRecord key={record.id} move_down={move_record_down} move_up={move_record_up} onDelete={delete_record} onUpdate={update_record} index={index} total_records={attributes.price_records.length} record={ record } settings={attributes.settings} /> ) }
+				{ create_price_record() }
+			</div>
+		</FocusContextProvider>);
 }
