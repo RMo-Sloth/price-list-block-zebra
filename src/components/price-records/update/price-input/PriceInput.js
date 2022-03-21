@@ -1,11 +1,9 @@
 import css from './PriceInput.module.scss';
-import { useState, useEffect, useContext } from '@wordpress/element';
-import FocusContext from '../../../../context/focus-context';
+import { useState, useEffect } from '@wordpress/element';
 
 export default function PriceInput( props ) {
     let input_ref;
     const [ value, set_value ] = useState( props.value );
-    const context = useContext( FocusContext );
 
     useEffect( () => {
         props.onChange( Number( value ).toFixed(2) );
