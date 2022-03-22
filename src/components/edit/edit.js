@@ -55,7 +55,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<div className={style.price}>{ __( 'Price', 'price-list-block-zebra' ) }</div>
 					{ action_label() }
 				</div>
-				{ price_records_manager.records.map( (record, index) => <UpdatePriceRecord key={record.id} focus={focus_data.initial_first_record === record.id && focus_data.focus_on === 'record' } index={index} record={ record } settings={attributes.settings} /> ) }
+				{ price_records_manager.records.map( record => <UpdatePriceRecord key={record.id} focus={focus_data.initial_first_record === record.id && focus_data.focus_on === 'record' } record={ record } settings={attributes.settings} /> ) }
 				{ create_price_record() }
 			</div>
 	)
