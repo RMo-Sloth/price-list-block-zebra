@@ -11,7 +11,7 @@ export default function OrderButton( props ) {
     const records = useContext( PriceRecordContext );
 
     useEffect(() => {
-        if( props.focus === true && props.enable_move_down === true )
+        if( props.focus === true && records.is_last( props.record ) === false )
             button_down_ref.focus();
     }, [ props.focus ]);
 
@@ -34,7 +34,7 @@ export default function OrderButton( props ) {
     }
 
     function MoveDownButton() {
-        if( props.enable_move_down ) {
+        if( records.is_last( props.record ) === false ) {
             return (<Button isPrimary isSmall className={style.arrow_down} onClick={move_down} ref={ el => button_down_ref = el }>
                 <Icon icon={arrowDown} size='20'/>
             </Button>);
@@ -42,9 +42,9 @@ export default function OrderButton( props ) {
             return (<div className={style.arrow_down_placeholder}></div>);
         }
     }
-    
+
     if( props.display === false ) return null; // Aborts code, returns nothing
-    if( records.records.length < 1 ) return null; // Aborts code, returns nothing
+    if( records.records.length <= 1 ) return null; // Aborts code, returns nothing
 
     return (<div className={style.order_button}>
         { MoveUpButton() }

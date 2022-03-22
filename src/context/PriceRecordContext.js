@@ -9,6 +9,7 @@ const PriceRecordContext = createContext({
     move_down: ( moving_record ) => {},
     move_up: ( moving_record ) => {},
     is_first: ( record ) => {},
+    is_last: ( record ) => {},
     on_save: () => {}
 });
 export default PriceRecordContext;
@@ -71,6 +72,10 @@ export function PriceRecordContextProvider( props ) {
         return indexOf( record ) === 0;
     }
 
+    function is_last( record ) {
+        return indexOf( record ) + 1 === records.length;
+    }
+
     function indexOf( target_record ) {
         return records.findIndex( compared_record => compared_record === target_record );
     }
@@ -83,7 +88,8 @@ export function PriceRecordContextProvider( props ) {
             remove: remove,
             move_down: move_down,
             move_up: move_up,
-            is_first: is_first
+            is_first: is_first,
+            is_last: is_last
         }}>{props.children}</PriceRecordContext.Provider>
     );
 }
