@@ -56,7 +56,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	function create_price_record() {
 		if( attributes.settings.add )
-			return <CreatePriceRecord focus={false} />
+			return <CreatePriceRecord />
 	}
 
 
