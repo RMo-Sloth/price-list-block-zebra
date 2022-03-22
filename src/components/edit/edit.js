@@ -31,7 +31,7 @@ export default function Edit({ attributes, setAttributes }) {
 	function add_record( record ) {
 		price_records_manager.add( record );
 		const records = [...price_records_manager.records, record ];
-		setAttributes( { price_records: records, price_record_latest_index: record.id } );
+		setAttributes( { price_records: records } );
 	}
 	
 	function update_record( updated_record ) {
@@ -62,7 +62,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	function create_price_record() {
 		if( attributes.settings.add )
-			return <CreatePriceRecord focus={false} onEmit={add_record} latest_id={ attributes.price_record_latest_index } />
+			return <CreatePriceRecord focus={false} onEmit={add_record} />
 	}
 
 

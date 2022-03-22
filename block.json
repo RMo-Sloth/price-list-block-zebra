@@ -20,10 +20,6 @@
 			},
 			"type": "array"
 		},
-		"price_record_latest_index": {
-			"type": "number",
-			"default": 0
-		},
 		"settings": {
 			"type": "object",
 			"default": {
