@@ -66,6 +66,10 @@ export default function Edit({ attributes, setAttributes }) {
 			return <CreatePriceRecord focus={false} onEmit={add_record} latest_id={ attributes.price_record_latest_index } />
 	}
 
+
+
+
+
 	function action_label() {
 		if( attributes.settings.delete )
 			return <div className={style.action}></div>;
@@ -77,9 +81,7 @@ export default function Edit({ attributes, setAttributes }) {
 	}
 
 	return ( 
-		<PriceRecordContext.Consumer>
-			{ () => {
-			return ( <div>
+			<div>
 				<div className={style['price-record-top-labels']}>
 					{ order_label() }
 					<div className={style.name}>{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
@@ -88,9 +90,6 @@ export default function Edit({ attributes, setAttributes }) {
 				</div>
 				{ price_records_manager.records.map( (record, index) => <UpdatePriceRecord key={record.id} move_down={move_record_down} move_up={move_record_up} focus={focus_data.initial_first_record === record.id && focus_data.focus_on === 'record' } onDelete={delete_record} onUpdate={update_record} index={index} total_records={price_records_manager.records.length} record={ record } settings={attributes.settings} /> ) }
 				{ create_price_record() }
-			</div> );
-			}
-			}
-		</PriceRecordContext.Consumer>
+			</div>
 	)
 }
