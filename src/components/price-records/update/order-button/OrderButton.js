@@ -6,10 +6,7 @@ import { useEffect, useContext } from '@wordpress/element';
 import PriceRecordContext from '../../../../context/PriceRecordContext';
 
 export default function OrderButton( props ) {
-    
-    if( props.display === false ) return null; // Aborts code, returns nothing
-    if( props.enable_move_down === false && props.enable_move_up === false ) return null; // Aborts code, returns nothing
-    
+        
     let button_down_ref;
     const records = useContext( PriceRecordContext );
 
@@ -27,7 +24,7 @@ export default function OrderButton( props ) {
     }
 
     function MoveUpButton() { 
-        if( props.enable_move_up ) {
+        if( records.is_first( props.record ) == false ) {
             return (<Button isPrimary isSmall className={style.arrow_up} onClick={move_up}>
                 <Icon icon={arrowUp} size='20' />
             </Button>);
@@ -45,6 +42,9 @@ export default function OrderButton( props ) {
             return (<div className={style.arrow_down_placeholder}></div>);
         }
     }
+    
+    if( props.display === false ) return null; // Aborts code, returns nothing
+    if( records.records.length < 1 ) return null; // Aborts code, returns nothing
 
     return (<div className={style.order_button}>
         { MoveUpButton() }

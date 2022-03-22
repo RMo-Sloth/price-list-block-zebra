@@ -8,6 +8,7 @@ const PriceRecordContext = createContext({
     remove: ( record ) => {},
     move_down: ( moving_record ) => {},
     move_up: ( moving_record ) => {},
+    is_first: ( record ) => {},
     on_save: () => {}
 });
 export default PriceRecordContext;
@@ -16,11 +17,7 @@ export default PriceRecordContext;
 
 
 export function PriceRecordContextProvider( props ) {
-    const [records, set_records] = useState({
-        records: [...props.records],
-        add,
-        remove
-    });
+    const [records, set_records] = useState( [...props.records] );
 
     useEffect( () => {
         set_records( [...props.records] );
@@ -70,6 +67,10 @@ export function PriceRecordContextProvider( props ) {
         }
     }
 
+    function is_first( record ) {
+        return indexOf( record ) === 0;
+    }
+
     function indexOf( target_record ) {
         return records.findIndex( compared_record => compared_record === target_record );
     }
@@ -81,7 +82,8 @@ export function PriceRecordContextProvider( props ) {
             update: update,
             remove: remove,
             move_down: move_down,
-            move_up: move_up
+            move_up: move_up,
+            is_first: is_first
         }}>{props.children}</PriceRecordContext.Provider>
     );
 }
