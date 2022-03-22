@@ -4,7 +4,9 @@ import { useState } from '@wordpress/element';
 const PriceRecordContext = createContext({
     records: [],
     add: ( record ) => {},
+    update: ( record ) => {},
     remove: ( record ) => {},
+    move_down: ( index ) => {},
     on_save: () => {}
 });
 export default PriceRecordContext;
@@ -29,7 +31,6 @@ export function PriceRecordContextProvider( props ) {
     }
 
     function update( updated_record ) {
-        console.log('update record');
         const price_records = [ ...records ];
 		const index = price_records.findIndex( record => record.id === updated_record.id );
 		price_records[index] = updated_record;
@@ -39,6 +40,16 @@ export function PriceRecordContextProvider( props ) {
     function remove( removed_record ) {
 		const price_records = records.filter( record => record.id !== removed_record.id );
         props.on_save( price_records );
+    }
+
+    function move_down( moving_record ) {
+        console.log('move down');
+		const price_records = [...records];
+        const index = price_records.findIndex( compared_record => compared_record === moving_record );
+		price_records.splice( index, 1 ); 
+		price_records.splice( index + 1, 0, moving_record  );
+
+		props.on_save( price_records );
     }
 
     function latest_id() {
@@ -55,7 +66,8 @@ export function PriceRecordContextProvider( props ) {
             records: records,
             add: add,
             update: update,
-            remove: remove
+            remove: remove,
+            move_down: move_down
         }}>{props.children}</PriceRecordContext.Provider>
     );
 }
