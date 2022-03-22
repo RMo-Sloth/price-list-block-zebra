@@ -6,7 +6,8 @@ const PriceRecordContext = createContext({
     add: ( record ) => {},
     update: ( record ) => {},
     remove: ( record ) => {},
-    move_down: ( index ) => {},
+    move_down: ( moving_record ) => {},
+    move_up: ( moving_record ) => {},
     on_save: () => {}
 });
 export default PriceRecordContext;
@@ -43,11 +44,19 @@ export function PriceRecordContextProvider( props ) {
     }
 
     function move_down( moving_record ) {
-        console.log('move down');
 		const price_records = [...records];
-        const index = price_records.findIndex( compared_record => compared_record === moving_record );
+        const index = indexOf( moving_record );
 		price_records.splice( index, 1 ); 
 		price_records.splice( index + 1, 0, moving_record  );
+
+		props.on_save( price_records );
+    }
+
+    function move_up( moving_record ) {
+        const price_records = [...records];
+        const index = indexOf( moving_record );
+		price_records.splice( index, 1 );
+		price_records.splice( index - 1, 0, moving_record  );
 
 		props.on_save( price_records );
     }
@@ -61,13 +70,18 @@ export function PriceRecordContextProvider( props ) {
         }
     }
 
+    function indexOf( target_record ) {
+        return records.findIndex( compared_record => compared_record === target_record );
+    }
+
     return (
         <PriceRecordContext.Provider value={{
             records: records,
             add: add,
             update: update,
             remove: remove,
-            move_down: move_down
+            move_down: move_down,
+            move_up: move_up
         }}>{props.children}</PriceRecordContext.Provider>
     );
 }

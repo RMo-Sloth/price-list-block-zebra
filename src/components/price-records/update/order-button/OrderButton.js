@@ -22,9 +22,13 @@ export default function OrderButton( props ) {
         records.move_down( props.record );
     }
 
+    function move_up() {
+		records.move_up( props.record );
+    }
+
     function MoveUpButton() { 
         if( props.enable_move_up ) {
-            return (<Button isPrimary isSmall className={style.arrow_up} onClick={props.move_up}>
+            return (<Button isPrimary isSmall className={style.arrow_up} onClick={move_up}>
                 <Icon icon={arrowUp} size='20' />
             </Button>);
         } else {
