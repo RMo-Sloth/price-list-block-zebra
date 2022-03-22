@@ -3,12 +3,14 @@ import DeletePriceRecord from '../delete/DeletePriceRecord';
 import OrderButton from './order-button/OrderButton';
 import DescriptionInput from './description-input/DescriptionInput';
 import PriceInput from './price-input/PriceInput';
-import { useEffect, useState } from '@wordpress/element';
+import { useEffect, useState, useContext } from '@wordpress/element';
+import PriceRecordContext from '../../../context/PriceRecordContext';
 
 function UpdatePriceRecord( props ) {
     
     const [ focus, set_focus] = useState( null );
-    
+    const records = useContext( PriceRecordContext );
+
     useEffect( set_initial_focus, [ props.focus ] );
 
     function set_initial_focus() {
@@ -27,13 +29,13 @@ function UpdatePriceRecord( props ) {
     function update_name( value ) {
         if( value === props.record.name ) return;
 
-        props.onUpdate( {...props.record, name: value } );
+        records.update( {...props.record, name: value } );
     }
 
     function update_price( value ) {
         if( value === props.record.price ) return;
 
-        props.onUpdate( { ...props.record, price: value } );
+        records.update( { ...props.record, price: value } );
     }
 
     function move_down() {

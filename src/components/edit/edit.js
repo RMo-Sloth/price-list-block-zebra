@@ -27,13 +27,6 @@ export default function Edit({ attributes, setAttributes }) {
 
 
 	const price_records_manager = useContext( PriceRecordContext );
-	
-	function update_record( updated_record ) {
-		const price_records = [ ...price_records_manager.records ];
-		const index = price_records.findIndex( record => record.id === updated_record.id );
-		price_records[index] = updated_record;
-		setAttributes( { price_records } );
-	}
 
 	function move_record_down( index ) {
 		const price_records = [...price_records_manager.records];
@@ -78,7 +71,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<div className={style.price}>{ __( 'Price', 'price-list-block-zebra' ) }</div>
 					{ action_label() }
 				</div>
-				{ price_records_manager.records.map( (record, index) => <UpdatePriceRecord key={record.id} move_down={move_record_down} move_up={move_record_up} focus={focus_data.initial_first_record === record.id && focus_data.focus_on === 'record' } onUpdate={update_record} index={index} total_records={price_records_manager.records.length} record={ record } settings={attributes.settings} /> ) }
+				{ price_records_manager.records.map( (record, index) => <UpdatePriceRecord key={record.id} move_down={move_record_down} move_up={move_record_up} focus={focus_data.initial_first_record === record.id && focus_data.focus_on === 'record' } index={index} total_records={price_records_manager.records.length} record={ record } settings={attributes.settings} /> ) }
 				{ create_price_record() }
 			</div>
 	)

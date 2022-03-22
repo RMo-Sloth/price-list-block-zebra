@@ -27,6 +27,14 @@ export function PriceRecordContextProvider( props ) {
         const enhanced_record = {...record, id: latest_id() + 1};
         props.on_save( [...records, enhanced_record ] );
     }
+
+    function update( updated_record ) {
+        console.log('update record');
+        const price_records = [ ...records ];
+		const index = price_records.findIndex( record => record.id === updated_record.id );
+		price_records[index] = updated_record;
+		props.on_save( price_records );
+    }
     
     function remove( removed_record ) {
 		const price_records = records.filter( record => record.id !== removed_record.id );
@@ -46,6 +54,7 @@ export function PriceRecordContextProvider( props ) {
         <PriceRecordContext.Provider value={{
             records: records,
             add: add,
+            update: update,
             remove: remove
         }}>{props.children}</PriceRecordContext.Provider>
     );
