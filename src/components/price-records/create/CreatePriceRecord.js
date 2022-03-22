@@ -10,10 +10,10 @@ function CreatePriceRecord( props ) {
     const [record, set_record] = useState( { name: '', price: '' } );
     const name_input_ref = createRef();
     const records = useContext( PriceRecordContext );
+    
     function emit(){
         const price = Number( record.price ).toFixed(2);
-        const id = records.latest_id() + 1;
-        props.onEmit( {...record, price, id } );
+        records.add( {...record, price } );
         set_record( { name: '', price: '' } );
         name_input_ref.current.focus();
     }

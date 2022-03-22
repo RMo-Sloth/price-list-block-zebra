@@ -24,7 +24,8 @@ export function PriceRecordContextProvider( props ) {
     }, [props.records] )
 
     function add( record ) {
-        console.log('adding record');
+        const enhanced_record = {...record, id: latest_id() + 1};
+        props.on_save( [...records, enhanced_record ] );
     }
     
     function remove( removed_record ) {
@@ -36,8 +37,8 @@ export function PriceRecordContextProvider( props ) {
         if( records.length === 0 )
             return 0;
         else {
-            const records_sorted =  records.sort( (a, b) => ( a.id > b.id ) ? 1 : -1  )
-            return records_sorted[ records_sorted.length -1 ].id;
+            const records_sorted = [...records].sort( (a, b) => ( a.id > b.id ) ? 1 : -1  );
+            return records_sorted[ records_sorted.length - 1 ].id;
         }
     }
 
@@ -45,8 +46,7 @@ export function PriceRecordContextProvider( props ) {
         <PriceRecordContext.Provider value={{
             records: records,
             add: add,
-            remove: remove,
-            latest_id: latest_id // temp
+            remove: remove
         }}>{props.children}</PriceRecordContext.Provider>
     );
 }

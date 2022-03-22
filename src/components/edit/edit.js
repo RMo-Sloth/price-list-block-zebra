@@ -27,12 +27,6 @@ export default function Edit({ attributes, setAttributes }) {
 
 
 	const price_records_manager = useContext( PriceRecordContext );
-
-	function add_record( record ) {
-		price_records_manager.add( record );
-		const records = [...price_records_manager.records, record ];
-		setAttributes( { price_records: records } );
-	}
 	
 	function update_record( updated_record ) {
 		const price_records = [ ...price_records_manager.records ];
@@ -62,7 +56,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	function create_price_record() {
 		if( attributes.settings.add )
-			return <CreatePriceRecord focus={false} onEmit={add_record} />
+			return <CreatePriceRecord focus={false} />
 	}
 
 
