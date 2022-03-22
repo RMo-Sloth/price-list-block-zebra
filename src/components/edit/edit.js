@@ -29,15 +29,11 @@ export default function Edit({ attributes, setAttributes }) {
 	const price_records_manager = useContext( PriceRecordContext );
 
 	function add_record( record ) {
+		price_records_manager.add( record );
 		const records = [...price_records_manager.records, record ];
 		setAttributes( { price_records: records, price_record_latest_index: record.id } );
 	}
-
-	function delete_record( deleted_record ) {
-		const price_records = price_records_manager.records.filter( record => record.id !== deleted_record.id );
-		setAttributes( {price_records} );
-	}
-
+	
 	function update_record( updated_record ) {
 		const price_records = [ ...price_records_manager.records ];
 		const index = price_records.findIndex( record => record.id === updated_record.id );
@@ -61,13 +57,13 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes( { price_records } );
 	}
 
+
+
+
 	function create_price_record() {
 		if( attributes.settings.add )
 			return <CreatePriceRecord focus={false} onEmit={add_record} latest_id={ attributes.price_record_latest_index } />
 	}
-
-
-
 
 
 	function action_label() {
@@ -88,7 +84,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<div className={style.price}>{ __( 'Price', 'price-list-block-zebra' ) }</div>
 					{ action_label() }
 				</div>
-				{ price_records_manager.records.map( (record, index) => <UpdatePriceRecord key={record.id} move_down={move_record_down} move_up={move_record_up} focus={focus_data.initial_first_record === record.id && focus_data.focus_on === 'record' } onDelete={delete_record} onUpdate={update_record} index={index} total_records={price_records_manager.records.length} record={ record } settings={attributes.settings} /> ) }
+				{ price_records_manager.records.map( (record, index) => <UpdatePriceRecord key={record.id} move_down={move_record_down} move_up={move_record_up} focus={focus_data.initial_first_record === record.id && focus_data.focus_on === 'record' } onUpdate={update_record} index={index} total_records={price_records_manager.records.length} record={ record } settings={attributes.settings} /> ) }
 				{ create_price_record() }
 			</div>
 	)

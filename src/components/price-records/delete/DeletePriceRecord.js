@@ -1,9 +1,12 @@
 import { Button, Icon } from '@wordpress/components';
-import { useEffect } from '@wordpress/element';
+import { useEffect, useContext } from '@wordpress/element';
 import { trash } from '@wordpress/icons';
 import css from './DeletePriceRecord.module.scss';
+import PriceRecordContext from '../../../context/PriceRecordContext';
 
 function DeletePriceRecord( props ) {
+
+
     if( props.display === false ) return null; // Do not render component
 
     let button_ref;
@@ -13,12 +16,15 @@ function DeletePriceRecord( props ) {
             button_ref.focus();
     }, [props.focus]);
 
-    function emit() {
-        props.onEmit();
+
+    const records = useContext( PriceRecordContext );
+
+    function remove() {
+        records.remove( props.record );
     }
 
     return ( <div className={css.delete} >
-        <Button isDestructive isPrimary isSmall onClick={emit} ref = { ref => button_ref = ref } >
+        <Button isDestructive isPrimary isSmall onClick={remove} ref = { ref => button_ref = ref } >
             <Icon icon={ trash } size='20' />
         </Button>
     </div> );

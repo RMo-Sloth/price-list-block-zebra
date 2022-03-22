@@ -10,16 +10,20 @@ export default function Editor( props ) {
         props.setAttributes( { ...props.attributes, settings } );
     }
 
+    function update_records( records ) {
+        props.setAttributes( { ...props.attributes, price_records: records } );
+    }
+
     if( props.isSelected || props.attributes.price_records.length === 0 ) {
         return ( <div { ...useBlockProps() }>
-            <PriceRecordContextProvider records={props.attributes.price_records}>
+            <PriceRecordContextProvider records={props.attributes.price_records} on_save={update_records}>
                 <Edit {...props} /> 
             </PriceRecordContextProvider>
             <BlockSettings settings={props.attributes.settings} onChange={update_settings} />
         </div> );
     } else {
         return ( <div { ...useBlockProps() }>
-            <PriceRecordContextProvider records={props.attributes.price_records}>
+            <PriceRecordContextProvider records={props.attributes.price_records} on_save={update_records}>
                 <PreviewInEditor {...props} />
             </PriceRecordContextProvider>
             <BlockSettings settings={props.attributes.settings} onChange={update_settings} />

@@ -24,10 +24,6 @@ function UpdatePriceRecord( props ) {
             set_focus( 'delete_button' );
     }
 
-    function remove() {
-        props.onDelete( props.record );
-    }
-
     function update_name( value ) {
         if( value === props.record.name ) return;
 
@@ -52,7 +48,7 @@ function UpdatePriceRecord( props ) {
         <OrderButton display={props.settings.order_items } move_down={move_down} move_up={move_up}  enable_move_up={props.index > 0} enable_move_down={props.total_records > props.index + 1} focus={ focus === 'order_button' } />
         <DescriptionInput editable={props.settings.edit_description} value={ props.record.name } onChange={update_name} focus={ focus === 'description_input' } />
         <PriceInput editable={props.settings.edit_price} value={props.record.price} onChange={update_price} focus={ focus === 'price_input' } />
-        <DeletePriceRecord display={props.settings.delete} onEmit={remove} focus={ focus === 'delete_button' } />
+        <DeletePriceRecord display={props.settings.delete} record={props.record} focus={ focus === 'delete_button' } />
     </div>)
 }
 
