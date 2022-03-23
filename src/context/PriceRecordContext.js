@@ -1,5 +1,4 @@
-import { createContext, useEffect } from "@wordpress/element";
-import { useState } from '@wordpress/element';
+import { createContext, useEffect, useState } from "@wordpress/element";
 
 const PriceRecordContext = createContext({
     records: [],
@@ -21,24 +20,24 @@ export function PriceRecordContextProvider( props ) {
     const [records, set_records] = useState( [...props.records] );
 
     useEffect( () => {
-        set_records( [...props.records] );
-    }, [props.records] )
+        props.on_save( [...records ] );
+    }, [records] )
 
     function add( record ) {
         const enhanced_record = {...record, id: latest_id() + 1};
-        props.on_save( [...records, enhanced_record ] );
+        set_records( [...records, enhanced_record ] );
     }
 
     function update( updated_record ) {
         const price_records = [ ...records ];
 		const index = price_records.findIndex( record => record.id === updated_record.id );
 		price_records[index] = updated_record;
-		props.on_save( price_records );
+		set_records( price_records );
     }
     
     function remove( removed_record ) {
 		const price_records = records.filter( record => record.id !== removed_record.id );
-        props.on_save( price_records );
+        set_records( price_records );
     }
 
     function move_down( moving_record ) {
@@ -72,10 +71,10 @@ export function PriceRecordContextProvider( props ) {
         const record_1 = price_records[index_1];
         const record_2 = price_records[index_2];
 
-        price_records[index_1 ] = record_2;
-        price_records[index_2 ] = record_1;
+        price_records[ index_1 ] = record_2;
+        price_records[ index_2 ] = record_1;
 
-		props.on_save( price_records );
+		set_records( price_records );
     }
 
     return (
