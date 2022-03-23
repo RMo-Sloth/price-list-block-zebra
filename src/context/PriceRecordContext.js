@@ -60,12 +60,7 @@ export function PriceRecordContextProvider( props ) {
     }
 
     function latest_id() {
-        if( records.length === 0 )
-            return 0;
-        else {
-            const records_sorted = [...records].sort( (a, b) => ( a.id > b.id ) ? 1 : -1  );
-            return records_sorted[ records_sorted.length - 1 ].id;
-        }
+        return records.reduce( ( prev, current ) => Math.max( prev, current.id ), 0 );
     }
 
     function is_first( record ) {
