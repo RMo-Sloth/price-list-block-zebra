@@ -42,21 +42,13 @@ export function PriceRecordContextProvider( props ) {
     }
 
     function move_down( moving_record ) {
-		const price_records = [...records];
         const index = indexOf( moving_record );
-		price_records.splice( index, 1 ); 
-		price_records.splice( index + 1, 0, moving_record  );
-
-		props.on_save( price_records );
+        swap_places( index, index + 1 );
     }
 
     function move_up( moving_record ) {
-        const price_records = [...records];
         const index = indexOf( moving_record );
-		price_records.splice( index, 1 );
-		price_records.splice( index - 1, 0, moving_record  );
-
-		props.on_save( price_records );
+        swap_places( index, index - 1 );
     }
 
     function latest_id() {
@@ -73,6 +65,17 @@ export function PriceRecordContextProvider( props ) {
 
     function indexOf( target_record ) {
         return records.findIndex( compared_record => compared_record === target_record );
+    }
+
+    function swap_places( index_1, index_2 ) {
+        const price_records = [...records];
+        const record_1 = price_records[index_1];
+        const record_2 = price_records[index_2];
+
+        price_records[index_1 ] = record_2;
+        price_records[index_2 ] = record_1;
+
+		props.on_save( price_records );
     }
 
     return (
