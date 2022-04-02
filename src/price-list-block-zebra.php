@@ -18,16 +18,3 @@ add_action( 'init', function() {
 	register_block_type( __DIR__ . '/block.json');
 
 });
-
-add_action( 'admin_enqueue_scripts', function() {
-
-	// can do this in block.json in wordpress 5.9
-	wp_enqueue_style( 
-		'price-list-block-zebra-admin-style', 
-		plugin_dir_url( __FILE__ ) . '/index.css', 
-		[
-			'wp-components'
-		]
-	);
-
-});

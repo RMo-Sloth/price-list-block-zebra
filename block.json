@@ -42,5 +42,6 @@
 	},
 	"textdomain": "price-list-block-zebra",
 	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/save.css"
 }
