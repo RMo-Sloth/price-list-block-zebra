@@ -84,13 +84,13 @@ export function PriceRecordContextProvider(props) {
 		<PriceRecordContext.Provider
 			value={{
 				records: records,
-				add: add,
-				update: update,
-				remove: remove,
-				move_down: move_down,
-				move_up: move_up,
-				is_first: is_first,
-				is_last: is_last,
+				add,
+				update,
+				remove,
+				move_down,
+				move_up,
+				is_first,
+				is_last,
 			}}
 		>
 			{props.children}
