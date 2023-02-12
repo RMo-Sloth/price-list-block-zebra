@@ -15,14 +15,14 @@
 	},
 	"main": "build/index.js",
 	"dependencies": {
-		"@wordpress/block-editor": "^11",
-		"@wordpress/blocks": "^12",
-		"@wordpress/components": "^23",
-		"@wordpress/element": "^5",
-		"@wordpress/i18n": "^4"
+		"@wordpress/block-editor": "^11.3.0",
+		"@wordpress/blocks": "^12.3.0",
+		"@wordpress/components": "^23.3.0",
+		"@wordpress/element": "^5.3.0",
+		"@wordpress/i18n": "^4.26.0"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^25.0.0"
+		"@wordpress/scripts": "^25.3.0"
 	},
 	"scripts": {
 		"build": "wp-scripts build",
