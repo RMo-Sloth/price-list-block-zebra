@@ -7,46 +7,46 @@ import {
 } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 
-export default function BlockSettings(props) {
-	const [settings, set_settings] = useState(props.settings);
+export default function BlockSettings( props ) {
+	const [ settings, setSettings ] = useState( props.settings );
 
-	useEffect(() => {
-		props.onChange(settings);
-	}, [settings]);
+	useEffect( () => {
+		props.onChange( settings );
+	}, [ settings ] );
 
-	function toggle_delete() {
-		set_settings({
+	function toggleDelete() {
+		setSettings( {
 			...settings,
-			delete: !settings.delete,
-		});
+			delete: ! settings.delete,
+		} );
 	}
 
-	function toggle_add() {
-		set_settings({
+	function toggleAdd() {
+		setSettings( {
 			...settings,
-			add: !settings.add,
-		});
+			add: ! settings.add,
+		} );
 	}
 
-	function toggle_edit_price() {
-		set_settings({
+	function toggleEditPrice() {
+		setSettings( {
 			...settings,
-			edit_price: !settings.edit_price,
-		});
+			edit_price: ! settings.edit_price,
+		} );
 	}
 
-	function toggle_edit_description() {
-		set_settings({
+	function toggleEditDescription() {
+		setSettings( {
 			...settings,
-			edit_description: !settings.edit_description,
-		});
+			edit_description: ! settings.edit_description,
+		} );
 	}
 
-	function toggle_order_items() {
-		set_settings({
+	function toggleOrderItems() {
+		setSettings( {
 			...settings,
-			order_items: !settings.order_items,
-		});
+			order_items: ! settings.order_items,
+		} );
 	}
 
 	return (
@@ -55,41 +55,41 @@ export default function BlockSettings(props) {
 				<PanelBody
 					title="Editing Experience"
 					icon="edit"
-					initialOpen={false}
+					initialOpen={ false }
 				>
 					<PanelRow>
 						<CheckboxControl
 							label="Delete Items"
-							checked={settings.delete}
-							onChange={toggle_delete}
+							checked={ settings.delete }
+							onChange={ toggleDelete }
 						/>
 					</PanelRow>
 					<PanelRow>
 						<CheckboxControl
 							label="Add Items"
-							checked={settings.add}
-							onChange={toggle_add}
+							checked={ settings.add }
+							onChange={ toggleAdd }
 						/>
 					</PanelRow>
 					<PanelRow>
 						<CheckboxControl
 							label="Edit Price"
-							checked={settings.edit_price}
-							onChange={toggle_edit_price}
+							checked={ settings.edit_price }
+							onChange={ toggleEditPrice }
 						/>
 					</PanelRow>
 					<PanelRow>
 						<CheckboxControl
 							label="Edit Description"
-							checked={settings.edit_description}
-							onChange={toggle_edit_description}
+							checked={ settings.edit_description }
+							onChange={ toggleEditDescription }
 						/>
 					</PanelRow>
 					<PanelRow>
 						<CheckboxControl
 							label="Order Items"
-							checked={settings.order_items}
-							onChange={toggle_order_items}
+							checked={ settings.order_items }
+							onChange={ toggleOrderItems }
 						/>
 					</PanelRow>
 				</PanelBody>
