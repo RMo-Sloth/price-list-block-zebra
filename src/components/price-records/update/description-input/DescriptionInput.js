@@ -1,39 +1,38 @@
 import { useEffect, useState } from '@wordpress/element';
 import css from './DescriptionInput.module.scss';
 
-export default function DescriptionInput(props) {
-	let input_element;
-	const [value, set_value] = useState(props.value);
+export default function DescriptionInput( props ) {
+	let inputElement;
+	const [ value, setValue ] = useState( props.value );
 
-	useEffect(() => {
-		if (props.focus === true) input_element.select();
-	}, [props.focus]);
+	useEffect( () => {
+		if ( props.focus === true ) inputElement.select();
+	}, [ props.focus ] );
 
-	useEffect(() => {
-		props.onChange(value.trim());
-	}, [value]);
+	useEffect( () => {
+		props.onChange( value.trim() );
+	}, [ value ] );
 
-	function onChange(event) {
-		set_value(event.target.value);
+	function onChange( event ) {
+		setValue( event.target.value );
 	}
 
-	if (props.editable) {
+	if ( props.editable )
 		return (
-			<div className={css.name}>
+			<div className={ css.name }>
 				<input
 					type="text"
-					value={value}
+					value={ value }
 					required
-					onChange={onChange}
-					ref={(el) => (input_element = el)}
+					onChange={ onChange }
+					ref={ ( el ) => ( inputElement = el ) }
 				/>
 			</div>
 		);
-	} else {
-		return (
-			<div className={css.name}>
-				<span>{props.value}</span>
-			</div>
-		);
-	}
+
+	return (
+		<div className={ css.name }>
+			<span>{ props.value }</span>
+		</div>
+	);
 }
