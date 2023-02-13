@@ -1,57 +1,56 @@
 import { Button, Icon } from '@wordpress/components';
 import { useState, createRef, useContext } from '@wordpress/element';
 import css from './CreatePriceRecord.module.scss';
-
 import { plus } from '@wordpress/icons';
 import PriceRecordContext from '../../../context/PriceRecordContext';
 
 function CreatePriceRecord() {
-	const [record, set_record] = useState({ name: '', price: '' });
-	const name_input_ref = createRef();
-	const records = useContext(PriceRecordContext);
+	const [ record, setRecord ] = useState( { name: '', price: '' } );
+	const nameInputRef = createRef();
+	const records = useContext( PriceRecordContext );
 
-	function reset_record() {
-		set_record({ name: '', price: '' });
-		name_input_ref.current.focus();
+	function resetRecord() {
+		setRecord( { name: '', price: '' } );
+		nameInputRef.current.focus();
 	}
 
 	function add() {
-		const price = Number(record.price).toFixed(2);
-		records.add({ ...record, price });
-		reset_record();
+		const price = Number( record.price ).toFixed( 2 );
+		records.add( { ...record, price } );
+		resetRecord();
 	}
 
-	function set_name(event) {
+	function setName( event ) {
 		const name = event.target.value;
-		set_record({ ...record, name });
+		setRecord( { ...record, name } );
 	}
 
-	function set_price(event) {
+	function setPrice( event ) {
 		const price = event.target.value;
-		set_record({ ...record, price });
+		setRecord( { ...record, price } );
 	}
 
 	return (
-		<div className={css['create-price-record']}>
-			<div className={css.name}>
+		<div className={ css[ 'create-price-record' ] }>
+			<div className={ css.name }>
 				<input
-					ref={name_input_ref}
+					ref={ nameInputRef }
 					type="text"
 					placeholder="enter a name"
-					value={record.name}
-					onChange={set_name}
+					value={ record.name }
+					onChange={ setName }
 				/>
 			</div>
-			<div className={css.price}>
+			<div className={ css.price }>
 				<input
 					type="number"
 					placeholder="0.00"
-					value={record.price}
-					onChange={set_price}
+					value={ record.price }
+					onChange={ setPrice }
 				/>
 			</div>
-			<Button isPrimary isSmall onClick={add} className={css.insert}>
-				<Icon icon={plus} size="20" />
+			<Button isPrimary isSmall onClick={ add } className={ css.insert }>
+				<Icon icon={ plus } size="20" />
 			</Button>
 		</div>
 	);
