@@ -49,7 +49,7 @@ function CreatePriceRecord() {
 					onChange={ setPrice }
 				/>
 			</div>
-			<Button isPrimary isSmall onClick={ add } className={ css.insert }>
+			<Button variant='primary' isSmall onClick={ add } className={ css.insert }>
 				<Icon icon={ plus } size="20" />
 			</Button>
 		</div>

@@ -22,7 +22,7 @@ function DeletePriceRecord( props ) {
 		<div className={ css.delete }>
 			<Button
 				isDestructive
-				isPrimary
+				variant='primary'
 				isSmall
 				onClick={ remove }
 				ref={ ( ref ) => ( buttonRef = ref ) }

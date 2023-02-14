@@ -25,7 +25,7 @@ export default function OrderButton( props ) {
 		if ( records.is_first( props.record ) === false ) {
 			return (
 				<Button
-					isPrimary
+					variant='primary'
 					isSmall
 					className={ style.arrow_up }
 					onClick={ moveUp }
@@ -41,7 +41,7 @@ export default function OrderButton( props ) {
 		if ( records.is_last( props.record ) === false )
 			return (
 				<Button
-					isPrimary
+					variant='primary'
 					isSmall
 					className={ style.arrow_down }
 					onClick={ moveDown }
