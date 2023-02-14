@@ -1,99 +1,102 @@
 import { createContext, useEffect, useState } from '@wordpress/element';
 
-const PriceRecordContext = createContext({
+const PriceRecordContext = createContext( {
 	records: [],
-	add: (record) => {},
-	update: (record) => {},
-	remove: (record) => {},
-	move_down: (moving_record) => {},
-	move_up: (moving_record) => {},
-	is_first: (record) => {},
-	is_last: (record) => {},
+	add: ( record ) => {},
+	update: ( record ) => {},
+	remove: ( record ) => {},
+	move_down: ( movingRecord ) => {},
+	move_up: ( movingRecord ) => {},
+	is_first: ( record ) => {},
+	is_last: ( record ) => {},
 	on_save: () => {},
-});
+} );
 export default PriceRecordContext;
 
-export function PriceRecordContextProvider(props) {
-	const [records, set_records] = useState([...props.records]);
+export function PriceRecordContextProvider( props ) {
+	const [ records, setRecords ] = useState( [ ...props.records ] );
 
-	useEffect(() => {
-		props.on_save([...records]);
-	}, [records]);
+	useEffect( () => {
+		props.on_save( [ ...records ] );
+	}, [ records ] );
 
-	function add(record) {
-		const enhanced_record = { ...record, id: latest_id() + 1 };
-		set_records([...records, enhanced_record]);
+	function add( record ) {
+		const enhancedRecord = { ...record, id: latestId() + 1 };
+		setRecords( [ ...records, enhancedRecord ] );
 	}
 
-	function update(updated_record) {
-		const price_records = [...records];
-		const index = price_records.findIndex(
-			(record) => record.id === updated_record.id
+	function update( updatedRecord ) {
+		const priceRecords = [ ...records ];
+		const index = priceRecords.findIndex(
+			( record ) => record.id === updatedRecord.id
 		);
-		price_records[index] = updated_record;
-		set_records(price_records);
+		priceRecords[ index ] = updatedRecord;
+		setRecords( priceRecords );
 	}
 
-	function remove(removed_record) {
-		const price_records = records.filter(
-			(record) => record.id !== removed_record.id
+	function remove( removedRecord ) {
+		const priceRecords = records.filter(
+			( record ) => record.id !== removedRecord.id
 		);
-		set_records(price_records);
+		setRecords( priceRecords );
 	}
 
-	function move_down(moving_record) {
-		const index = indexOf(moving_record);
-		swap_places(index, index + 1);
+	function moveDown( movingRecord ) {
+		const index = indexOf( movingRecord );
+		swapPlaces( index, index + 1 );
 	}
 
-	function move_up(moving_record) {
-		const index = indexOf(moving_record);
-		swap_places(index, index - 1);
+	function moveUp( movingRecord ) {
+		const index = indexOf( movingRecord );
+		swapPlaces( index, index - 1 );
 	}
 
-	function latest_id() {
-		return records.reduce((prev, current) => Math.max(prev, current.id), 0);
+	function latestId() {
+		return records.reduce(
+			( prev, current ) => Math.max( prev, current.id ),
+			0
+		);
 	}
 
-	function is_first(record) {
-		return indexOf(record) === 0;
+	function isFirst( record ) {
+		return indexOf( record ) === 0;
 	}
 
-	function is_last(record) {
-		return indexOf(record) + 1 === records.length;
+	function isLast( record ) {
+		return indexOf( record ) + 1 === records.length;
 	}
 
-	function indexOf(target_record) {
+	function indexOf( targetRecord ) {
 		return records.findIndex(
-			(compared_record) => compared_record === target_record
+			( comparedRecord ) => comparedRecord === targetRecord
 		);
 	}
 
-	function swap_places(index_1, index_2) {
-		const price_records = [...records];
-		const record_1 = price_records[index_1];
-		const record_2 = price_records[index_2];
+	function swapPlaces( index1, index2 ) {
+		const priceRecords = [ ...records ];
+		const record1 = priceRecords[ index1 ];
+		const record2 = priceRecords[ index2 ];
 
-		price_records[index_1] = record_2;
-		price_records[index_2] = record_1;
+		priceRecords[ index1 ] = record2;
+		priceRecords[ index2 ] = record1;
 
-		set_records(price_records);
+		setRecords( priceRecords );
 	}
 
 	return (
 		<PriceRecordContext.Provider
-			value={{
-				records: records,
+			value={ {
+				records,
 				add,
 				update,
 				remove,
-				move_down,
-				move_up,
-				is_first,
-				is_last,
-			}}
+				move_down: moveDown,
+				move_up: moveUp,
+				is_first: isFirst,
+				is_last: isLast,
+			} }
 		>
-			{props.children}
+			{ props.children }
 		</PriceRecordContext.Provider>
 	);
 }
