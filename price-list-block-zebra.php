@@ -1,15 +1,12 @@
 <?php
 /**
  * Plugin Name:       Price List Block Zebra
- * Description:       A wordpress block for creating price lists. You can use it to create a menu for a restaurant, prices for a barber shop or anything like it. All editing is done inside the block editor. No confusing menus, no settings. Just easy to use!
+ * Description:       A wordpress block for creating price lists. You can use it to create a menu for a restaurant, prices for a barber shop or anything like it. All editing is done inside the block editor. No confusing menus. Just easy to use!
  * Requires at least: 5.9
  * Requires PHP:      7.0
- * Version:           0.1.0
- * Author:            robmo
- * License:           GPL-2.0-or-later ( modify later )
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html ( modify later )
+ * Version:           1.0.0
+ * Author:            Rob Monhemius
  * Text Domain:       price-list-block-zebra
- *
  * @package           price-list-block-zebra
  */
 

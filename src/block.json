@@ -32,7 +32,7 @@
 		}
 	},
 	"name": "price-list-block-zebra/price-list-block-zebra",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"title": "Price List",
 	"category": "widgets",
 	"icon": "editor-justify",
