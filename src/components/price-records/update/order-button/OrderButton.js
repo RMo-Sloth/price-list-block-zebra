@@ -1,4 +1,4 @@
-import { Button, Icon } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 import style from './OrderButton.module.scss';
 import { arrowDown, arrowUp } from '@wordpress/icons';
 import { useEffect, useContext } from '@wordpress/element';
@@ -25,13 +25,12 @@ export default function OrderButton( props ) {
 		if ( records.is_first( props.record ) === false ) {
 			return (
 				<Button
-					variant='primary'
+					variant="primary"
 					isSmall
 					className={ style.arrow_up }
 					onClick={ moveUp }
-				>
-					<Icon icon={ arrowUp } size="20" />
-				</Button>
+					icon={ arrowUp }
+				/>
 			);
 		}
 		return <div className={ style.arrow_up_placeholder }></div>;
@@ -41,14 +40,13 @@ export default function OrderButton( props ) {
 		if ( records.is_last( props.record ) === false )
 			return (
 				<Button
-					variant='primary'
+					variant="primary"
 					isSmall
+					icon={ arrowDown }
 					className={ style.arrow_down }
 					onClick={ moveDown }
 					ref={ ( el ) => ( buttonDownRef = el ) }
-				>
-					<Icon icon={ arrowDown } size="20" />
-				</Button>
+				/>
 			);
 		return <div className={ style.arrow_down_placeholder }></div>;
 	}
