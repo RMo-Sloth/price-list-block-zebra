@@ -1,4 +1,4 @@
-import { Button, Icon } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 import { useState, createRef, useContext } from '@wordpress/element';
 import css from './CreatePriceRecord.module.scss';
 import { plus } from '@wordpress/icons';
@@ -49,9 +49,7 @@ function CreatePriceRecord() {
 					onChange={ setPrice }
 				/>
 			</div>
-			<Button variant='primary' isSmall onClick={ add } className={ css.insert }>
-				<Icon icon={ plus } size="20" />
-			</Button>
+			<Button variant="primary" isSmall onClick={ add } icon={ plus } />
 		</div>
 	);
 }
