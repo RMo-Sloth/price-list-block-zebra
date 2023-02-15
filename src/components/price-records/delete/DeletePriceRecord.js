@@ -1,4 +1,4 @@
-import { Button, Icon } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 import { useEffect, useContext } from '@wordpress/element';
 import { trash } from '@wordpress/icons';
 import css from './DeletePriceRecord.module.scss';
@@ -22,13 +22,12 @@ function DeletePriceRecord( props ) {
 		<div className={ css.delete }>
 			<Button
 				isDestructive
-				variant='primary'
+				variant="primary"
 				isSmall
 				onClick={ remove }
 				ref={ ( ref ) => ( buttonRef = ref ) }
-			>
-				<Icon icon={ trash } size="20" />
-			</Button>
+				icon={ trash }
+			/>
 		</div>
 	);
 }
