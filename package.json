@@ -1,9 +1,9 @@
 {
 	"name": "price-list-block-zebra",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "A wordpress block for creating price lists. You can use it to create a menu for a restaurant, prices for a barber shop or anything like it. All editing is done inside the block editor. No confusing menus, no settings. Just easy to use!",
-	"author": "robmo",
-	"license": "GPL-2.0-or-later ( modify later )",
+	"author": "Rob Monhemius",
+	"license": "GPL-2.0-or-later",
 	"keywords": [],
 	"homepage": "https://waardwebsites.nl",
 	"repository": {
