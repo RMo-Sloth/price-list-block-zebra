@@ -11,7 +11,7 @@ export default function OrderButton( props ) {
 	useEffect( () => {
 		if ( props.focus === true && records.is_last( props.record ) === false )
 			buttonDownRef.focus();
-	}, [ props.focus ] );
+	}, [ props.focus ] ); 
 
 	function moveDown() {
 		records.move_down( props.record );
@@ -33,7 +33,15 @@ export default function OrderButton( props ) {
 				/>
 			);
 		}
-		return <div className={ style.arrow_up_placeholder }></div>;
+		return (
+			<Button
+				variant="primary"
+				isSmall
+				className={ style.arrow_up_placeholder }
+				icon={ arrowUp }
+				disabled={ true }
+			/>
+		);
 	}
 
 	function MoveDownButton() {
@@ -48,7 +56,15 @@ export default function OrderButton( props ) {
 					ref={ ( el ) => ( buttonDownRef = el ) }
 				/>
 			);
-		return <div className={ style.arrow_down_placeholder }></div>;
+		return (
+			<Button
+				variant="primary"
+				isSmall
+				className={ style.arrow_down_placeholder }
+				icon={ arrowUp }
+				disabled={ true }
+			/>
+		);
 	}
 
 	if ( props.display === false ) return null; // Aborts code, returns nothing
