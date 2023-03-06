@@ -6,6 +6,7 @@ import {
 	PanelBody,
 } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 export default function BlockSettings( props ) {
 	const [ settings, setSettings ] = useState( props.settings );
@@ -53,41 +54,59 @@ export default function BlockSettings( props ) {
 		<InspectorControls key="setting">
 			<Panel>
 				<PanelBody
-					title="Editing Experience"
+					title={ __(
+						'Editing Experience',
+						'price-list-block-zebra'
+					) }
 					icon="edit"
 					initialOpen={ false }
 				>
 					<PanelRow>
 						<CheckboxControl
-							label="Delete Items"
+							label={ __(
+								'Delete Items',
+								'price-list-block-zebra'
+							) }
 							checked={ settings.delete }
 							onChange={ toggleDelete }
 						/>
 					</PanelRow>
 					<PanelRow>
 						<CheckboxControl
-							label="Add Items"
+							label={ __(
+								'Add Items',
+								'price-list-block-zebra'
+							) }
 							checked={ settings.add }
 							onChange={ toggleAdd }
 						/>
 					</PanelRow>
 					<PanelRow>
 						<CheckboxControl
-							label="Edit Price"
+							label={ __(
+								'Edit Price',
+								'price-list-block-zebra'
+							) }
 							checked={ settings.edit_price }
 							onChange={ toggleEditPrice }
 						/>
 					</PanelRow>
 					<PanelRow>
 						<CheckboxControl
-							label="Edit Description"
+							label={ __(
+								'Edit Description',
+								'price-list-block-zebra'
+							) }
 							checked={ settings.edit_description }
 							onChange={ toggleEditDescription }
 						/>
 					</PanelRow>
 					<PanelRow>
 						<CheckboxControl
-							label="Order Items"
+							label={ __(
+								'Order Items',
+								'price-list-block-zebra'
+							) }
 							checked={ settings.order_items }
 							onChange={ toggleOrderItems }
 						/>
