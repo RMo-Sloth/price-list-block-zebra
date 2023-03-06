@@ -1,0 +1,79 @@
+# Copyright (C) 2023 Rob Monhemius
+# This file is distributed under the same license as the Price List Block Zebra plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Price List Block Zebra 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/price-list-block-zebra\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-03-06T14:28:13+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: price-list-block-zebra\n"
+
+#. Plugin Name of the plugin
+msgid "Price List Block Zebra"
+msgstr ""
+
+#. Description of the plugin
+msgid "A wordpress block for creating price lists. You can use it to create a menu for a restaurant, prices for a barber shop or anything like it. All editing is done inside the block editor. No confusing menus. Just easy to use!"
+msgstr ""
+
+#. Author of the plugin
+msgid "Rob Monhemius"
+msgstr ""
+
+#: build/index.js:1
+#: src/components/edit/edit.js:48
+msgid "Item / Service"
+msgstr ""
+
+#: build/index.js:1
+#: src/components/edit/edit.js:51
+msgid "Price"
+msgstr ""
+
+#: build/index.js:1
+#: src/components/block-settings/BlockSettings.js:57
+msgid "Editing Experience"
+msgstr ""
+
+#: build/index.js:1
+#: src/components/block-settings/BlockSettings.js:66
+msgid "Delete Items"
+msgstr ""
+
+#: build/index.js:1
+#: src/components/block-settings/BlockSettings.js:76
+msgid "Add Items"
+msgstr ""
+
+#: build/index.js:1
+#: src/components/block-settings/BlockSettings.js:86
+msgid "Edit Price"
+msgstr ""
+
+#: build/index.js:1
+#: src/components/block-settings/BlockSettings.js:96
+msgid "Edit Description"
+msgstr ""
+
+#: build/index.js:1
+#: src/components/block-settings/BlockSettings.js:106
+msgid "Order Items"
+msgstr ""
+
+#: build/block.json
+#: src/block.json
+msgctxt "block title"
+msgid "Price List"
+msgstr ""
+
+#: build/block.json
+#: src/block.json
+msgctxt "block description"
+msgid "Create a price list."
+msgstr ""
