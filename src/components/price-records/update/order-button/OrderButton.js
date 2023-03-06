@@ -11,7 +11,7 @@ export default function OrderButton( props ) {
 	useEffect( () => {
 		if ( props.focus === true && records.is_last( props.record ) === false )
 			buttonDownRef.focus();
-	}, [ props.focus ] ); 
+	}, [ props.focus ] );
 
 	function moveDown() {
 		records.move_down( props.record );
