@@ -1,5 +1,5 @@
 // @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
-import css from './ReadPriceRecord.module.scss';
+import css from './style.module.scss';
 
 function ReadPriceRecord( props ) {
 	const name = props.record.name.split( ' ' );

@@ -43,5 +43,5 @@
 	"textdomain": "price-list-block-zebra",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./index.css"
+	"style": "file:./style-index.css"
 }
