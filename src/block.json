@@ -3,14 +3,19 @@
 	"apiVersion": 2,
 	"attributes": {
 		"price_records": {
-			"default": [],
+			"type": "array",
+			"selector": ".record-row",
 			"query": {
 				"name": {
 					"type": "string",
+					"source": "text",
+					"selector": ".description",
 					"default": ""
 				},
 				"price": {
-					"type": "string",
+					"type": "number",
+					"source": "text",
+					"selector": ".price",
 					"default": "0"
 				},
 				"index": {
@@ -18,7 +23,7 @@
 					"default": null
 				}
 			},
-			"type": "array"
+			"default": []
 		},
 		"settings": {
 			"type": "object",

@@ -6,21 +6,28 @@ function ReadPriceRecord( props ) {
 	const nameJsx = name.map( ( word, index ) => {
 		if ( name.length === index + 1 )
 			return (
-				<span className={ css[ 'last-word' ] } key={ index }>
+				<span
+					className={ css[ 'last-word' ] + ' description' }
+					key={ index }
+				>
 					{ word }
 				</span>
 			);
 
-		return <span key={ index }>{ word }&nbsp;</span>;
+		return (
+			<span key={ index } className={ 'description' }>
+				{ word }&nbsp;
+			</span>
+		);
 	} );
 
 	return (
-		<div className={ css[ 'record-row' ] }>
+		<div className={ css[ 'record-row' ] + ' record-row' } data-index="1">
 			<div className={ css.name }>
 				{ nameJsx }
 				<span className={ css.spacer }></span>
 			</div>
-			<div className={ css.price }>{ props.record.price }</div>
+			<div className={ css.price + ' price' }>{ props.record.price }</div>
 		</div>
 	);
 }
