@@ -7,6 +7,7 @@ import {
 } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
+import logo from '../../assets/logo.png';
 
 export default function BlockSettings( props ) {
 	const [ settings, setSettings ] = useState( props.settings );
@@ -111,6 +112,39 @@ export default function BlockSettings( props ) {
 							onChange={ toggleOrderItems }
 						/>
 					</PanelRow>
+				</PanelBody>
+			</Panel>
+			<Panel>
+				<PanelBody
+					title={ __(
+						'Block Development',
+						'price-list-block-zebra'
+					) }
+					icon="info-outline"
+					initialOpen={ false }
+				>
+					<p>
+						{ __(
+							'For questions about WordPress Block Development and professional Wordpress Block development, visit:',
+							'price-list-block-zebra'
+						) }
+					</p>
+					<a
+						href="https://waardwebsites.nl/contact"
+						style={ {
+							display: 'block',
+							margin: 'auto',
+							width: '75%',
+						} }
+					>
+						<img
+							src={ logo }
+							alt={ __(
+								'waardwebsites.nl logo',
+								'price-list-block-zebra'
+							) }
+						/>
+					</a>
 				</PanelBody>
 			</Panel>
 		</InspectorControls>
