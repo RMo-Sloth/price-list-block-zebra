@@ -9,6 +9,8 @@ import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import BlockDevelopmentPanel from './BlockDevelopmentPanel/BlockDevelopmentPanel';
+import { SettingsManager } from '../../records/settingsRecord/settingsRecord';
+
 
 export default function BlockSettings( props ) {
 	const [ settings, setSettings ] = useState( props.settings );
@@ -17,40 +19,11 @@ export default function BlockSettings( props ) {
 		props.onChange( settings );
 	}, [ settings ] );
 
-	function toggleDelete() {
-		setSettings( {
-			...settings,
-			delete: ! settings.delete,
-		} );
+	function toggleSetting( property ) {
+		const new_settings = SettingsManager.toggleSetting( settings, property );
+		setSettings( new_settings );
 	}
 
-	function toggleAdd() {
-		setSettings( {
-			...settings,
-			add: ! settings.add,
-		} );
-	}
-
-	function toggleEditPrice() {
-		setSettings( {
-			...settings,
-			edit_price: ! settings.edit_price,
-		} );
-	}
-
-	function toggleEditDescription() {
-		setSettings( {
-			...settings,
-			edit_description: ! settings.edit_description,
-		} );
-	}
-
-	function toggleOrderItems() {
-		setSettings( {
-			...settings,
-			order_items: ! settings.order_items,
-		} );
-	}
 
 	return (
 		<InspectorControls key="setting">
@@ -70,7 +43,9 @@ export default function BlockSettings( props ) {
 								'price-list-block-zebra'
 							) }
 							checked={ settings.delete }
-							onChange={ toggleDelete }
+							onChange={ () => { 
+								toggleSetting( 'delete' ) 
+							} }
 						/>
 					</PanelRow>
 					<PanelRow>
@@ -80,7 +55,9 @@ export default function BlockSettings( props ) {
 								'price-list-block-zebra'
 							) }
 							checked={ settings.add }
-							onChange={ toggleAdd }
+							onChange={ () => { 
+								toggleSetting( 'add' ) 
+							} }
 						/>
 					</PanelRow>
 					<PanelRow>
@@ -90,7 +67,9 @@ export default function BlockSettings( props ) {
 								'price-list-block-zebra'
 							) }
 							checked={ settings.edit_price }
-							onChange={ toggleEditPrice }
+							onChange={ () => { 
+								toggleSetting( 'edit_price' ) 
+							} }
 						/>
 					</PanelRow>
 					<PanelRow>
@@ -100,7 +79,9 @@ export default function BlockSettings( props ) {
 								'price-list-block-zebra'
 							) }
 							checked={ settings.edit_description }
-							onChange={ toggleEditDescription }
+							onChange={ () => { 
+								toggleSetting( 'edit_description' ) 
+							} }
 						/>
 					</PanelRow>
 					<PanelRow>
@@ -110,7 +91,9 @@ export default function BlockSettings( props ) {
 								'price-list-block-zebra'
 							) }
 							checked={ settings.order_items }
-							onChange={ toggleOrderItems }
+							onChange={ () => { 
+								toggleSetting( 'order_items' ); 
+							} }
 						/>
 					</PanelRow>
 				</PanelBody>
