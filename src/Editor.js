@@ -1,6 +1,6 @@
 import Edit from './components/edit/edit';
 import PreviewInEditor from './components/edit/editor-preview';
-import BlockSettings from './components/block-settings/BlockSettings';
+import { SidePanel } from './components/SidePanel/SidePanel';
 import { useBlockProps } from '@wordpress/block-editor';
 import { PriceRecordContextProvider } from './context/PriceRecordContext';
 
@@ -24,7 +24,7 @@ export default function Editor( props ) {
 				>
 					<Edit { ...props } />
 				</PriceRecordContextProvider>
-				<BlockSettings
+				<SidePanel
 					settings={ props.attributes.settings }
 					onChange={ updateSettings }
 				/>
@@ -39,7 +39,7 @@ export default function Editor( props ) {
 			>
 				<PreviewInEditor { ...props } />
 			</PriceRecordContextProvider>
-			<BlockSettings
+			<SidePanel
 				settings={ props.attributes.settings }
 				onChange={ updateSettings }
 			/>

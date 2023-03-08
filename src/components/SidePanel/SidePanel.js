@@ -5,10 +5,10 @@ import BlockDevelopmentPanel from './BlockDevelopmentPanel/BlockDevelopmentPanel
 import BlockSettingsPanel from './BlockSettingsPanel/BlockSettingsPanel';
 
 
-export default function BlockSettings( props ) {
-	return ( <InspectorControls key="setting">
-			<BlockSettingsPanel settings={ props.settings } onChange={ props.onChange }/>
-			<BlockDevelopmentPanel />
-		</InspectorControls>
+export function SidePanel(props) {
+	return (<InspectorControls key="setting">
+		<BlockSettingsPanel settings={props.settings} onChange={props.onChange} />
+		<BlockDevelopmentPanel />
+	</InspectorControls>
 	);
 }
