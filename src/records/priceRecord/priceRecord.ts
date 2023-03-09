@@ -19,9 +19,20 @@ export class PriceRecordManager {
 		return new_records;
 	}
 
-	static remove( records: PriceRecord[], removed_record: PriceRecord ) {
+	static remove( records: PriceRecord[], removed_record: PriceRecord ): PriceRecord[] {
 		return records.filter(
 			( record ) => record.index !== removed_record.index
+		);
+	}
+
+	static moveDown( records: PriceRecord[], record: PriceRecord ): PriceRecord[] {
+		const index = PriceRecordManager.indexOf( records, record );
+		return PriceRecordManager.swapPlaces( records, index, index + 1 );
+	}
+
+	private static indexOf( records: PriceRecord[], targetRecord: PriceRecord ): number {
+		return records.findIndex(
+			( comparedRecord ) => comparedRecord === targetRecord
 		);
 	}
 
@@ -30,5 +41,16 @@ export class PriceRecordManager {
 			( prev, current ) => Math.max( prev, current.index ),
 			0
 		);
+	}
+
+	private static swapPlaces( records: PriceRecord[], index1: number, index2: number ): PriceRecord[] {
+		const priceRecords = [ ...records ];
+		const record1 = priceRecords[ index1 ];
+		const record2 = priceRecords[ index2 ];
+
+		priceRecords[ index1 ] = record2;
+		priceRecords[ index2 ] = record1;
+
+		return priceRecords;
 	}
 }

@@ -36,14 +36,16 @@ export function PriceRecordContextProvider( props ) {
 		setRecords( new_records );
 	}
 
-	function moveDown( movingRecord ) {
-		const index = indexOf( movingRecord );
-		swapPlaces( index, index + 1 );
+	function moveDown( record ) {
+		const new_records = PriceRecordManager.moveDown( records, record )
+		setRecords( new_records );
 	}
 
 	function moveUp( movingRecord ) {
 		const index = indexOf( movingRecord );
-		swapPlaces( index, index - 1 );
+		const new_records = swapPlaces( index, index - 1 );
+		setRecords( new_records );
+
 	}
 
 	function isFirst( record ) {
@@ -68,7 +70,7 @@ export function PriceRecordContextProvider( props ) {
 		priceRecords[ index1 ] = record2;
 		priceRecords[ index2 ] = record1;
 
-		setRecords( priceRecords );
+		return priceRecords;
 	}
 
 	return (
