@@ -14,15 +14,12 @@ export default function OrderButton( props ) {
 			buttonDownRef.focus();
 	}, [ props.focus ] );
 
-	function moveDown() {
-		records_context.move_down( props.record );
-	}
-
-	function moveUp() {
-		records_context.move_up( props.record );
-	}
-
 	function MoveUpButton() {
+		
+		function moveUp() {
+			records_context.move_up( props.record );
+		}
+
 		if ( PriceRecordManager.isFirst( records_context.records, props.record ) )
 			return (
 				<Button
@@ -46,6 +43,11 @@ export default function OrderButton( props ) {
 	}
 
 	function MoveDownButton() {
+
+		function moveDown() {
+			records_context.move_down( props.record );
+		}
+
 		if ( PriceRecordManager.isLast( records_context.records, props.record ) )
 			return (
 				<Button
@@ -75,8 +77,8 @@ export default function OrderButton( props ) {
 
 	return (
 		<div className={ style.order_button }>
-			{ MoveUpButton() }
-			{ MoveDownButton() }
+			<MoveUpButton />
+			<MoveDownButton />
 		</div>
 	);
 }
