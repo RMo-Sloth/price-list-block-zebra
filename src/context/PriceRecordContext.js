@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from '@wordpress/element';
+import { PriceRecordManager } from '../records/priceRecord/priceRecord';
 
 const PriceRecordContext = createContext( {
 	records: [],
@@ -21,14 +22,14 @@ export function PriceRecordContextProvider( props ) {
 	}, [ records ] );
 
 	function add( record ) {
-		const enhancedRecord = { ...record, id: latestId() + 1 };
-		setRecords( [ ...records, enhancedRecord ] );
+		const new_records = PriceRecordManager.add( records, record );
+		setRecords( new_records );
 	}
 
 	function update( updatedRecord ) {
 		const priceRecords = [ ...records ];
 		const index = priceRecords.findIndex(
-			( record ) => record.id === updatedRecord.id
+			( record ) => record.index === updatedRecord.index
 		);
 		priceRecords[ index ] = updatedRecord;
 		setRecords( priceRecords );
@@ -36,7 +37,7 @@ export function PriceRecordContextProvider( props ) {
 
 	function remove( removedRecord ) {
 		const priceRecords = records.filter(
-			( record ) => record.id !== removedRecord.id
+			( record ) => record.index !== removedRecord.index
 		);
 		setRecords( priceRecords );
 	}
@@ -49,13 +50,6 @@ export function PriceRecordContextProvider( props ) {
 	function moveUp( movingRecord ) {
 		const index = indexOf( movingRecord );
 		swapPlaces( index, index - 1 );
-	}
-
-	function latestId() {
-		return records.reduce(
-			( prev, current ) => Math.max( prev, current.id ),
-			0
-		);
 	}
 
 	function isFirst( record ) {

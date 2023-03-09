@@ -16,7 +16,7 @@
 					"type": "number",
 					"source": "text",
 					"selector": ".price",
-					"default": "0"
+					"default": 0
 				},
 				"index": {
 					"type": "number",

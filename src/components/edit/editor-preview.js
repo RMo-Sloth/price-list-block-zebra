@@ -4,7 +4,7 @@ export default function PreviewInEditor( { attributes } ) {
 	return (
 		<div>
 			{ attributes.price_records.map( ( record ) => (
-				<ReadPriceRecord key={ record.id } record={ record } />
+				<ReadPriceRecord key={ record.index } record={ record } />
 			) ) }
 		</div>
 	);

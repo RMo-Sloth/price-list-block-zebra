@@ -20,7 +20,7 @@ export default function Edit( { attributes } ) {
 		// do not select a 'new first-record' after adding / removing elements
 		setFocusData( {
 			focus_on: 'record',
-			initial_first_record: attributes.price_records[ 0 ].id,
+			initial_first_record: attributes.price_records[ 0 ].index,
 		} );
 	}
 
@@ -54,9 +54,9 @@ export default function Edit( { attributes } ) {
 			</div>
 			{ priceRecordsManager.records.map( ( record ) => (
 				<UpdatePriceRecord
-					key={ record.id }
+					key={ record.index }
 					focus={
-						focusData.initial_first_record === record.id &&
+						focusData.initial_first_record === record.index &&
 						focusData.focus_on === 'record'
 					}
 					record={ record }
