@@ -41,9 +41,8 @@ export function PriceRecordContextProvider( props ) {
 		setRecords( new_records );
 	}
 
-	function moveUp( movingRecord ) {
-		const index = indexOf( movingRecord );
-		const new_records = swapPlaces( index, index - 1 );
+	function moveUp( record ) {
+		const new_records = PriceRecordManager.moveUp( records, record )
 		setRecords( new_records );
 
 	}
@@ -60,17 +59,6 @@ export function PriceRecordContextProvider( props ) {
 		return records.findIndex(
 			( comparedRecord ) => comparedRecord === targetRecord
 		);
-	}
-
-	function swapPlaces( index1, index2 ) {
-		const priceRecords = [ ...records ];
-		const record1 = priceRecords[ index1 ];
-		const record2 = priceRecords[ index2 ];
-
-		priceRecords[ index1 ] = record2;
-		priceRecords[ index2 ] = record1;
-
-		return priceRecords;
 	}
 
 	return (

@@ -30,6 +30,11 @@ export class PriceRecordManager {
 		return PriceRecordManager.swapPlaces( records, index, index + 1 );
 	}
 
+	static moveUp( records: PriceRecord[], record: PriceRecord ): PriceRecord[] {
+		const index = PriceRecordManager.indexOf( records, record );
+		return PriceRecordManager.swapPlaces( records, index, index - 1 );
+	}
+
 	private static indexOf( records: PriceRecord[], targetRecord: PriceRecord ): number {
 		return records.findIndex(
 			( comparedRecord ) => comparedRecord === targetRecord
