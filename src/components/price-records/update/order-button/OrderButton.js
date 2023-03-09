@@ -14,23 +14,6 @@ export default function OrderButton( props ) {
 			buttonDownRef.focus();
 	}, [ props.focus ] );
 
-	function MoveUpButton() {
-		const is_first = PriceRecordManager.isFirst( records_context.records, props.record );
-
-		function moveUp() {
-			records_context.move_up( props.record );
-		}
-
-		return <Button
-			className={ is_first ? style.arrow_up_placeholder : style.arrow_up }
-			disabled={ is_first }
-			icon={ arrowUp }
-			isSmall
-			onClick={ moveUp }
-			variant="primary"
-		/>;
-	}
-
 	function MoveDownButton() {
 		const is_last = PriceRecordManager.isLast( records_context.records, props.record );
 		
@@ -47,7 +30,6 @@ export default function OrderButton( props ) {
 			ref={ ( el ) => ( buttonDownRef = el ) }
 			variant="primary"
 		/>;
-
 	}
 
 	if ( props.display === false ) return null; // Aborts code, returns nothing
@@ -55,10 +37,28 @@ export default function OrderButton( props ) {
 
 	return (
 		<div className={ style.order_button }>
-			{ MoveUpButton() }
+			<MoveUpButton focus={ props.focus } record={ props.record } />
 			{ MoveDownButton() }
 
 			{/* <MoveDownButton />, this causes an issue with keeping the button selected - Why? */}
 		</div>
 	);
+}
+
+function MoveUpButton( props ) {
+	const records_context = useContext( PriceRecordContext );
+	const is_first = PriceRecordManager.isFirst( records_context.records, props.record );
+
+	function moveUp() {
+		records_context.move_up( props.record );
+	}
+
+	return <Button
+		className={ is_first ? style.arrow_up_placeholder : style.arrow_up }
+		disabled={ is_first }
+		icon={ arrowUp }
+		isSmall
+		onClick={ moveUp }
+		variant="primary"
+	/>;
 }
