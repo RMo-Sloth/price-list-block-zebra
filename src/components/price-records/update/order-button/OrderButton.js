@@ -23,49 +23,51 @@ export default function OrderButton( props ) {
 	}
 
 	function MoveUpButton() {
-		if ( ! PriceRecordManager.isFirst( records_context.records, props.record ) ) {
+		if ( PriceRecordManager.isFirst( records_context.records, props.record ) )
 			return (
 				<Button
 					variant="primary"
 					isSmall
-					className={ style.arrow_up }
-					onClick={ moveUp }
+					className={ style.arrow_up_placeholder }
 					icon={ arrowUp }
+					disabled={ true }
 				/>
 			);
-		}
+
 		return (
 			<Button
 				variant="primary"
 				isSmall
-				className={ style.arrow_up_placeholder }
+				className={ style.arrow_up }
+				onClick={ moveUp }
 				icon={ arrowUp }
-				disabled={ true }
 			/>
 		);
 	}
 
 	function MoveDownButton() {
-		if ( records_context.is_last( props.record ) === false )
+		if ( records_context.is_last( props.record ) )
 			return (
 				<Button
 					variant="primary"
 					isSmall
-					icon={ arrowDown }
-					className={ style.arrow_down }
-					onClick={ moveDown }
-					ref={ ( el ) => ( buttonDownRef = el ) }
+					className={ style.arrow_down_placeholder }
+					icon={ arrowUp }
+					disabled={ true }
 				/>
 			);
+
 		return (
 			<Button
 				variant="primary"
 				isSmall
-				className={ style.arrow_down_placeholder }
-				icon={ arrowUp }
-				disabled={ true }
+				icon={ arrowDown }
+				className={ style.arrow_down }
+				onClick={ moveDown }
+				ref={ ( el ) => ( buttonDownRef = el ) }
 			/>
 		);
+
 	}
 
 	if ( props.display === false ) return null; // Aborts code, returns nothing
