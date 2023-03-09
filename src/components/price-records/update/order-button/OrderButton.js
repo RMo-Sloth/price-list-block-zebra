@@ -43,30 +43,21 @@ export default function OrderButton( props ) {
 	}
 
 	function MoveDownButton() {
-
+		const is_last = PriceRecordManager.isLast( records_context.records, props.record );
+		
 		function moveDown() {
 			records_context.move_down( props.record );
 		}
 
-		if ( PriceRecordManager.isLast( records_context.records, props.record ) )
-			return (
-				<Button
-					variant="primary"
-					isSmall
-					className={ style.arrow_down_placeholder }
-					icon={ arrowUp }
-					disabled={ true }
-				/>
-			);
-
 		return (
 			<Button
-				variant="primary"
-				isSmall
+				className={ is_last ? style.arrow_down_placeholder : style.arrow_down }
+				disabled={ is_last }
 				icon={ arrowDown }
-				className={ style.arrow_down }
+				isSmall
 				onClick={ moveDown }
 				ref={ ( el ) => ( buttonDownRef = el ) }
+				variant="primary"
 			/>
 		);
 
