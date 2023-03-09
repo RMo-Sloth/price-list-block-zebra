@@ -3,26 +3,27 @@ import style from './OrderButton.module.scss';
 import { arrowDown, arrowUp } from '@wordpress/icons';
 import { useEffect, useContext } from '@wordpress/element';
 import PriceRecordContext from '../../../../context/PriceRecordContext';
+import { PriceRecordManager } from '../../../../records/priceRecord/priceRecord';
 
 export default function OrderButton( props ) {
 	let buttonDownRef;
-	const records = useContext( PriceRecordContext );
+	const records_context = useContext( PriceRecordContext );
 
 	useEffect( () => {
-		if ( props.focus === true && records.is_last( props.record ) === false )
+		if ( props.focus === true && records_context.is_last( props.record ) === false )
 			buttonDownRef.focus();
 	}, [ props.focus ] );
 
 	function moveDown() {
-		records.move_down( props.record );
+		records_context.move_down( props.record );
 	}
 
 	function moveUp() {
-		records.move_up( props.record );
+		records_context.move_up( props.record );
 	}
 
 	function MoveUpButton() {
-		if ( records.is_first( props.record ) === false ) {
+		if ( ! PriceRecordManager.isFirst( records_context.records, props.record ) ) {
 			return (
 				<Button
 					variant="primary"
@@ -45,7 +46,7 @@ export default function OrderButton( props ) {
 	}
 
 	function MoveDownButton() {
-		if ( records.is_last( props.record ) === false )
+		if ( records_context.is_last( props.record ) === false )
 			return (
 				<Button
 					variant="primary"
@@ -68,7 +69,7 @@ export default function OrderButton( props ) {
 	}
 
 	if ( props.display === false ) return null; // Aborts code, returns nothing
-	if ( records.records.length <= 1 ) return null; // Aborts code, returns nothing
+	if ( records_context.records.length <= 1 ) return null; // Aborts code, returns nothing
 
 	return (
 		<div className={ style.order_button }>
