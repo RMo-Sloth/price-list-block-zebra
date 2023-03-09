@@ -15,31 +15,20 @@ export default function OrderButton( props ) {
 	}, [ props.focus ] );
 
 	function MoveUpButton() {
-		
+		const is_first = PriceRecordManager.isFirst( records_context.records, props.record );
+
 		function moveUp() {
 			records_context.move_up( props.record );
 		}
 
-		if ( PriceRecordManager.isFirst( records_context.records, props.record ) )
-			return (
-				<Button
-					variant="primary"
-					isSmall
-					className={ style.arrow_up_placeholder }
-					icon={ arrowUp }
-					disabled={ true }
-				/>
-			);
-
-		return (
-			<Button
-				variant="primary"
-				isSmall
-				className={ style.arrow_up }
-				onClick={ moveUp }
-				icon={ arrowUp }
-			/>
-		);
+		return <Button
+			className={ is_first ? style.arrow_up_placeholder : style.arrow_up }
+			disabled={ is_first }
+			icon={ arrowUp }
+			isSmall
+			onClick={ moveUp }
+			variant="primary"
+		/>;
 	}
 
 	function MoveDownButton() {
@@ -49,17 +38,15 @@ export default function OrderButton( props ) {
 			records_context.move_down( props.record );
 		}
 
-		return (
-			<Button
-				className={ is_last ? style.arrow_down_placeholder : style.arrow_down }
-				disabled={ is_last }
-				icon={ arrowDown }
-				isSmall
-				onClick={ moveDown }
-				ref={ ( el ) => ( buttonDownRef = el ) }
-				variant="primary"
-			/>
-		);
+		return <Button
+			className={ is_last ? style.arrow_down_placeholder : style.arrow_down }
+			disabled={ is_last }
+			icon={ arrowDown }
+			isSmall
+			onClick={ moveDown }
+			ref={ ( el ) => ( buttonDownRef = el ) }
+			variant="primary"
+		/>;
 
 	}
 
