@@ -27,15 +27,13 @@ export function PriceRecordContextProvider( props ) {
 	}
 
 	function update( updatedRecord ) {
-		const priceRecords = PriceRecordManager.update( records, updatedRecord )
-		setRecords( priceRecords );
+		const new_records = PriceRecordManager.update( records, updatedRecord )
+		setRecords( new_records );
 	}
 
 	function remove( removedRecord ) {
-		const priceRecords = records.filter(
-			( record ) => record.index !== removedRecord.index
-		);
-		setRecords( priceRecords );
+		const new_records = PriceRecordManager.remove( records, removedRecord );
+		setRecords( new_records );
 	}
 
 	function moveDown( movingRecord ) {

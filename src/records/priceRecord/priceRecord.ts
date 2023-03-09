@@ -19,6 +19,12 @@ export class PriceRecordManager {
 		return new_records;
 	}
 
+	static remove( records: PriceRecord[], removed_record: PriceRecord ) {
+		return records.filter(
+			( record ) => record.index !== removed_record.index
+		);
+	}
+
 	private static latestId( records: PriceRecord[] ) {
 		return records.reduce(
 			( prev, current ) => Math.max( prev, current.index ),
