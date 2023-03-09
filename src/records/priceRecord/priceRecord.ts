@@ -23,6 +23,10 @@ export class PriceRecordManager {
 		return PriceRecordManager.indexOf( records, record ) === 0;
 	}
 
+	static isLast( records: PriceRecord[], record: PriceRecord ): boolean {
+		return PriceRecordManager.indexOf( records, record ) + 1 === records.length;
+	}
+
 	static remove( records: PriceRecord[], removed_record: PriceRecord ): PriceRecord[] {
 		return records.filter(
 			( record ) => record.index !== removed_record.index

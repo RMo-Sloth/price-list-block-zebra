@@ -52,7 +52,7 @@ export function PriceRecordContextProvider( props ) {
 	}
 
 	function isLast( record ) {
-		return PriceRecordManager.indexOf( records, record ) + 1 === records.length;
+		return PriceRecordManager.isLast( records, record );
 	}
 
 	return (
