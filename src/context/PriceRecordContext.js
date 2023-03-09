@@ -8,7 +8,6 @@ const PriceRecordContext = createContext( {
 	remove: ( record ) => {},
 	move_down: ( movingRecord ) => {},
 	move_up: ( movingRecord ) => {},
-	is_last: ( record ) => {},
 	on_save: () => {},
 } );
 export default PriceRecordContext;
@@ -43,11 +42,6 @@ export function PriceRecordContextProvider( props ) {
 	function moveUp( record ) {
 		const new_records = PriceRecordManager.moveUp( records, record )
 		setRecords( new_records );
-
-	}
-
-	function isLast( record ) {
-		return PriceRecordManager.isLast( records, record );
 	}
 
 	return (
@@ -59,7 +53,6 @@ export function PriceRecordContextProvider( props ) {
 				remove,
 				move_down: moveDown,
 				move_up: moveUp,
-				is_last: isLast,
 			} }
 		>
 			{ props.children }

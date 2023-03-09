@@ -10,7 +10,7 @@ export default function OrderButton( props ) {
 	const records_context = useContext( PriceRecordContext );
 
 	useEffect( () => {
-		if ( props.focus === true && records_context.is_last( props.record ) === false )
+		if ( props.focus && ! PriceRecordManager.isLast( records_context.records, props.record ) )
 			buttonDownRef.focus();
 	}, [ props.focus ] );
 
@@ -46,7 +46,7 @@ export default function OrderButton( props ) {
 	}
 
 	function MoveDownButton() {
-		if ( records_context.is_last( props.record ) )
+		if ( PriceRecordManager.isLast( records_context.records, props.record ) )
 			return (
 				<Button
 					variant="primary"
