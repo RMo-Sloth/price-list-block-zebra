@@ -27,11 +27,7 @@ export function PriceRecordContextProvider( props ) {
 	}
 
 	function update( updatedRecord ) {
-		const priceRecords = [ ...records ];
-		const index = priceRecords.findIndex(
-			( record ) => record.index === updatedRecord.index
-		);
-		priceRecords[ index ] = updatedRecord;
+		const priceRecords = PriceRecordManager.update( records, updatedRecord )
 		setRecords( priceRecords );
 	}
 

@@ -5,12 +5,22 @@ interface PriceRecord {
 }
 
 export class PriceRecordManager {
-	static add( priceRecords: PriceRecord[], priceRecord: PriceRecord ): PriceRecord[] {
-		const enhancedRecord = { ...priceRecord, index: PriceRecordManager.latestId( priceRecords ) + 1 };
-		return [ ...priceRecords, enhancedRecord ];
+	static add( records: PriceRecord[], record: PriceRecord ): PriceRecord[] {
+		const enhancedRecord = { ...record, index: PriceRecordManager.latestId( records ) + 1 };
+		return [ ...records, enhancedRecord ];
 	}
-	private static 	latestId( priceRecords: PriceRecord[] ) {
-		return priceRecords.reduce(
+
+	static update( records: PriceRecord[], updated_record: PriceRecord ): PriceRecord[] {
+		const new_records = [ ...records ];
+		const index = records.findIndex(
+			( record ) => record.index === updated_record.index
+		);
+		new_records[ index ] = updated_record;
+		return new_records;
+	}
+
+	private static latestId( records: PriceRecord[] ) {
+		return records.reduce(
 			( prev, current ) => Math.max( prev, current.index ),
 			0
 		);
