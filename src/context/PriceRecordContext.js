@@ -48,17 +48,11 @@ export function PriceRecordContextProvider( props ) {
 	}
 
 	function isFirst( record ) {
-		return indexOf( record ) === 0;
+		return PriceRecordManager.indexOf( records, record ) === 0;
 	}
 
 	function isLast( record ) {
-		return indexOf( record ) + 1 === records.length;
-	}
-
-	function indexOf( targetRecord ) {
-		return records.findIndex(
-			( comparedRecord ) => comparedRecord === targetRecord
-		);
+		return PriceRecordManager.indexOf( records, record ) + 1 === records.length;
 	}
 
 	return (
