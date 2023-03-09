@@ -19,6 +19,10 @@ export class PriceRecordManager {
 		return new_records;
 	}
 
+	static isFirst( records: PriceRecord[], record: PriceRecord ): boolean {
+		return PriceRecordManager.indexOf( records, record ) === 0;
+	}
+
 	static remove( records: PriceRecord[], removed_record: PriceRecord ): PriceRecord[] {
 		return records.filter(
 			( record ) => record.index !== removed_record.index

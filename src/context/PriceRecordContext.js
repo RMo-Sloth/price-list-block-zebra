@@ -48,7 +48,7 @@ export function PriceRecordContextProvider( props ) {
 	}
 
 	function isFirst( record ) {
-		return PriceRecordManager.indexOf( records, record ) === 0;
+		return PriceRecordManager.isFirst( records, record );
 	}
 
 	function isLast( record ) {
