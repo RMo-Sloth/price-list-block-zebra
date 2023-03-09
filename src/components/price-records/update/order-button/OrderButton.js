@@ -6,31 +6,7 @@ import PriceRecordContext from '../../../../context/PriceRecordContext';
 import { PriceRecordManager } from '../../../../records/priceRecord/priceRecord';
 
 export default function OrderButton( props ) {
-	let buttonDownRef;
 	const records_context = useContext( PriceRecordContext );
-
-	useEffect( () => {
-		if ( props.focus && ! PriceRecordManager.isLast( records_context.records, props.record ) )
-			buttonDownRef.focus();
-	}, [ props.focus ] );
-
-	function MoveDownButton() {
-		const is_last = PriceRecordManager.isLast( records_context.records, props.record );
-		
-		function moveDown() {
-			records_context.move_down( props.record );
-		}
-
-		return <Button
-			className={ is_last ? style.arrow_down_placeholder : style.arrow_down }
-			disabled={ is_last }
-			icon={ arrowDown }
-			isSmall
-			onClick={ moveDown }
-			ref={ ( el ) => ( buttonDownRef = el ) }
-			variant="primary"
-		/>;
-	}
 
 	if ( props.display === false ) return null; // Aborts code, returns nothing
 	if ( records_context.records.length <= 1 ) return null; // Aborts code, returns nothing
@@ -38,9 +14,7 @@ export default function OrderButton( props ) {
 	return (
 		<div className={ style.order_button }>
 			<MoveUpButton focus={ props.focus } record={ props.record } />
-			{ MoveDownButton() }
-
-			{/* <MoveDownButton />, this causes an issue with keeping the button selected - Why? */}
+			<MoveDownButton record={ props.record } focus={ props.focus }/>
 		</div>
 	);
 }
@@ -60,5 +34,31 @@ function MoveUpButton( props ) {
 		isSmall
 		onClick={ moveUp }
 		variant="primary"
+	/>;
+}
+
+function MoveDownButton( props ) {
+	let buttonDownRef;
+	const records_context = useContext( PriceRecordContext );
+	const is_last = PriceRecordManager.isLast( records_context.records, props.record );
+	
+	useEffect( () => {
+		if ( props.focus && ! PriceRecordManager.isLast( records_context.records, props.record ) )
+			buttonDownRef.focus();
+	}, [ props.focus ] );
+
+	function moveDown() {
+		records_context.move_down( props.record );
+	}
+
+	return <Button
+		className={ is_last ? style.arrow_down_placeholder : style.arrow_down }
+		disabled={ is_last }
+		icon={ arrowDown }
+		isSmall
+		onClick={ moveDown }
+		variant="primary"
+		record={ props.record }
+		ref={ ( el ) => ( buttonDownRef = el ) }
 	/>;
 }
