@@ -77,8 +77,10 @@ export default function OrderButton( props ) {
 
 	return (
 		<div className={ style.order_button }>
-			<MoveUpButton />
-			<MoveDownButton />
+			{ MoveUpButton() }
+			{ MoveDownButton() }
+
+			{/* <MoveDownButton />, this causes an issue with keeping the button selected - Why? */}
 		</div>
 	);
 }
