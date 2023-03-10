@@ -30,10 +30,10 @@ export default function Edit( { attributes } ): JSX.Element {
 
 	return <div>
 		<div className={ style[ 'price-record-top-labels' ] }>
-			{ attributes.settings.order_items ? <div className={ style.order }></div> : undefined }
+			{ attributes.settings.order_items ? <div className={ style.order }></div> : null }
 			<div className={ style.name }>{ __( 'Item / Service', 'price-list-block-zebra' ) }</div>
 			<div className={ style.price }>{ __( 'Price', 'price-list-block-zebra' ) }</div>
-			{ attributes.settings.delete ? <div className={ style.action }></div> : undefined }
+			{ attributes.settings.delete ? <div className={ style.action }></div> : null }
 		</div>
 
 		{ priceRecordsManager.records.map( ( record: PriceRecord ) => <UpdatePriceRecord
@@ -43,6 +43,6 @@ export default function Edit( { attributes } ): JSX.Element {
 			settings={ attributes.settings }
 		/> ) }
 		
-		{ attributes.settings.add ? <CreatePriceRecord /> : undefined }
+		{ attributes.settings.add ? <CreatePriceRecord /> : null }
 	</div>;
 }
