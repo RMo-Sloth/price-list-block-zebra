@@ -12,7 +12,7 @@ const PriceRecordContext = createContext( {
 } );
 export default PriceRecordContext;
 
-export function PriceRecordContextProvider( props ) {
+export function PriceRecordContextProvider( props ): JSX.Element {
 	const [ records, setRecords ] = useState( [ ...props.records ] );
 
 	useEffect( () => {
@@ -44,8 +44,7 @@ export function PriceRecordContextProvider( props ) {
 		setRecords( new_records );
 	}
 
-	return (
-		<PriceRecordContext.Provider
+	return <PriceRecordContext.Provider
 			value={ {
 				records,
 				add,
@@ -53,9 +52,9 @@ export function PriceRecordContextProvider( props ) {
 				remove,
 				move_down: moveDown,
 				move_up: moveUp,
+				on_save: undefined
 			} }
 		>
 			{ props.children }
-		</PriceRecordContext.Provider>
-	);
+		</PriceRecordContext.Provider>;
 }
