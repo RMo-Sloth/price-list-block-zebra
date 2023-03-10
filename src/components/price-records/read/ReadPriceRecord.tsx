@@ -1,25 +1,15 @@
 // @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+// @ts-ignore
 import css from './style.module.scss';
 
-function ReadPriceRecord( props ) {
+function ReadPriceRecord( props ): JSX.Element {
 	const name = props.record.name.split( ' ' );
-	const nameJsx = name.map( ( word, index ) => {
-		if ( name.length === index + 1 )
-			return (
-				<span
-					className={ css[ 'last-word' ] + ' description' }
-					key={ index }
-				>
-					{ word }
-				</span>
-			);
-
-		return (
-			<span key={ index } className={ 'description' }>
-				{ word }&nbsp;
-			</span>
-		);
-	} );
+	const nameJsx = name.map( ( word, index ) => <span 
+			className={ ( name.length === index + 1 ) ? css.last_word : '' }
+			key={ index } >
+			{ word } { ( name.length === index + 1 ) ? '' : String.fromCharCode(160) }
+		</span>
+	);
 
 	return (
 		<div className={ css[ 'record-row' ] + ' record-row' } data-index="1">
