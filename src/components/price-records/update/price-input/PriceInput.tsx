@@ -1,6 +1,6 @@
 // @ts-ignore
 import css from './PriceInput.module.scss';
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useEffect, useRef } from '@wordpress/element';
 import { PriceRecord } from '../../../../records/priceRecord/priceRecord';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function PriceInput( { focus, record, editable, onChange }: Props ): JSX.Element {
-	let inputRef;
+	const ref = useRef( null );
 	const [ value, setValue ] = useState( record.price.toString() );
 
 	useEffect( () => {
@@ -19,7 +19,7 @@ export default function PriceInput( { focus, record, editable, onChange }: Props
 	}, [ value ] );
 
 	useEffect( () => {
-		if ( focus ) inputRef.select();
+		if ( focus ) ref.current.select();
 	}, [ focus ] );
 
 	function onValueChange( event ): void {
@@ -38,7 +38,7 @@ export default function PriceInput( { focus, record, editable, onChange }: Props
 				required={ true }
 				onChange={ onValueChange }
 				onBlur={ onBlur }
-				ref={ ( ref ) => ( inputRef = ref ) }
+				ref={ ref }
 			/>
 		</div>;
 
