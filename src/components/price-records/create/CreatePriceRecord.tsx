@@ -1,5 +1,5 @@
 import { Button } from '@wordpress/components';
-import { useState, createRef, useContext, useRef } from '@wordpress/element';
+import { useState, useContext, useRef } from '@wordpress/element';
 // @ts-ignore
 import css from './CreatePriceRecord.module.scss';
 import { plus } from '@wordpress/icons';
@@ -7,12 +7,12 @@ import PriceRecordContext from '../../../context/PriceRecordContext';
 
 function CreatePriceRecord(): JSX.Element {
 	const [ record, setRecord ] = useState( { name: '', price: '' } );
-	const nameInputRef = useRef<HTMLInputElement>();
+	const ref = useRef<HTMLInputElement>( null );
 	const records = useContext( PriceRecordContext );
 
 	function resetRecord(): void {
 		setRecord( { name: '', price: '' } );
-		nameInputRef.current.focus();
+		ref.current.focus();
 	}
 
 	function add(): void {
@@ -34,7 +34,7 @@ function CreatePriceRecord(): JSX.Element {
 	return <div className={ css[ 'create-price-record' ] }>
 			<div className={ css.name }>
 				<input
-					ref={ nameInputRef }
+					ref={ ref }
 					type="text"
 					placeholder="enter a name"
 					value={ record.name }
