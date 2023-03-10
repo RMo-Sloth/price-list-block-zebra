@@ -4,14 +4,14 @@ import { SidePanel } from './components/SidePanel/SidePanel';
 import { useBlockProps } from '@wordpress/block-editor';
 import { PriceRecordContextProvider } from './context/PriceRecordContext';
 
-export default function Editor( props ) {
+export default function Editor( props: any ): JSX.Element {
 	const blockProps = useBlockProps();
 
-	function updateSettings( settings ) {
+	function updateSettings( settings: any ): void {
 		props.setAttributes( { ...props.attributes, settings } );
 	}
 
-	function updateRecords( records ) {
+	function updateRecords( records: any ): void {
 		props.setAttributes( { ...props.attributes, price_records: records } );
 	}
 
