@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function PriceInput( { focus, record, editable, onChange }: Props ): JSX.Element {
-	const ref = useRef( null );
+	const ref = useRef<HTMLInputElement>( null );
 	const [ value, setValue ] = useState( record.price.toString() );
 
 	useEffect( () => {
