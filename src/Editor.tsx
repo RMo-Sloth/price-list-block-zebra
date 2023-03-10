@@ -1,4 +1,4 @@
-import Edit from './components/edit/edit';
+import Edit from './components/edit/Edit';
 import PreviewInEditor from './components/edit/PreviewInEditor';
 import { SidePanel } from './components/SidePanel/SidePanel';
 import { useBlockProps } from '@wordpress/block-editor';
