@@ -1,15 +1,16 @@
 import { Button } from '@wordpress/components';
+// @ts-ignore
 import style from '../OrderButton.module.scss';
 import { arrowUp } from '@wordpress/icons';
 import { useContext } from '@wordpress/element';
 import PriceRecordContext from '../../../../../context/PriceRecordContext';
 import { PriceRecordManager } from '../../../../../records/priceRecord/priceRecord';
 
-export function MoveUpButton( props ) {
+export function MoveUpButton( props ): JSX.Element {
 	const records_context = useContext( PriceRecordContext );
-	const is_first = PriceRecordManager.isFirst( records_context.records, props.record );
+	const is_first: boolean = PriceRecordManager.isFirst( records_context.records, props.record );
 
-	function moveUp() {
+	function moveUp(): void {
 		records_context.move_up( props.record );
 	}
 
