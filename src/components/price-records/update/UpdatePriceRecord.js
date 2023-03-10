@@ -50,7 +50,7 @@ function UpdatePriceRecord( props ) {
 			/>
 			<PriceInput
 				editable={ props.settings.edit_price }
-				value={ props.record.price }
+				record={ props.record }
 				onChange={ updatePrice }
 				focus={ focus === 'price_input' }
 			/>
