@@ -1,5 +1,5 @@
 import Edit from './components/edit/edit';
-import PreviewInEditor from './components/edit/editor-preview';
+import PreviewInEditor from './components/edit/PreviewInEditor';
 import { SidePanel } from './components/SidePanel/SidePanel';
 import { useBlockProps } from '@wordpress/block-editor';
 import { PriceRecordContextProvider } from './context/PriceRecordContext';
@@ -16,7 +16,6 @@ export default function Editor( props: any ): JSX.Element {
 	function updateRecords( records: PriceRecord[] ): void {
 		props.setAttributes( { ...props.attributes, price_records: records } );
 	}
-
 
 	return <div { ...useBlockProps() }>
 		<PriceRecordContextProvider records={ props.attributes.price_records } on_save={ updateRecords } >
