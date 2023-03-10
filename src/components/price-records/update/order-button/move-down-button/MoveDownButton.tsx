@@ -2,18 +2,18 @@ import { Button } from '@wordpress/components';
 // @ts-ignore
 import style from '../OrderButton.module.scss'
 import { arrowDown } from '@wordpress/icons';
-import { useEffect, useContext } from '@wordpress/element';
+import { useEffect, useContext, useRef } from '@wordpress/element';
 import PriceRecordContext from '../../../../../context/PriceRecordContext';
 import { PriceRecordManager } from '../../../../../records/priceRecord/priceRecord';
 
 export function MoveDownButton( props ): JSX.Element {
-	let buttonDownRef;
+	const ref = useRef<HTMLButtonElement>( null );
 	const records_context = useContext( PriceRecordContext );
 	const is_last = PriceRecordManager.isLast( records_context.records, props.record );
 	
 	useEffect( () => {
 		if ( props.focus && ! PriceRecordManager.isLast( records_context.records, props.record ) )
-			buttonDownRef.focus();
+			ref.current.focus();
 	}, [ props.focus ] );
 
 	function moveDown(): void {
@@ -28,6 +28,6 @@ export function MoveDownButton( props ): JSX.Element {
 		onClick={ moveDown }
 		variant="primary"
 		record={ props.record }
-		ref={ ( el ) => ( buttonDownRef = el ) }
+		ref={ ref }
 	/>;
 }

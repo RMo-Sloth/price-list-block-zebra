@@ -1,13 +1,13 @@
-import { useEffect, useState } from '@wordpress/element';
+import { useEffect, useRef, useState } from '@wordpress/element';
 // @ts-ignore
 import css from './DescriptionInput.module.scss';
 
 export default function DescriptionInput( props ) {
-	let inputElement;
+	const ref = useRef<HTMLInputElement>( null );
 	const [ value, setValue ] = useState( props.value );
 
 	useEffect( () => {
-		if ( props.focus === true ) inputElement.select();
+		if ( props.focus === true ) ref.current.select();
 	}, [ props.focus ] );
 
 	useEffect( () => {
@@ -25,7 +25,7 @@ export default function DescriptionInput( props ) {
 				value={ value }
 				required
 				onChange={ onChange }
-				ref={ ( el ) => ( inputElement = el ) }
+				ref={ ref }
 			/>
 		</div>;
 

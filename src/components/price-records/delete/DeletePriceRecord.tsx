@@ -1,14 +1,14 @@
 import { Button } from '@wordpress/components';
-import { useEffect, useContext } from '@wordpress/element';
+import { useEffect, useContext, useRef } from '@wordpress/element';
 import { trash } from '@wordpress/icons';
 import PriceRecordContext from '../../../context/PriceRecordContext';
 
 function DeletePriceRecord( props ): JSX.Element {
-	let buttonRef;
+	const ref = useRef<HTMLButtonElement>( null );
 	const records = useContext( PriceRecordContext );
 
 	useEffect( () => {
-		if ( props.focus === true ) buttonRef.focus();
+		if ( props.focus === true ) ref.current.focus();
 	}, [ props.focus ] );
 
 	function remove(): void {
@@ -22,7 +22,7 @@ function DeletePriceRecord( props ): JSX.Element {
 			variant="primary"
 			isSmall
 			onClick={ remove }
-			ref={ ( ref ) => ( buttonRef = ref ) }
+			ref={ ref }
 			icon={ trash }
 		/>;
 }
