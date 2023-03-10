@@ -39,7 +39,7 @@
 	"name": "price-list-block-zebra/price-list-block-zebra",
 	"version": "1.0.0",
 	"title": "Price List",
-	"category": "widgets",
+	"category": "text", 
 	"icon": "editor-justify",
 	"description": "Create a price list.",
 	"supports": {
