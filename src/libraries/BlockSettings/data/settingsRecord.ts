@@ -6,7 +6,7 @@ export interface SettingsRecord {
 	order_items: boolean;
 }
 
-export class SettingsManager {
+export class BlockSettingsFunction {
 	static toggleSetting( 
 		settings: SettingsRecord, 
 		setting: 'add' | 'delete' | 'edit_description' | 'edit_price' | 'order_items' ) {

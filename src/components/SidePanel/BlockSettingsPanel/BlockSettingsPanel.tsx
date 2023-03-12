@@ -1,7 +1,7 @@
 import { Panel, PanelBody, PanelRow, CheckboxControl } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { SettingsManager, SettingsRecord } from '../../../libraries/BlockSettings/data/settingsRecord';
+import { BlockSettingsFunction, SettingsRecord } from '../../../libraries/BlockSettings/data/settingsRecord';
 
 type Props = {
 	settings: SettingsRecord,
@@ -16,7 +16,7 @@ export default function BlockSettingsPanel( { settings, onChange }: Props ): JSX
 	}, [ local_settings ] );
 
 	function toggleSetting( property: any ): void {
-		const new_settings = SettingsManager.toggleSetting( local_settings, property );
+		const new_settings = BlockSettingsFunction.toggleSetting( local_settings, property );
 		setSettings( new_settings );
 	}
 
