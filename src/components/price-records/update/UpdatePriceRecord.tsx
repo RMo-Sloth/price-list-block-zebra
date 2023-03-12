@@ -1,6 +1,6 @@
 // @ts-ignore
 import css from './UpdatePriceRecord.module.scss';
-import DeletePriceRecord from '../delete/DeletePriceRecord';
+import DeletePriceRecord from '../../../libraries/PriceRecord/components/delete/DeletePriceRecord';
 import OrderButton from './order-button/OrderButton';
 import DescriptionInput from './description-input/DescriptionInput';
 import PriceInput from './price-input/PriceInput';
