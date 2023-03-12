@@ -1,5 +1,5 @@
 import CreatePriceRecord from '../../libraries/PriceRecord/components/create/CreatePriceRecord';
-import UpdatePriceRecord from '../price-records/update/UpdatePriceRecord';
+import UpdatePriceRecord from '../../libraries/PriceRecord/components/update/UpdatePriceRecord';
 import { useContext, useEffect, useState } from '@wordpress/element';
 
 // @see https://developer.wordpress.org/block-editor/packages/packages-i18n/

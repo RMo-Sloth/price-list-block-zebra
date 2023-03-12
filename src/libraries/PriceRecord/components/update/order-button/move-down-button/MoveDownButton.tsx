@@ -3,8 +3,8 @@ import { Button } from '@wordpress/components';
 import style from '../OrderButton.module.scss'
 import { arrowDown } from '@wordpress/icons';
 import { useEffect, useContext, useRef } from '@wordpress/element';
-import PriceRecordContext from '../../../../../libraries/PriceRecord/data/PriceRecordContext';
-import { PriceRecordsFunctions } from '../../../../../libraries/PriceRecord/data/PriceRecordsFunctions';
+import PriceRecordContext from '../../../../data/PriceRecordContext';
+import { PriceRecordsFunctions } from '../../../../data/PriceRecordsFunctions';
 
 export function MoveDownButton( props ): JSX.Element {
 	const ref = useRef<HTMLButtonElement>( null );

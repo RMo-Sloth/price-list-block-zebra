@@ -1,13 +1,13 @@
 // @ts-ignore
 import css from './UpdatePriceRecord.module.scss';
-import DeletePriceRecord from '../../../libraries/PriceRecord/components/delete/DeletePriceRecord';
+import DeletePriceRecord from '../delete/DeletePriceRecord';
 import OrderButton from './order-button/OrderButton';
-import DescriptionInput from './description-input/DescriptionInput';
 import PriceInput from './price-input/PriceInput';
 import { useEffect, useState, useContext } from '@wordpress/element';
-import PriceRecordContext from '../../../libraries/PriceRecord/data/PriceRecordContext';
-import { SettingsRecord } from '../../../records/settingsRecord/settingsRecord';
-import { PriceRecord } from "../../../libraries/PriceRecord/data/priceRecord";
+import PriceRecordContext from '../../data/PriceRecordContext';
+import { SettingsRecord } from '../../../../records/settingsRecord/settingsRecord';
+import { PriceRecord } from "../../data/priceRecord";
+import DescriptionInput from './description-input/DescriptionInput';
 
 type Props = {
 	focus: boolean,
