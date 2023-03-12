@@ -1,5 +1,5 @@
 import { PriceRecord } from "../../libraries/PriceRecord/data/priceRecord";
-import ReadPriceRecord from '../price-records/read/ReadPriceRecord';
+import ReadPriceRecord from '../../libraries/PriceRecord/components/read/ReadPriceRecord';
 
 export default function PreviewInEditor( { attributes } ): JSX.Element {
 	return <div>

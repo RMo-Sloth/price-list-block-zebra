@@ -1,4 +1,4 @@
-import ReadPriceRecord from './components/price-records/read/ReadPriceRecord';
+import ReadPriceRecord from './libraries/PriceRecord/components/read/ReadPriceRecord';
 import { useBlockProps } from '@wordpress/block-editor';
 import { PriceRecord } from "./libraries/PriceRecord/data/priceRecord";
 
