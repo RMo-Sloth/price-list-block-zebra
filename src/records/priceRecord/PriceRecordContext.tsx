@@ -36,6 +36,7 @@ type Props = {
 export function PriceRecordContextProvider(props: Props): JSX.Element {
 
 	const [records, setRecords] = useState([...props.records]);
+	const context: PriceRecordContextAPI = { records, add, update, remove, move_down, move_up };
 
 	useEffect(() => {
 		props.on_update([...records]);
@@ -66,9 +67,5 @@ export function PriceRecordContextProvider(props: Props): JSX.Element {
 		setRecords(new_records);
 	}
 
-	return <PriceRecordContext.Provider
-		value={{ records, add, update, remove, move_down, move_up }}
-	>
-		{props.children}
-	</PriceRecordContext.Provider>;
+	return <PriceRecordContext.Provider value={ context } > {props.children} </PriceRecordContext.Provider>;
 }
