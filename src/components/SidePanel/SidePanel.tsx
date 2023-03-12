@@ -1,6 +1,6 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
-import { BlockSettingsRecord } from '../../libraries/BlockSettings/data/settingsRecord';
+import { BlockSettingsRecord } from '../../libraries/BlockSettings/data/BlockSettingsRecord';
 
 import BlockDevelopmentPanel from './BlockDevelopmentPanel/BlockDevelopmentPanel';
 import BlockSettingsPanel from './BlockSettingsPanel/BlockSettingsPanel';

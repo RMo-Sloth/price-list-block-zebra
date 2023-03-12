@@ -3,7 +3,7 @@ import { SidePanel } from './components/SidePanel/SidePanel';
 import { useBlockProps } from '@wordpress/block-editor';
 import { PriceRecordContextProvider } from './libraries/PriceRecord/data/PriceRecordsContext';
 import { PriceRecord } from "./libraries/PriceRecord/data/priceRecord";
-import { BlockSettingsRecord } from './libraries/BlockSettings/data/settingsRecord';
+import { BlockSettingsRecord } from './libraries/BlockSettings/data/BlockSettingsRecord';
 import SettingsContext from './libraries/PriceRecord/data/Settings/SettingsContext';
 import PreviewInEditor from './libraries/PriceRecord/components/PreviewInEditor';
 

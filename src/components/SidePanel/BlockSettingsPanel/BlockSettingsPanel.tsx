@@ -1,7 +1,7 @@
 import { Panel, PanelBody, PanelRow, CheckboxControl } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { BlockSettingsRecord } from '../../../libraries/BlockSettings/data/settingsRecord';
+import { BlockSettingsRecord } from '../../../libraries/BlockSettings/data/BlockSettingsRecord';
 import { BlockSettingsFunction } from "../../../libraries/BlockSettings/data/BlockSettingsFunction";
 
 type Props = {

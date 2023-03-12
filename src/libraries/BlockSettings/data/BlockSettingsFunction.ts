@@ -1,4 +1,4 @@
-import { BlockSettingsRecord } from "./settingsRecord";
+import { BlockSettingsRecord } from "./BlockSettingsRecord";
 
 
 export class BlockSettingsFunction {
