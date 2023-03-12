@@ -1,60 +1,73 @@
 import { createContext, useEffect, useState } from '@wordpress/element';
-import { PriceRecordManager } from '../records/priceRecord/priceRecord';
+import { PriceRecord, PriceRecordManager } from '../records/priceRecord/priceRecord';
 
-const PriceRecordContext = createContext( {
+interface PriceRecordContextAPI {
+	records: PriceRecord[];
+	/** Add a new record to the records stored in this Context. */
+	add: (record: PriceRecord) => void;
+	/** Replace a record in the records stored in this Context. */
+	update: (record: PriceRecord) => void;
+	/** Remove a record from the records stored in this Context. */
+	remove: (record: PriceRecord) => void;
+	/** Move down a record inside the records array stored in this Context. */
+	move_down: (record: PriceRecord) => void;
+	/** Move up a record inside the records array stored in this Context. */
+	move_up: (record: PriceRecord) => void;
+}
+
+const PriceRecordContext = createContext<PriceRecordContextAPI>({
 	records: [],
-	add: ( record ) => {},
-	update: ( record ) => {},
-	remove: ( record ) => {},
-	move_down: ( movingRecord ) => {},
-	move_up: ( movingRecord ) => {},
-	on_save: () => {},
-} );
+	add: (record) => { },
+	update: (record) => { },
+	remove: (record) => { },
+	move_down: (record) => { },
+	move_up: (record) => { },
+});
 export default PriceRecordContext;
 
-export function PriceRecordContextProvider( props ): JSX.Element {
-	const [ records, setRecords ] = useState( [ ...props.records ] );
 
-	useEffect( () => {
-		props.on_save( [ ...records ] );
-	}, [ records ] );
+type Props = {
+	children: JSX.Element,
+	records: PriceRecord[],
+	on_save: (records: PriceRecord[]) => void
+}
 
-	function add( record ) {
-		const new_records = PriceRecordManager.add( records, record );
-		setRecords( new_records );
+export function PriceRecordContextProvider(props: Props): JSX.Element {
+
+	const [records, setRecords] = useState([...props.records]);
+
+	useEffect(() => {
+		props.on_save([...records]);
+	}, [records]);
+
+	function add(record: PriceRecord): void {
+		const new_records = PriceRecordManager.add(records, record);
+		setRecords(new_records);
 	}
 
-	function update( updatedRecord ) {
-		const new_records = PriceRecordManager.update( records, updatedRecord )
-		setRecords( new_records );
+	function update(record: PriceRecord): void {
+		const new_records = PriceRecordManager.update(records, record)
+		setRecords(new_records);
 	}
 
-	function remove( removedRecord ) {
-		const new_records = PriceRecordManager.remove( records, removedRecord );
-		setRecords( new_records );
+	function remove(record: PriceRecord): void {
+		const new_records = PriceRecordManager.remove(records, record);
+		setRecords(new_records);
 	}
 
-	function moveDown( record ) {
-		const new_records = PriceRecordManager.moveDown( records, record )
-		setRecords( new_records );
+	function move_down(record: PriceRecord): void {
+		const new_records = PriceRecordManager.moveDown(records, record)
+		setRecords(new_records);
 	}
 
-	function moveUp( record ) {
-		const new_records = PriceRecordManager.moveUp( records, record )
-		setRecords( new_records );
+	function move_up(record: PriceRecord): void {
+		const new_records = PriceRecordManager.moveUp(records, record)
+		setRecords(new_records);
 	}
 
 	return <PriceRecordContext.Provider
-			value={ {
-				records,
-				add,
-				update,
-				remove,
-				move_down: moveDown,
-				move_up: moveUp,
-				on_save: undefined
-			} }
-		>
-			{ props.children }
-		</PriceRecordContext.Provider>;
+		value={{ records, add, update, remove, move_down, move_up }}
+	>
+		{props.children}
+	</PriceRecordContext.Provider>;
 }
