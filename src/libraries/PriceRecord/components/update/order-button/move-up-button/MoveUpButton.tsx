@@ -3,7 +3,7 @@ import { Button } from '@wordpress/components';
 import style from '../OrderButton.module.scss';
 import { arrowUp } from '@wordpress/icons';
 import { useContext } from '@wordpress/element';
-import PriceRecordContext from '../../../../data/PriceRecordContext';
+import PriceRecordContext from '../../../../data/PriceRecordsContext';
 import { PriceRecordsFunctions } from '../../../../data/PriceRecordsFunctions';
 
 export function MoveUpButton( props ): JSX.Element {

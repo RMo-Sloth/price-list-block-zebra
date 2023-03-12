@@ -2,7 +2,7 @@ import Edit from './components/edit/Edit';
 import PreviewInEditor from './components/edit/PreviewInEditor';
 import { SidePanel } from './components/SidePanel/SidePanel';
 import { useBlockProps } from '@wordpress/block-editor';
-import { PriceRecordContextProvider } from './libraries/PriceRecord/data/PriceRecordContext';
+import { PriceRecordContextProvider } from './libraries/PriceRecord/data/PriceRecordsContext';
 import { PriceRecord } from "./libraries/PriceRecord/data/priceRecord";
 import { SettingsRecord } from './records/settingsRecord/settingsRecord';
 
