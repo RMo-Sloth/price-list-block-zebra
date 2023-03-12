@@ -1,4 +1,4 @@
-import CreatePriceRecord from '../price-records/create/CreatePriceRecord';
+import CreatePriceRecord from '../../libraries/PriceRecord/components/create/CreatePriceRecord';
 import UpdatePriceRecord from '../price-records/update/UpdatePriceRecord';
 import { useContext, useEffect, useState } from '@wordpress/element';
 
