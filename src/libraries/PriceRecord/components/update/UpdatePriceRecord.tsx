@@ -14,58 +14,57 @@ type Props = {
 	record: PriceRecord
 };
 
-function UpdatePriceRecord( { focus, record }: Props ): JSX.Element {
-	const [ local_focus, setFocus ] = useState( null );
-	const records_context = useContext( PriceRecordContext );
-	const settings = useContext( SettingsContext );
+function UpdatePriceRecord({ focus, record }: Props): JSX.Element {
+	const [local_focus, setFocus] = useState(null);
+	const records_context = useContext(PriceRecordContext);
+	const settings = useContext(SettingsContext);
 
-	useEffect( setInitialFocus, [ focus ] );
+	useEffect(setInitialFocus, [focus]);
 
 	function setInitialFocus(): void {
-		if ( focus === false ) setFocus( null );
-		else if ( settings.order_items === true )
-			setFocus( 'order_button' );
-		else if ( settings.edit_description === true )
-			setFocus( 'description_input' );
-		else if ( settings.edit_price === true )
-			setFocus( 'price_input' );
-		else if ( settings.delete === true ) setFocus( 'delete_button' );
+		if (focus === false) setFocus(null);
+		else if (settings.order_items === true)
+			setFocus('order_button');
+		else if (settings.edit_description === true)
+			setFocus('description_input');
+		else if (settings.edit_price === true)
+			setFocus('price_input');
+		else if (settings.delete === true) setFocus('delete_button');
 	}
 
-	function updateName( value ): void {
-		if ( value === record.name ) return;
+	function updateName(value): void {
+		if (value === record.name) return;
 
-		records_context.update( { ...record, name: value } );
+		records_context.update({ ...record, name: value });
 	}
 
-	function updatePrice( value ) {
-		if ( value === record.price ) return;
+	function updatePrice(value) {
+		if (value === record.price) return;
 
-		records_context.update( { ...record, price: value } );
+		records_context.update({ ...record, price: value });
 	}
 
-	return <div className={ css[ 'update-price-record' ] }>
+	return <div className={css['update-price-record']}>
 		<OrderButton
-			display={ settings.order_items }
-			record={ record }
-			focus={ local_focus === 'order_button' }
+			record={record}
+			focus={local_focus === 'order_button'}
 		/>
 		<DescriptionInput
-			editable={ settings.edit_description }
-			value={ record.name }
-			onChange={ updateName }
-			focus={ local_focus === 'description_input' }
+			editable={settings.edit_description}
+			value={record.name}
+			onChange={updateName}
+			focus={local_focus === 'description_input'}
 		/>
 		<PriceInput
-			editable={ settings.edit_price }
-			record={ record }
-			onChange={ updatePrice }
-			focus={ local_focus === 'price_input' }
+			editable={settings.edit_price}
+			record={record}
+			onChange={updatePrice}
+			focus={local_focus === 'price_input'}
 		/>
 		<DeletePriceRecord
-			display={ settings.delete }
-			record={ record }
-			focus={ local_focus === 'delete_button' }
+			display={settings.delete}
+			record={record}
+			focus={local_focus === 'delete_button'}
 		/>
 	</div>;
 }
