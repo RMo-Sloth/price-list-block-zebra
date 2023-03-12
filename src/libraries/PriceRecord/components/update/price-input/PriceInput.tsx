@@ -1,18 +1,20 @@
 // @ts-ignore
 import css from './PriceInput.module.scss';
-import { useState, useEffect, useRef } from '@wordpress/element';
+import { useState, useEffect, useRef, useContext } from '@wordpress/element';
 import { PriceRecord } from "../../../data/priceRecord";
+import SettingsContext from '../../../data/Settings/SettingsContext';
 
 type Props = {
 	focus: boolean, 
 	record: PriceRecord, 
-	editable: boolean, 
 	onChange: ( value: string ) => void  
 };
 
-export default function PriceInput( { focus, record, editable, onChange }: Props ): JSX.Element {
+export default function PriceInput( { focus, record, onChange }: Props ): JSX.Element {
 	const ref = useRef<HTMLInputElement>( null );
 	const [ value, setValue ] = useState( record.price.toString() );
+	const settings = useContext(SettingsContext);
+
 
 	useEffect( () => {
 		onChange( Number( value ).toFixed( 2 ) );
@@ -30,7 +32,7 @@ export default function PriceInput( { focus, record, editable, onChange }: Props
 		setValue( Number( event.target.value ).toFixed( 2 ) );
 	}
 
-	if ( editable )
+	if ( settings.edit_price )
 		return <div className={ css.price }>
 			<input
 				type="number"
