@@ -1,6 +1,6 @@
 import { PriceRecord } from "./priceRecord";
 
-export interface PriceRecordContextAPI {
+export interface PriceRecordsContextAPI {
 	/** The state supplied by the Context */
 	records: PriceRecord[];
 	

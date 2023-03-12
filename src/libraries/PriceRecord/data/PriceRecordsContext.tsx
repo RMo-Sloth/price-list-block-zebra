@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from '@wordpress/element';
 import { PriceRecordsFunctions } from './PriceRecordsFunctions';
 import { PriceRecord } from "./priceRecord";
-import { PriceRecordContextAPI } from './PriceRecordContextAPI';
+import { PriceRecordsContextAPI } from './PriceRecordContextAPI';
 
-const PriceRecordsContext = createContext<PriceRecordContextAPI>({
+const PriceRecordsContext = createContext<PriceRecordsContextAPI>({
 	records: [],
 	add: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
 	update: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
@@ -23,7 +23,7 @@ type Props = {
 export function PriceRecordContextProvider(props: Props): JSX.Element {
 
 	const [records, setRecords] = useState([...props.records]);
-	const context: PriceRecordContextAPI = { records, add, update, remove, move_down, move_up };
+	const context: PriceRecordsContextAPI = { records, add, update, remove, move_down, move_up };
 
 	useEffect(() => {
 		props.on_update([...records]);
