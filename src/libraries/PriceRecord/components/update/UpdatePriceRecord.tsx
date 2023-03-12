@@ -50,7 +50,6 @@ function UpdatePriceRecord({ focus, record }: Props): JSX.Element {
 			focus={local_focus === 'order_button'}
 		/>
 		<DescriptionInput
-			editable={settings.edit_description}
 			value={record.name}
 			onChange={updateName}
 			focus={local_focus === 'description_input'}
