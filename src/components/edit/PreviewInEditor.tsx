@@ -1,9 +1,12 @@
 import { PriceRecord } from "../../libraries/PriceRecord/data/priceRecord";
 import ReadPriceRecord from '../../libraries/PriceRecord/components/read/ReadPriceRecord';
+import { useContext } from "@wordpress/element";
+import PriceRecordsContext from "../../libraries/PriceRecord/data/PriceRecordsContext";
 
-export default function PreviewInEditor( { attributes } ): JSX.Element {
+export default function PreviewInEditor(): JSX.Element {
+	const price_records_context = useContext( PriceRecordsContext );
 	return <div>
-		{ attributes.price_records.map( ( record: PriceRecord ) => (
+		{ price_records_context.records.map( ( record: PriceRecord ) => (
 			<ReadPriceRecord key={ record.index } record={ record } />
 		) ) }
 	</div>;
