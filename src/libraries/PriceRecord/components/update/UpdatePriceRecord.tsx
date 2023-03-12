@@ -1,6 +1,6 @@
 // @ts-ignore
 import css from './UpdatePriceRecord.module.scss';
-import DeletePriceRecord from '../delete/DeletePriceRecord';
+import DeletePriceRecord from './delete/DeletePriceRecord';
 import OrderButton from './order-button/OrderButton';
 import PriceInput from './price-input/PriceInput';
 import { useEffect, useState, useContext } from '@wordpress/element';
