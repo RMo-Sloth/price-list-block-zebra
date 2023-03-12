@@ -18,7 +18,7 @@ export default function Editor( props: any ): JSX.Element {
 	}
 
 	return <div { ...useBlockProps() }>
-		<PriceRecordContextProvider records={ props.attributes.price_records } on_save={ updateRecords } >
+		<PriceRecordContextProvider records={ props.attributes.price_records } on_update={ updateRecords } >
 			{ is_editable ? <Edit { ...props } /> : <PreviewInEditor { ...props } /> }
 		</PriceRecordContextProvider>
 		<SidePanel settings={ props.attributes.settings } onChange={ updateSettings } />

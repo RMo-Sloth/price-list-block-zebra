@@ -29,7 +29,7 @@ export default PriceRecordContext;
 type Props = {
 	children: JSX.Element,
 	records: PriceRecord[],
-	on_save: (records: PriceRecord[]) => void
+	on_update: (records: PriceRecord[]) => void
 }
 
 export function PriceRecordContextProvider(props: Props): JSX.Element {
@@ -37,7 +37,7 @@ export function PriceRecordContextProvider(props: Props): JSX.Element {
 	const [records, setRecords] = useState([...props.records]);
 
 	useEffect(() => {
-		props.on_save([...records]);
+		props.on_update([...records]);
 	}, [records]);
 
 	function add(record: PriceRecord): void {
