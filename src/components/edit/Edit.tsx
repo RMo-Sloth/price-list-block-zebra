@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 // @ts-ignore
 import style from './editor.module.scss';
-import PriceRecordContext from '../../context/PriceRecordContext';
+import PriceRecordContext from '../../records/priceRecord/PriceRecordContext';
 import { PriceRecord } from '../../records/priceRecord/priceRecord';
 
 export default function Edit( { attributes } ): JSX.Element {

@@ -1,7 +1,7 @@
 // @ts-ignore
 import style from './OrderButton.module.scss';
 import { useContext } from '@wordpress/element';
-import PriceRecordContext from '../../../../context/PriceRecordContext';
+import PriceRecordContext from '../../../../records/priceRecord/PriceRecordContext';
 import { MoveDownButton } from './move-down-button/MoveDownButton';
 import { MoveUpButton } from './move-up-button/MoveUpButton';
 import { PriceRecord } from '../../../../records/priceRecord/priceRecord';

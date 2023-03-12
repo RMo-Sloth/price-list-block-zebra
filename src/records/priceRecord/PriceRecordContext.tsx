@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from '@wordpress/element';
-import { PriceRecord, PriceRecordManager } from '../records/priceRecord/priceRecord';
+import { PriceRecord, PriceRecordManager } from './priceRecord';
 
 interface PriceRecordContextAPI {
 	records: PriceRecord[];
