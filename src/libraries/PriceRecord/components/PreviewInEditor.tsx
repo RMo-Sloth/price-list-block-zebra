@@ -1,7 +1,8 @@
-import { PriceRecord } from "../../libraries/PriceRecord/data/priceRecord";
-import ReadPriceRecord from '../../libraries/PriceRecord/components/read/ReadPriceRecord';
 import { useContext } from "@wordpress/element";
-import PriceRecordsContext from "../../libraries/PriceRecord/data/PriceRecordsContext";
+import { PriceRecord } from "../data/priceRecord";
+import PriceRecordsContext from "../data/PriceRecordsContext";
+import ReadPriceRecord from "./read/ReadPriceRecord";
+
 
 export default function PreviewInEditor(): JSX.Element {
 	const price_records_context = useContext( PriceRecordsContext );

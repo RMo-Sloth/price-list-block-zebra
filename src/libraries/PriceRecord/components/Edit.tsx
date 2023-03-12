@@ -2,11 +2,11 @@ import { useContext, useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 // @ts-ignore
 import style from './editor.module.scss';
-import PriceRecordContext from '../../libraries/PriceRecord/data/PriceRecordsContext';
-import SettingsContext from '../../libraries/PriceRecord/data/Settings/SettingsContext';
-import { PriceRecord } from "../../libraries/PriceRecord/data/priceRecord";
-import CreatePriceRecord from '../../libraries/PriceRecord/components/create/CreatePriceRecord';
-import UpdatePriceRecord from '../../libraries/PriceRecord/components/update/UpdatePriceRecord';
+import PriceRecordContext from '../data/PriceRecordsContext';
+import SettingsContext from '../data/Settings/SettingsContext';
+import { PriceRecord } from "../data/priceRecord";
+import CreatePriceRecord from './create/CreatePriceRecord';
+import UpdatePriceRecord from './update/UpdatePriceRecord';
 
 export default function Edit(): JSX.Element {
 	const [focusData, setFocusData] = useState({

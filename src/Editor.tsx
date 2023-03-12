@@ -1,11 +1,11 @@
-import Edit from './components/edit/Edit';
-import PreviewInEditor from './components/edit/PreviewInEditor';
+import Edit from './libraries/PriceRecord/components/Edit';
 import { SidePanel } from './components/SidePanel/SidePanel';
 import { useBlockProps } from '@wordpress/block-editor';
 import { PriceRecordContextProvider } from './libraries/PriceRecord/data/PriceRecordsContext';
 import { PriceRecord } from "./libraries/PriceRecord/data/priceRecord";
 import { SettingsRecord } from './records/settingsRecord/settingsRecord';
 import SettingsContext from './libraries/PriceRecord/data/Settings/SettingsContext';
+import PreviewInEditor from './libraries/PriceRecord/components/PreviewInEditor';
 
 export default function Editor(props: any): JSX.Element {
 	const is_editable: boolean = props.isSelected || props.attributes.price_records.length === 0;
