@@ -3,7 +3,7 @@ import { useState, useContext, useRef } from '@wordpress/element';
 // @ts-ignore
 import css from './CreatePriceRecord.module.scss';
 import { plus } from '@wordpress/icons';
-import PriceRecordContext from '../../../records/priceRecord/PriceRecordContext';
+import PriceRecordContext from '../../../libraries/PriceRecord/data/PriceRecordContext';
 
 function CreatePriceRecord(): JSX.Element {
 	const [ record, setRecord ] = useState( { name: '', price: '' } );

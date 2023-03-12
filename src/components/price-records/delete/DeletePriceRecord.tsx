@@ -1,7 +1,7 @@
 import { Button } from '@wordpress/components';
 import { useEffect, useContext, useRef } from '@wordpress/element';
 import { trash } from '@wordpress/icons';
-import PriceRecordContext from '../../../records/priceRecord/PriceRecordContext';
+import PriceRecordContext from '../../../libraries/PriceRecord/data/PriceRecordContext';
 
 function DeletePriceRecord( props ): JSX.Element {
 	const ref = useRef<HTMLButtonElement>( null );

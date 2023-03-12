@@ -1,4 +1,4 @@
-import { PriceRecord } from "../../../../records/priceRecord/PriceRecord";
+import { PriceRecord } from "../../../../libraries/PriceRecord/data/priceRecord";
 // @ts-ignore
 import css from '../style.module.scss';
 

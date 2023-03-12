@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from '@wordpress/element';
 import { PriceRecordsFunctions } from './PriceRecordsFunctions';
-import { PriceRecord } from "./PriceRecord";
+import { PriceRecord } from "./priceRecord";
 import { PriceRecordContextAPI } from './PriceRecordContextAPI';
 
 const PriceRecordContext = createContext<PriceRecordContextAPI>({
