@@ -40,7 +40,6 @@ export default function Edit(): JSX.Element {
 			key={record.index}
 			focus={focusData.initial_first_record === record.index && focusData.focus_on === 'record'}
 			record={record}
-			settings={settings}
 		/>)}
 
 		{settings.add && <CreatePriceRecord />}
