@@ -3,7 +3,7 @@ import { PriceRecordsFunctions } from './PriceRecordsFunctions';
 import { PriceRecord } from "./priceRecord";
 import { PriceRecordContextAPI } from './PriceRecordContextAPI';
 
-const PriceRecordContext = createContext<PriceRecordContextAPI>({
+const PriceRecordsContext = createContext<PriceRecordContextAPI>({
 	records: [],
 	add: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
 	update: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
@@ -11,7 +11,7 @@ const PriceRecordContext = createContext<PriceRecordContextAPI>({
 	move_down: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
 	move_up: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
 });
-export default PriceRecordContext;
+export default PriceRecordsContext;
 
 
 type Props = {
@@ -54,5 +54,5 @@ export function PriceRecordContextProvider(props: Props): JSX.Element {
 		setRecords(new_records);
 	}
 
-	return <PriceRecordContext.Provider value={ context } > {props.children} </PriceRecordContext.Provider>;
+	return <PriceRecordsContext.Provider value={ context } > {props.children} </PriceRecordsContext.Provider>;
 }
