@@ -5,14 +5,14 @@ import PriceRecordContext from '../../data/PriceRecordsContext';
 
 function DeletePriceRecord( props ): JSX.Element {
 	const ref = useRef<HTMLButtonElement>( null );
-	const records = useContext( PriceRecordContext );
+	const records_context = useContext( PriceRecordContext );
 
 	useEffect( () => {
 		if ( props.focus === true ) ref.current.focus();
 	}, [ props.focus ] );
 
 	function remove(): void {
-		records.remove( props.record );
+		records_context.remove( props.record );
 	}
 
 	if ( ! props.display ) return null; // Do not render component
