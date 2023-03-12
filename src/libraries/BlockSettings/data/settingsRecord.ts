@@ -1,4 +1,4 @@
-export interface SettingsRecord {
+export interface BlockSettingsRecord {
 	add: boolean;
 	delete: boolean;
 	edit_description: boolean;

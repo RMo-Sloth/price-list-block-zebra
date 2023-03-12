@@ -3,14 +3,14 @@ import { SidePanel } from './components/SidePanel/SidePanel';
 import { useBlockProps } from '@wordpress/block-editor';
 import { PriceRecordContextProvider } from './libraries/PriceRecord/data/PriceRecordsContext';
 import { PriceRecord } from "./libraries/PriceRecord/data/priceRecord";
-import { SettingsRecord } from './libraries/BlockSettings/data/settingsRecord';
+import { BlockSettingsRecord } from './libraries/BlockSettings/data/settingsRecord';
 import SettingsContext from './libraries/PriceRecord/data/Settings/SettingsContext';
 import PreviewInEditor from './libraries/PriceRecord/components/PreviewInEditor';
 
 export default function Editor(props: any): JSX.Element {
 	const is_editable: boolean = props.isSelected || props.attributes.price_records.length === 0;
 
-	function updateSettings(settings: SettingsRecord): void {
+	function updateSettings(settings: BlockSettingsRecord): void {
 		props.setAttributes({ ...props.attributes, settings });
 	}
 

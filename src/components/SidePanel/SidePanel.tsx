@@ -1,13 +1,13 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
-import { SettingsRecord } from '../../libraries/BlockSettings/data/settingsRecord';
+import { BlockSettingsRecord } from '../../libraries/BlockSettings/data/settingsRecord';
 
 import BlockDevelopmentPanel from './BlockDevelopmentPanel/BlockDevelopmentPanel';
 import BlockSettingsPanel from './BlockSettingsPanel/BlockSettingsPanel';
 
 type Props = {
-	settings: SettingsRecord,
-	onChange: ( settings: SettingsRecord ) => void
+	settings: BlockSettingsRecord,
+	onChange: ( settings: BlockSettingsRecord ) => void
 }
 
 export function SidePanel( { settings, onChange }: Props ): JSX.Element {

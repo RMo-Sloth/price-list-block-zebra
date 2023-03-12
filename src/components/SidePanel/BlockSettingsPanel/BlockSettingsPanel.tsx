@@ -1,12 +1,12 @@
 import { Panel, PanelBody, PanelRow, CheckboxControl } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { SettingsRecord } from '../../../libraries/BlockSettings/data/settingsRecord';
+import { BlockSettingsRecord } from '../../../libraries/BlockSettings/data/settingsRecord';
 import { BlockSettingsFunction } from "../../../libraries/BlockSettings/data/BlockSettingsFunction";
 
 type Props = {
-	settings: SettingsRecord,
-	onChange: ( property: SettingsRecord ) => void
+	settings: BlockSettingsRecord,
+	onChange: ( property: BlockSettingsRecord ) => void
 }
 
 export default function BlockSettingsPanel( { settings, onChange }: Props ): JSX.Element {
