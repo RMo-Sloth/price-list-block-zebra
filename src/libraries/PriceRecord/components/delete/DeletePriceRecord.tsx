@@ -17,7 +17,7 @@ function DeletePriceRecord(props): JSX.Element {
 		records_context.remove(props.record);
 	}
 
-	return !settings.delete && <Button
+	return settings.delete && <Button
 		isDestructive
 		variant="primary"
 		isSmall
