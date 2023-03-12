@@ -6,17 +6,17 @@ import { plus } from '@wordpress/icons';
 import PriceRecordContext from '../../data/PriceRecordsContext';
 
 function CreatePriceRecord(): JSX.Element {
-	const [ record, setRecord ] = useState( { name: '', price: '' } );
+	const [ record, setRecord ] = useState( { name: '', price: '', index: null } );
 	const ref = useRef<HTMLInputElement>( null );
 	const records = useContext( PriceRecordContext );
 
 	function resetRecord(): void {
-		setRecord( { name: '', price: '' } );
+		setRecord( { name: '', price: '',  index: null } );
 		ref.current.focus();
 	}
 
 	function add(): void {
-		const price = Number( record.price ).toFixed( 2 );
+		const price = +Number( record.price ).toFixed( 2 );
 		records.add( { ...record, price } );
 		resetRecord();
 	}
