@@ -5,11 +5,11 @@ import { PriceRecordContextAPI } from './PriceRecordContextAPI';
 
 const PriceRecordContext = createContext<PriceRecordContextAPI>({
 	records: [],
-	add: (record) => { },
-	update: (record) => { },
-	remove: (record) => { },
-	move_down: (record) => { },
-	move_up: (record) => { },
+	add: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
+	update: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
+	remove: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
+	move_down: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
+	move_up: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
 });
 export default PriceRecordContext;
 
