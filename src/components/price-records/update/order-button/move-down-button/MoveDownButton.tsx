@@ -4,7 +4,7 @@ import style from '../OrderButton.module.scss'
 import { arrowDown } from '@wordpress/icons';
 import { useEffect, useContext, useRef } from '@wordpress/element';
 import PriceRecordContext from '../../../../../records/priceRecord/PriceRecordContext';
-import { PriceRecordsFunctions } from '../../../../../records/priceRecord/priceRecord';
+import { PriceRecordsFunctions } from '../../../../../records/priceRecord/PriceRecordsFunctions';
 
 export function MoveDownButton( props ): JSX.Element {
 	const ref = useRef<HTMLButtonElement>( null );

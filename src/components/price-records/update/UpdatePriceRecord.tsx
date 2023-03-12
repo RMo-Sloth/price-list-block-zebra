@@ -7,7 +7,7 @@ import PriceInput from './price-input/PriceInput';
 import { useEffect, useState, useContext } from '@wordpress/element';
 import PriceRecordContext from '../../../records/priceRecord/PriceRecordContext';
 import { SettingsRecord } from '../../../records/settingsRecord/settingsRecord';
-import { PriceRecord } from '../../../records/priceRecord/priceRecord';
+import { PriceRecord } from '../../../records/priceRecord/PriceRecordsFunctions';
 
 type Props = {
 	focus: boolean,

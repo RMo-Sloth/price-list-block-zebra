@@ -1,7 +1,7 @@
 // @ts-ignore
 import css from './PriceInput.module.scss';
 import { useState, useEffect, useRef } from '@wordpress/element';
-import { PriceRecord } from '../../../../records/priceRecord/priceRecord';
+import { PriceRecord } from '../../../../records/priceRecord/PriceRecordsFunctions';
 
 type Props = {
 	focus: boolean, 

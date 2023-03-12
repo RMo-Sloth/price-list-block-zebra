@@ -2,7 +2,7 @@
 // @ts-ignore
 import css from './style.module.scss';
 
-import { PriceRecord } from '../../../records/priceRecord/priceRecord';
+import { PriceRecord } from '../../../records/priceRecord/PriceRecordsFunctions';
 import { WrappedWords } from './WrappedWords/WrappedWords';
 
 function ReadPriceRecord( { record }: { record: PriceRecord } ): JSX.Element {

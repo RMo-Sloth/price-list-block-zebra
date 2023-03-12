@@ -4,7 +4,7 @@ import style from '../OrderButton.module.scss';
 import { arrowUp } from '@wordpress/icons';
 import { useContext } from '@wordpress/element';
 import PriceRecordContext from '../../../../../records/priceRecord/PriceRecordContext';
-import { PriceRecordsFunctions } from '../../../../../records/priceRecord/priceRecord';
+import { PriceRecordsFunctions } from '../../../../../records/priceRecord/PriceRecordsFunctions';
 
 export function MoveUpButton( props ): JSX.Element {
 	const records_context = useContext( PriceRecordContext );

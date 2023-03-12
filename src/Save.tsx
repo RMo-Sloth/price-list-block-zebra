@@ -1,6 +1,6 @@
 import ReadPriceRecord from './components/price-records/read/ReadPriceRecord';
 import { useBlockProps } from '@wordpress/block-editor';
-import { PriceRecord } from './records/priceRecord/priceRecord';
+import { PriceRecord } from './records/priceRecord/PriceRecordsFunctions';
 
 export default function Save( { attributes } ): JSX.Element {
 	return <div { ...useBlockProps.save() }>
