@@ -4,15 +4,15 @@ import style from '../OrderButton.module.scss'
 import { arrowDown } from '@wordpress/icons';
 import { useEffect, useContext, useRef } from '@wordpress/element';
 import PriceRecordContext from '../../../../../records/priceRecord/PriceRecordContext';
-import { PriceRecordManager } from '../../../../../records/priceRecord/priceRecord';
+import { PriceRecordsFunctions } from '../../../../../records/priceRecord/priceRecord';
 
 export function MoveDownButton( props ): JSX.Element {
 	const ref = useRef<HTMLButtonElement>( null );
 	const records_context = useContext( PriceRecordContext );
-	const is_last = PriceRecordManager.isLast( records_context.records, props.record );
+	const is_last = PriceRecordsFunctions.isLast( records_context.records, props.record );
 	
 	useEffect( () => {
-		if ( props.focus && ! PriceRecordManager.isLast( records_context.records, props.record ) )
+		if ( props.focus && ! PriceRecordsFunctions.isLast( records_context.records, props.record ) )
 			ref.current.focus();
 	}, [ props.focus ] );
 

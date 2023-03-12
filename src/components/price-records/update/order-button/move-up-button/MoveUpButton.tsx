@@ -4,11 +4,11 @@ import style from '../OrderButton.module.scss';
 import { arrowUp } from '@wordpress/icons';
 import { useContext } from '@wordpress/element';
 import PriceRecordContext from '../../../../../records/priceRecord/PriceRecordContext';
-import { PriceRecordManager } from '../../../../../records/priceRecord/priceRecord';
+import { PriceRecordsFunctions } from '../../../../../records/priceRecord/priceRecord';
 
 export function MoveUpButton( props ): JSX.Element {
 	const records_context = useContext( PriceRecordContext );
-	const is_first: boolean = PriceRecordManager.isFirst( records_context.records, props.record );
+	const is_first: boolean = PriceRecordsFunctions.isFirst( records_context.records, props.record );
 
 	function moveUp(): void {
 		records_context.move_up( props.record );

@@ -4,9 +4,9 @@ export interface PriceRecord {
 	index: number;
 }
 
-export class PriceRecordManager {
+export class PriceRecordsFunctions {
 	static add( records: PriceRecord[], record: PriceRecord ): PriceRecord[] {
-		const enhancedRecord = { ...record, index: PriceRecordManager.latestId( records ) + 1 };
+		const enhancedRecord = { ...record, index: PriceRecordsFunctions.latestId( records ) + 1 };
 		return [ ...records, enhancedRecord ];
 	}
 
@@ -20,11 +20,11 @@ export class PriceRecordManager {
 	}
 
 	static isFirst( records: PriceRecord[], record: PriceRecord ): boolean {
-		return PriceRecordManager.indexOf( records, record ) === 0;
+		return PriceRecordsFunctions.indexOf( records, record ) === 0;
 	}
 
 	static isLast( records: PriceRecord[], record: PriceRecord ): boolean {
-		return PriceRecordManager.indexOf( records, record ) + 1 === records.length;
+		return PriceRecordsFunctions.indexOf( records, record ) + 1 === records.length;
 	}
 
 	static remove( records: PriceRecord[], removed_record: PriceRecord ): PriceRecord[] {
@@ -34,13 +34,13 @@ export class PriceRecordManager {
 	}
 
 	static moveDown( records: PriceRecord[], record: PriceRecord ): PriceRecord[] {
-		const index = PriceRecordManager.indexOf( records, record );
-		return PriceRecordManager.swapPlaces( records, index, index + 1 );
+		const index = PriceRecordsFunctions.indexOf( records, record );
+		return PriceRecordsFunctions.swapPlaces( records, index, index + 1 );
 	}
 
 	static moveUp( records: PriceRecord[], record: PriceRecord ): PriceRecord[] {
-		const index = PriceRecordManager.indexOf( records, record );
-		return PriceRecordManager.swapPlaces( records, index, index - 1 );
+		const index = PriceRecordsFunctions.indexOf( records, record );
+		return PriceRecordsFunctions.swapPlaces( records, index, index - 1 );
 	}
 
 	private static indexOf( records: PriceRecord[], targetRecord: PriceRecord ): number {
