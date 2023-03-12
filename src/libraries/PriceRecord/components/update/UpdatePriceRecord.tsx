@@ -17,7 +17,7 @@ type Props = {
 
 function UpdatePriceRecord( { focus, settings, record }: Props ): JSX.Element {
 	const [ local_focus, setFocus ] = useState( null );
-	const records = useContext( PriceRecordContext );
+	const records_context = useContext( PriceRecordContext );
 
 	useEffect( setInitialFocus, [ focus ] );
 
@@ -35,13 +35,13 @@ function UpdatePriceRecord( { focus, settings, record }: Props ): JSX.Element {
 	function updateName( value ): void {
 		if ( value === record.name ) return;
 
-		records.update( { ...record, name: value } );
+		records_context.update( { ...record, name: value } );
 	}
 
 	function updatePrice( value ) {
 		if ( value === record.price ) return;
 
-		records.update( { ...record, price: value } );
+		records_context.update( { ...record, price: value } );
 	}
 
 	return <div className={ css[ 'update-price-record' ] }>
