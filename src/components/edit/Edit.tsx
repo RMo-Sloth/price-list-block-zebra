@@ -7,7 +7,7 @@ import { __ } from '@wordpress/i18n';
 // @ts-ignore
 import style from './editor.module.scss';
 import PriceRecordContext from '../../records/priceRecord/PriceRecordContext';
-import { PriceRecord } from '../../records/priceRecord/PriceRecordsFunctions';
+import { PriceRecord } from "../../records/priceRecord/PriceRecord";
 
 export default function Edit( { attributes } ): JSX.Element {
 	const [ focusData, setFocusData ] = useState( {

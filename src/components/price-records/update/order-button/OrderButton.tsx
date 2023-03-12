@@ -4,7 +4,7 @@ import { useContext } from '@wordpress/element';
 import PriceRecordContext from '../../../../records/priceRecord/PriceRecordContext';
 import { MoveDownButton } from './move-down-button/MoveDownButton';
 import { MoveUpButton } from './move-up-button/MoveUpButton';
-import { PriceRecord } from '../../../../records/priceRecord/PriceRecordsFunctions';
+import { PriceRecord } from "../../../../records/priceRecord/PriceRecord";
 
 export default function OrderButton( { focus, display, record }: { focus: boolean, display: boolean, record: PriceRecord } ): JSX.Element {
 	const records_context = useContext( PriceRecordContext );

@@ -3,7 +3,7 @@ import PreviewInEditor from './components/edit/PreviewInEditor';
 import { SidePanel } from './components/SidePanel/SidePanel';
 import { useBlockProps } from '@wordpress/block-editor';
 import { PriceRecordContextProvider } from './records/priceRecord/PriceRecordContext';
-import { PriceRecord } from './records/priceRecord/PriceRecordsFunctions';
+import { PriceRecord } from "./records/priceRecord/PriceRecord";
 import { SettingsRecord } from './records/settingsRecord/settingsRecord';
 
 export default function Editor( props: any ): JSX.Element {

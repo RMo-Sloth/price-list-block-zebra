@@ -1,8 +1,4 @@
-export interface PriceRecord {
-	name: string;
-	price: number;
-	index: number;
-}
+import { PriceRecord } from "./PriceRecord";
 
 export class PriceRecordsFunctions {
 	static add( records: PriceRecord[], record: PriceRecord ): PriceRecord[] {
