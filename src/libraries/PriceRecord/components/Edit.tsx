@@ -26,6 +26,9 @@ export default function Edit(): JSX.Element {
 			focus_context.setFocusEvent({ name: 'select_price', options: { record_index: price_records_context.records[0].index } });
 		else if (settings.delete)
 			focus_context.setFocusEvent({ name: 'focus_delete', options: { record_index: price_records_context.records[0].index } });
+		else if (settings.add)
+			focus_context.setFocusEvent({ name: 'select_new_record', options: null });
+
 	}, []);
 
 	return <div>
