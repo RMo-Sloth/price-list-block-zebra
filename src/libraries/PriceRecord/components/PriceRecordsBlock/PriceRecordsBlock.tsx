@@ -4,6 +4,7 @@ import { PriceRecordContextProvider } from "../../data/PriceRecord/PriceRecordsC
 import SettingsContext from "../../data/Settings/SettingsContext";
 import { SettingsRecord } from "../../data/Settings/SettingsRecord";
 import { PriceRecord } from "../../data/PriceRecord/PriceRecord";
+import { FocusContextProvider } from "../../data/Focus/FocusContext";
 
 type Props = {
 	isSelected: boolean,
@@ -17,7 +18,9 @@ export function PriceRecordsBlock({ isSelected, price_records, settings, onChang
 
 	return <PriceRecordContextProvider records={price_records} on_update={onChange} >
 		<SettingsContext.Provider value={settings}>
+		<FocusContextProvider>
 			{is_editable ? <Edit /> : <PreviewInEditor />}
+		</FocusContextProvider>
 		</SettingsContext.Provider>
 	</PriceRecordContextProvider>
 }
