@@ -14,7 +14,7 @@ export default function Editor(props: any): JSX.Element {
 	}
 
 	return <div {...useBlockProps()}>
-		<PriceRecordsBlock {...props} onChange={updateRecords} />
+		<PriceRecordsBlock settings={props.attributes.settings} price_records={props.attributes.price_records} isSelected={props.isSelected} onChange={updateRecords} />
 		<SidePanel settings={props.attributes.settings} onChange={updateSettings} />
 	</div>;
 }
