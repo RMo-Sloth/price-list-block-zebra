@@ -7,7 +7,7 @@ import { MoveUpButton } from './move-up-button/MoveUpButton';
 import { PriceRecord } from "../../../data/PriceRecord/PriceRecord";
 import SettingsContext from '../../../data/Settings/SettingsContext';
 
-export default function OrderButton({ focus, record }: { focus: boolean, record: PriceRecord }): JSX.Element {
+export default function OrderButton({ record }: { record: PriceRecord }): JSX.Element {
 	const records_context = useContext(PriceRecordContext);
 	const settings = useContext(SettingsContext);
 
@@ -15,7 +15,7 @@ export default function OrderButton({ focus, record }: { focus: boolean, record:
 	if (records_context.records.length <= 1) return null; // Aborts code, returns nothing
 
 	return <div className={style.order_button}>
-		<MoveUpButton focus={focus} record={record} />
+		<MoveUpButton record={record} />
 		<MoveDownButton record={record} />
 	</div>;
 }

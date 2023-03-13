@@ -47,12 +47,10 @@ function UpdatePriceRecord({ focus, record }: Props): JSX.Element {
 	return <div className={css['update-price-record']}>
 		<OrderButton
 			record={record}
-			focus={local_focus === 'order_button'}
 		/>
 		<DescriptionInput
-			value={record.name}
+			record={record}
 			onChange={updateName}
-			focus={local_focus === 'description_input'}
 		/>
 		<PriceInput
 			record={record}
