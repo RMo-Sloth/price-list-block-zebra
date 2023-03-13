@@ -7,29 +7,32 @@ import PriceRecordContext from '../../../../data/PriceRecord/PriceRecordsContext
 import { PriceRecordsFunctions } from '../../../../data/PriceRecord/PriceRecordsFunctions';
 import FocusContext from '../../../../data/Focus/FocusContext';
 
-export function MoveDownButton( props ): JSX.Element {
-	const ref = useRef<HTMLButtonElement>( null );
-	const records_context = useContext( PriceRecordContext );
-	const { focusEvent } = useContext(FocusContext);
-	const is_last = PriceRecordsFunctions.isLast( records_context.records, props.record );
+export function MoveDownButton(props): JSX.Element {
+	const ref = useRef<HTMLButtonElement>(null);
+	const records_context = useContext(PriceRecordContext);
+	const { focusEvent, setFocusEvent } = useContext(FocusContext);
+	const is_last = PriceRecordsFunctions.isLast(records_context.records, props.record);
 
-	useEffect( () => {
-		if( focusEvent.name === 'focus_move_down' && focusEvent.options.record_index === props.record.index )
+	useEffect(() => {
+		if (focusEvent.name === 'focus_move_down' && focusEvent.options.record_index === props.record.index)
 			ref.current.focus();
 	}, [focusEvent]);
 
 	function moveDown(): void {
-		records_context.move_down( props.record );
+		if (records_context.records.indexOf(props.record) === records_context.records.length - 2)
+			setFocusEvent({ name: 'focus_move_up', options: { record_index: props.record.index } });
+
+		records_context.move_down(props.record);
 	}
 
 	return <Button
-		className={ is_last ? style.arrow_down_placeholder : style.arrow_down }
-		disabled={ is_last }
-		icon={ arrowDown }
+		className={is_last ? style.arrow_down_placeholder : style.arrow_down}
+		disabled={is_last}
+		icon={arrowDown}
 		isSmall
-		onClick={ moveDown }
+		onClick={moveDown}
 		variant="primary"
-		record={ props.record }
-		ref={ ref }
+		record={props.record}
+		ref={ref}
 	/>;
 }
