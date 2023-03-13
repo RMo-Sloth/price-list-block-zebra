@@ -1,7 +1,7 @@
 import { Panel, PanelBody } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 // @ts-ignore
-import logo from '../../../assets/logo.png';
+import logo from '../../assets/logo.png';
 
 export default function BlockDevelopmentPanel() {
 	return <Panel>

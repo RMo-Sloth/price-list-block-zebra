@@ -1,8 +1,8 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { BlockSettingsRecord } from '../../libraries/BlockSettings/data/BlockSettingsRecord';
-import BlockDevelopmentPanel from './BlockDevelopmentPanel/BlockDevelopmentPanel';
 import BlockSettingsPanel from '../../libraries/BlockSettings/components/BlockSettingsPanel/BlockSettingsPanel';
+import BlockDevelopmentPanel from '../../libraries/Promotion/components/BlockDevelopmentPanel/BlockDevelopmentPanel';
 
 type Props = {
 	settings: BlockSettingsRecord,
