@@ -10,10 +10,6 @@ import UpdatePriceRecord from './update/UpdatePriceRecord';
 import FocusContext from '../data/Focus/FocusContext';
 
 export default function Edit(): JSX.Element {
-	const [focusData, _ ] = useState({
-		focus_on: null,
-		initial_first_record: null,
-	});
 
 	const settings = useContext(SettingsContext);
 	const price_records_context = useContext(PriceRecordContext);
@@ -22,13 +18,13 @@ export default function Edit(): JSX.Element {
 	useEffect(() => {
 		if (price_records_context.records.length === 0 && settings.add)
 			focus_context.setFocusEvent({ name: 'select_new_record', options: null });
-		else if (settings.order_items === true)
+		else if (settings.order_items)
 			focus_context.setFocusEvent({ name: 'focus_move_down', options: { record_index: price_records_context.records[0].index } });
-		else if (settings.edit_description === true)
+		else if (settings.edit_description)
 			focus_context.setFocusEvent({ name: 'select_description', options: { record_index: price_records_context.records[0].index } });
-		else if (settings.edit_price === true)
+		else if (settings.edit_price)
 			focus_context.setFocusEvent({ name: 'select_price', options: { record_index: price_records_context.records[0].index } });
-		else if (settings.delete === true)
+		else if (settings.delete)
 			focus_context.setFocusEvent({ name: 'focus_delete', options: { record_index: price_records_context.records[0].index } });
 	}, []);
 
@@ -42,7 +38,6 @@ export default function Edit(): JSX.Element {
 
 		{price_records_context.records.map((record: PriceRecord) => <UpdatePriceRecord
 			key={record.index}
-			focus={focusData.initial_first_record === record.index && focusData.focus_on === 'record'}
 			record={record}
 		/>)}
 
