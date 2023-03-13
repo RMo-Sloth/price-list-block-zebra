@@ -2,7 +2,7 @@ import { createContext, useState } from "@wordpress/element";
 
 type FocusEvent = {
 	name: string;
-	options: object;
+	options: any;
 }
 
 const FocusContext = createContext<{focusEvent: FocusEvent, setFocusEvent: ( event: FocusEvent ) => void}>({

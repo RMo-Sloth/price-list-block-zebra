@@ -16,6 +16,6 @@ export default function OrderButton({ focus, record }: { focus: boolean, record:
 
 	return <div className={style.order_button}>
 		<MoveUpButton focus={focus} record={record} />
-		<MoveDownButton record={record} focus={focus} />
+		<MoveDownButton record={record} />
 	</div>;
 }
