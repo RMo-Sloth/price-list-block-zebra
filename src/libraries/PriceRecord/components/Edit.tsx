@@ -7,26 +7,30 @@ import SettingsContext from '../data/Settings/SettingsContext';
 import { PriceRecord } from "../data/PriceRecord/PriceRecord";
 import CreatePriceRecord from './create/CreatePriceRecord';
 import UpdatePriceRecord from './update/UpdatePriceRecord';
+import FocusContext from '../data/Focus/FocusContext';
 
 export default function Edit(): JSX.Element {
-	const [focusData, setFocusData] = useState({
+	const [focusData, _ ] = useState({
 		focus_on: null,
 		initial_first_record: null,
 	});
 
 	const settings = useContext(SettingsContext);
 	const price_records_context = useContext(PriceRecordContext);
+	const focus_context = useContext(FocusContext);
 
-	useEffect(SetInitialFocus, []);
-
-	function SetInitialFocus(): void {
-		if (price_records_context.records.length === 0) return;
-		// do not select a 'new first-record' after adding / removing elements
-		setFocusData({
-			focus_on: 'record',
-			initial_first_record: price_records_context.records[0].index,
-		});
-	}
+	useEffect(() => {
+		if (price_records_context.records.length === 0 && settings.add)
+			focus_context.setFocusEvent({ name: 'select_new_record', options: null });
+		else if (settings.order_items === true)
+			focus_context.setFocusEvent({ name: 'focus_move_down', options: { record_index: price_records_context.records[0].index } });
+		else if (settings.edit_description === true)
+			focus_context.setFocusEvent({ name: 'select_description', options: { record_index: price_records_context.records[0].index } });
+		else if (settings.edit_price === true)
+			focus_context.setFocusEvent({ name: 'select_price', options: { record_index: price_records_context.records[0].index } });
+		else if (settings.delete === true)
+			focus_context.setFocusEvent({ name: 'focus_delete', options: { record_index: price_records_context.records[0].index } });
+	}, []);
 
 	return <div>
 		<div className={style['price-record-top-labels']}>
@@ -43,5 +47,5 @@ export default function Edit(): JSX.Element {
 		/>)}
 
 		{settings.add && <CreatePriceRecord />}
-	</div>;
+	</div>
 }
