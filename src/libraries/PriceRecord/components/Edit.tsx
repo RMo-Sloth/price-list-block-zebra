@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from '@wordpress/element';
+import { useContext, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 // @ts-ignore
 import style from './editor.module.scss';
@@ -18,7 +18,7 @@ export default function Edit(): JSX.Element {
 	useEffect(() => {
 		if (price_records_context.records.length === 0 && settings.add)
 			focus_context.setFocusEvent({ name: 'select_new_record', options: null });
-		else if (settings.order_items)
+		else if (settings.order_items && price_records_context.records.length > 1)
 			focus_context.setFocusEvent({ name: 'focus_move_down', options: { record_index: price_records_context.records[0].index } });
 		else if (settings.edit_description)
 			focus_context.setFocusEvent({ name: 'select_description', options: { record_index: price_records_context.records[0].index } });
