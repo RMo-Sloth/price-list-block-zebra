@@ -2,7 +2,7 @@ import { SidePanel } from '../SidePanel/SidePanel';
 import { useBlockProps } from '@wordpress/block-editor';
 import { BlockSettingsRecord } from '../../libraries/BlockSettings/data/BlockSettingsRecord';
 import { PriceRecordsBlock } from '../../libraries/PriceRecord/components/PriceRecordsBlock/PriceRecordsBlock';
-import { PriceRecord } from '../../libraries/PriceRecord/data/PriceRecord/priceRecord';
+import { PriceRecord } from '../../libraries/PriceRecord/data/PriceRecord/PriceRecord';
 
 export default function Editor(props: any): JSX.Element {
 	function updateSettings(settings: BlockSettingsRecord): void {

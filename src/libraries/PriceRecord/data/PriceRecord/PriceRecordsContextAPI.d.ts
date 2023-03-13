@@ -1,4 +1,4 @@
-import { PriceRecord } from "./priceRecord";
+import { PriceRecord } from "./PriceRecord";
 
 export interface PriceRecordsContextAPI {
 	/** The state supplied by the Context */

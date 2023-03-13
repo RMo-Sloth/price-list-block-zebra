@@ -1,7 +1,7 @@
 // @ts-ignore
 import css from './PriceInput.module.scss';
 import { useState, useEffect, useRef, useContext } from '@wordpress/element';
-import { PriceRecord } from "../../../data/PriceRecord/priceRecord";
+import { PriceRecord } from "../../../data/PriceRecord/PriceRecord";
 import SettingsContext from '../../../data/Settings/SettingsContext';
 
 type Props = {

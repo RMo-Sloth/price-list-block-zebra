@@ -5,7 +5,7 @@ import OrderButton from './order-button/OrderButton';
 import PriceInput from './price-input/PriceInput';
 import { useEffect, useState, useContext } from '@wordpress/element';
 import PriceRecordContext from '../../data/PriceRecord/PriceRecordsContext';
-import { PriceRecord } from "../../data/PriceRecord/priceRecord";
+import { PriceRecord } from "../../data/PriceRecord/PriceRecord";
 import DescriptionInput from './description-input/DescriptionInput';
 import SettingsContext from '../../data/Settings/SettingsContext';
 
