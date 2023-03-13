@@ -14,7 +14,6 @@ function DeletePriceRecord(props): JSX.Element {
 	const { focusEvent, setFocusEvent } = useContext(FocusContext);
 
 	useEffect(() => {
-		console.log(focusEvent)
 		if (ref.current && focusEvent.name === 'focus_delete' && focusEvent.options.record_index === props.record.index)
 			ref.current.focus();
 	}, [focusEvent]);
