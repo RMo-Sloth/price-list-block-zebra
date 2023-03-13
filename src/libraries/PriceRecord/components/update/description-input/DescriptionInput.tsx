@@ -5,14 +5,16 @@ import SettingsContext from '../../../data/Settings/SettingsContext';
 import css from './DescriptionInput.module.scss';
 
 export default function DescriptionInput( props ) {
-	const ref = useRef<HTMLInputElement>( null );
 	const [ value, setValue ] = useState( props.record.name );
 	const settings = useContext(SettingsContext);
 	const { focusEvent } = useContext(FocusContext);
+	const ref = useRef<HTMLInputElement>( null );
 
 	useEffect( () => {
-		if ( focusEvent.name === 'select_description' && focusEvent.options.record_index === props.record.index )
+
+		if ( ref.current && focusEvent.name === 'select_description' && focusEvent.options.record_index === props.record.index )
 			ref.current.select();
+			
 	}, [ focusEvent ] );
 
 	useEffect( () => {
