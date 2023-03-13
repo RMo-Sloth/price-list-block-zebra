@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 // @ts-ignore
 import style from './editor.module.scss';
-import PriceRecordContext from '../data/PriceRecordsContext';
+import PriceRecordContext from '../data/PriceRecord/PriceRecordsContext';
 import SettingsContext from '../data/Settings/SettingsContext';
-import { PriceRecord } from "../data/priceRecord";
+import { PriceRecord } from "../data/PriceRecord/priceRecord";
 import CreatePriceRecord from './create/CreatePriceRecord';
 import UpdatePriceRecord from './update/UpdatePriceRecord';
 

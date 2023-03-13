@@ -1,10 +1,10 @@
 // @ts-ignore
 import style from './OrderButton.module.scss';
 import { useContext } from '@wordpress/element';
-import PriceRecordContext from '../../../data/PriceRecordsContext';
+import PriceRecordContext from '../../../data/PriceRecord/PriceRecordsContext';
 import { MoveDownButton } from './move-down-button/MoveDownButton';
 import { MoveUpButton } from './move-up-button/MoveUpButton';
-import { PriceRecord } from "../../../data/priceRecord";
+import { PriceRecord } from "../../../data/PriceRecord/priceRecord";
 import SettingsContext from '../../../data/Settings/SettingsContext';
 
 export default function OrderButton({ focus, record }: { focus: boolean, record: PriceRecord }): JSX.Element {

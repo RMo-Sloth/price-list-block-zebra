@@ -1,6 +1,6 @@
 import { useContext } from "@wordpress/element";
-import { PriceRecord } from "../data/priceRecord";
-import PriceRecordsContext from "../data/PriceRecordsContext";
+import { PriceRecord } from "../data/PriceRecord/priceRecord";
+import PriceRecordsContext from "../data/PriceRecord/PriceRecordsContext";
 import ReadPriceRecord from "./read/ReadPriceRecord";
 
 

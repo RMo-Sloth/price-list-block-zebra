@@ -1,9 +1,9 @@
 import Edit from "../Edit";
 import PreviewInEditor from "../PreviewInEditor";
-import { PriceRecordContextProvider } from "../../data/PriceRecordsContext";
+import { PriceRecordContextProvider } from "../../data/PriceRecord/PriceRecordsContext";
 import SettingsContext from "../../data/Settings/SettingsContext";
 import { SettingsRecord } from "../../data/Settings/SettingsRecord";
-import { PriceRecord } from "../../data/priceRecord";
+import { PriceRecord } from "../../data/PriceRecord/priceRecord";
 
 type Props = {
 	isSelected: boolean,
