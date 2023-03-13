@@ -3,17 +3,18 @@ import css from './PriceInput.module.scss';
 import { useState, useEffect, useRef, useContext } from '@wordpress/element';
 import { PriceRecord } from "../../../data/PriceRecord/PriceRecord";
 import SettingsContext from '../../../data/Settings/SettingsContext';
+import FocusContext from '../../../data/Focus/FocusContext';
 
 type Props = {
-	focus: boolean, 
 	record: PriceRecord, 
 	onChange: ( value: string ) => void  
 };
 
-export default function PriceInput( { focus, record, onChange }: Props ): JSX.Element {
+export default function PriceInput( { record, onChange }: Props ): JSX.Element {
 	const ref = useRef<HTMLInputElement>( null );
 	const [ value, setValue ] = useState( record.price.toString() );
 	const settings = useContext(SettingsContext);
+	const { focusEvent } = useContext(FocusContext);
 
 
 	useEffect( () => {
@@ -21,8 +22,9 @@ export default function PriceInput( { focus, record, onChange }: Props ): JSX.El
 	}, [ value ] );
 
 	useEffect( () => {
-		if ( focus ) ref.current.select();
-	}, [ focus ] );
+		if ( ref.current && focusEvent.name === 'select_price' && focusEvent.options.record_index === record.index ) 
+			ref.current.select();
+	}, [ focusEvent ] );
 
 	function onValueChange( event ): void {
 		setValue( event.target.value );

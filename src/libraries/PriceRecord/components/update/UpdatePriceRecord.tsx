@@ -55,7 +55,6 @@ function UpdatePriceRecord({ focus, record }: Props): JSX.Element {
 		<PriceInput
 			record={record}
 			onChange={updatePrice}
-			focus={local_focus === 'price_input'}
 		/>
 		<DeletePriceRecord
 			record={record}
