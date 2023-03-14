@@ -8,8 +8,6 @@
 			"query": {
 				"name": {
 					"type": "string",
-					"source": "text",
-					"selector": ".description",
 					"default": ""
 				},
 				"price": {
