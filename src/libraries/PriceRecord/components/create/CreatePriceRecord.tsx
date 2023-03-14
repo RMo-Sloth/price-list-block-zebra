@@ -5,11 +5,12 @@ import css from './CreatePriceRecord.module.scss';
 import { plus } from '@wordpress/icons';
 import PriceRecordContext from '../../data/PriceRecord/PriceRecordsContext';
 import FocusContext from '../../data/Focus/FocusContext';
+import { PriceRecord } from '../../data/PriceRecord/PriceRecord';
 
 function CreatePriceRecord(): JSX.Element {
-	const [record, setRecord] = useState({ name: '', price: '', index: null });
+	const [record, setRecord] = useState<PriceRecord>({ name: '', price: 0, index: null });
 	const ref = useRef<HTMLInputElement>(null);
-	const records = useContext(PriceRecordContext);
+	const records_context = useContext(PriceRecordContext);
 	const {focusEvent} = useContext(FocusContext);
 
 	useEffect(() => {
@@ -18,13 +19,13 @@ function CreatePriceRecord(): JSX.Element {
 	}, [focusEvent]);
 
 	function resetRecord(): void {
-		setRecord({ name: '', price: '', index: null });
+		setRecord({ name: '', price: 0, index: null });
 		ref.current.focus();
 	}
 
 	function add(): void {
 		const price = +Number(record.price).toFixed(2);
-		records.add({ ...record, price });
+		records_context.add({ ...record, price });
 		resetRecord();
 	}
 

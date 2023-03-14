@@ -7,18 +7,18 @@ import FocusContext from '../../../data/Focus/FocusContext';
 
 type Props = {
 	record: PriceRecord, 
-	onChange: ( value: string ) => void  
+	onChange: ( value: number ) => void  
 };
 
 export default function PriceInput( { record, onChange }: Props ): JSX.Element {
 	const ref = useRef<HTMLInputElement>( null );
-	const [ value, setValue ] = useState( record.price.toString() );
+	const [ value, setValue ] = useState<string>( Number(record.price).toFixed(2) );
 	const settings = useContext(SettingsContext);
 	const { focusEvent } = useContext(FocusContext);
 
 
 	useEffect( () => {
-		onChange( Number( value ).toFixed( 2 ) );
+		onChange( +Number( value ).toFixed( 2 ) );
 	}, [ value ] );
 
 	useEffect( () => {

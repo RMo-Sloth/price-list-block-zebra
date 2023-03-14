@@ -21,7 +21,7 @@ function UpdatePriceRecord({ record }: Props): JSX.Element {
 		records_context.update({ ...record, name: value });
 	}
 
-	function updatePrice(value) {
+	function updatePrice(value: number) {
 		if (value === record.price) return;
 
 		records_context.update({ ...record, price: value });
