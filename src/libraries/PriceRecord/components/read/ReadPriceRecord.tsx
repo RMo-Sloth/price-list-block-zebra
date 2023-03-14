@@ -11,7 +11,7 @@ function ReadPriceRecord( { record }: { record: PriceRecord } ): JSX.Element {
 			<WrappedWords record={record} />
 			<span className={ css.spacer }></span>
 		</div>
-		<div className={ css.price + ' price' }>{ record.price }</div>
+		<div className={ css.price + ' price' }>{ record.price.toFixed(2) }</div>
 	</div>;
 }
 

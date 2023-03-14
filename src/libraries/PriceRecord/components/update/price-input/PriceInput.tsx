@@ -47,6 +47,6 @@ export default function PriceInput( { record, onChange }: Props ): JSX.Element {
 		</div>;
 
 	return <div className={ css.price }>
-		<span> { record.price } </span>
+		<span> { record.price.toFixed( 2 ) } </span>
 	</div>;
 }
