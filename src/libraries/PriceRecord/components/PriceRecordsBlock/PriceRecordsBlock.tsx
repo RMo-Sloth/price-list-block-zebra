@@ -18,9 +18,9 @@ export function PriceRecordsBlock({ isSelected, price_records, settings, onChang
 
 	return <PriceRecordContextProvider records={price_records} on_update={onChange} >
 		<SettingsContext.Provider value={settings}>
-		<FocusContextProvider>
-			{is_editable ? <Edit /> : <PreviewInEditor />}
-		</FocusContextProvider>
+			<FocusContextProvider>
+				{is_editable ? <Edit /> : <PreviewInEditor />}
+			</FocusContextProvider>
 		</SettingsContext.Provider>
 	</PriceRecordContextProvider>
 }
