@@ -35,8 +35,10 @@ function CreatePriceRecord(): JSX.Element {
 	}
 
 	function setPrice(event): void {
+		if( /\.\d{3,}$/.test( event.target.value ) ) return;
+		
 		const price = event.target.value;
-		setRecord({ ...record, price });
+			setRecord({ ...record, price });
 	}
 
 	return <div className={css['create-price-record']}>

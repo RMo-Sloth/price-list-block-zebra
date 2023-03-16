@@ -27,6 +27,8 @@ export default function PriceInput( { record, onChange }: Props ): JSX.Element {
 	}, [ focusEvent ] );
 
 	function onValueChange( event ): void {
+		if( /\.\d{3,}$/.test( event.target.value ) ) return;
+
 		setValue( event.target.value );
 	}
 
