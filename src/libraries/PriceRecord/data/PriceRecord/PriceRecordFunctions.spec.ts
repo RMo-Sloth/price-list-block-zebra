@@ -18,23 +18,23 @@ describe('PriceRecordFunctions', () => {
 	});
 
 
-	describe('.update_name( record, name ) ', () => {
+	describe('.set_name( record, name ) ', () => {
 
 		test('sets a new name', () => {
 			const default_record = PriceRecordFunctions.default();
-			const new_record = PriceRecordFunctions.update_name(default_record, 'I am a fictional name');
+			const new_record = PriceRecordFunctions.set_name(default_record, 'I am a fictional name');
 			expect(new_record.name).toBe('I am a fictional name');
 		});
 
 		test('returns an immutable object', () => {
 			const default_record = PriceRecordFunctions.default();
-			const new_record = PriceRecordFunctions.update_name(default_record, 'I am a fictional name');
+			const new_record = PriceRecordFunctions.set_name(default_record, 'I am a fictional name');
 			expect(Object.isSealed(new_record)).toBe(true);
 		});
 
 		test('returns a newly created object reference', () => {
 			const default_record = PriceRecordFunctions.default();
-			const new_record = PriceRecordFunctions.update_name(default_record, 'I am a fictional name');
+			const new_record = PriceRecordFunctions.set_name(default_record, 'I am a fictional name');
 			expect( Object.is( default_record, new_record) ).toBe(false);
 		});
 

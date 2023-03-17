@@ -31,8 +31,8 @@ function CreatePriceRecord(): JSX.Element {
 	}
 
 	function setName(event): void {
-		const name = event.target.value;
-		setRecord({ ...record, name });
+		const new_record = PriceRecordFunctions.set_name(record, event.target.value);
+		setRecord(new_record);
 	}
 
 	function setPrice(event): void {
