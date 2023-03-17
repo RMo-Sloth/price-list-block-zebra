@@ -1,7 +1,7 @@
 import { BlockSettingsRecord } from "./BlockSettingsRecord";
 
 
-export class BlockSettingsFunction {
+export class BlockSettingsFunctions {
 
 	static default(): BlockSettingsRecord {
 		const record = {
