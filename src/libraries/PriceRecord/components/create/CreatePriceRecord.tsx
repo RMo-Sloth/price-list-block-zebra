@@ -6,20 +6,21 @@ import { plus } from '@wordpress/icons';
 import PriceRecordContext from '../../data/PriceRecord/PriceRecordsContext';
 import FocusContext from '../../data/Focus/FocusContext';
 import { PriceRecord } from '../../data/PriceRecord/PriceRecord';
+import { PriceRecordFunctions } from '../../data/PriceRecord/PriceRecordFunctions';
 
 function CreatePriceRecord(): JSX.Element {
-	const [record, setRecord] = useState<PriceRecord>({ name: '', price: 0, index: null });
+	const [record, setRecord] = useState<PriceRecord>(PriceRecordFunctions.default());
 	const ref = useRef<HTMLInputElement>(null);
 	const records_context = useContext(PriceRecordContext);
-	const {focusEvent} = useContext(FocusContext);
+	const { focusEvent } = useContext(FocusContext);
 
 	useEffect(() => {
-		if ( ref.current && focusEvent.name === 'select_new_record' )
+		if (ref.current && focusEvent.name === 'select_new_record')
 			ref.current.focus();
 	}, [focusEvent]);
 
 	function resetRecord(): void {
-		setRecord({ name: '', price: 0, index: null });
+		setRecord(PriceRecordFunctions.default());
 		ref.current.focus();
 	}
 
@@ -35,10 +36,10 @@ function CreatePriceRecord(): JSX.Element {
 	}
 
 	function setPrice(event): void {
-		if( /\.\d{3,}$/.test( event.target.value ) ) return;
-		
+		if (/\.\d{3,}$/.test(event.target.value)) return;
+
 		const price = event.target.value;
-			setRecord({ ...record, price });
+		setRecord({ ...record, price });
 	}
 
 	return <div className={css['create-price-record']}>
