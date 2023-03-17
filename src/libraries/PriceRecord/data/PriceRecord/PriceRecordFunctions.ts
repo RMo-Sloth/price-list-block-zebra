@@ -4,12 +4,12 @@ export class PriceRecordFunctions {
 
 	static default(): PriceRecord {
 		const result = { name: '', price: 0, index: null };
-		return Object.seal(result);
+		return Object.freeze(result);
 	}
 
 	static set_name(record: PriceRecord, name: string): PriceRecord {
 		const result = { ...record, name };
-		return Object.seal(result)
+		return Object.freeze(result)
 	}
 
 	static set_price( record: PriceRecord, price: number ): PriceRecord {
@@ -17,7 +17,7 @@ export class PriceRecordFunctions {
 		price = price % 0.01 > 0 ? Math.floor(price*100) / 100 : price;
 
 		const result = { ...record, price };
-		return Object.seal( result );
+		return Object.freeze( result );
 	}
 
 }

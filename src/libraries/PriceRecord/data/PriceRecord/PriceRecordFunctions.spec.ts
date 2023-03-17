@@ -12,7 +12,7 @@ describe('PriceRecordFunctions', () => {
 
 		test('returns an immutable object', () => {
 			const record = PriceRecordFunctions.default();
-			expect(Object.isSealed(record)).toBe(true);
+			expect(Object.isFrozen(record)).toBe(true);
 		});
 
 	});
@@ -29,7 +29,7 @@ describe('PriceRecordFunctions', () => {
 		test('returns an immutable object', () => {
 			const default_record = PriceRecordFunctions.default();
 			const new_record = PriceRecordFunctions.set_name(default_record, 'I am a fictional name');
-			expect(Object.isSealed(new_record)).toBe(true);
+			expect(Object.isFrozen(new_record)).toBe(true);
 		});
 
 		test('returns a newly created object reference', () => {
