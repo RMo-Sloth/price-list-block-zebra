@@ -7,4 +7,9 @@ export class PriceRecordFunctions {
 		return Object.seal(result);
 	}
 
+	static update_name(record: PriceRecord, name: string): PriceRecord {
+		const result = { ...record, name };
+		return Object.seal(result)
+	}
+
 }
