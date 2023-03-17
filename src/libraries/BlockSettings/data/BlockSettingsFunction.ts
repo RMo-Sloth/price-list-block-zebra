@@ -16,12 +16,14 @@ export class BlockSettingsFunction {
 	}
 
 	static toggleSetting(
-		settings: BlockSettingsRecord,
+		record: BlockSettingsRecord,
 		setting: 'add' | 'delete' | 'edit_description' | 'edit_price' | 'order_items') {
-		return {
-			...settings,
-			[setting]: !settings[setting]
+		const result =  {
+			...record,
+			[setting]: !record[setting]
 		};
+
+		return Object.seal( result );
 	}
 
 }
