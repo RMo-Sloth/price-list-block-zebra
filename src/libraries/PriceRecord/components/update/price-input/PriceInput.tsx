@@ -18,7 +18,7 @@ export default function PriceInput( { record, onChange }: Props ): JSX.Element {
 
 
 	useEffect( () => {
-		onChange( +Number( value ).toFixed( 2 ) );
+		onChange( +value );
 	}, [ value ] );
 
 	useEffect( () => {
