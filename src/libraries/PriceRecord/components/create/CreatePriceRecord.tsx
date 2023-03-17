@@ -5,11 +5,11 @@ import css from './CreatePriceRecord.module.scss';
 import { plus } from '@wordpress/icons';
 import PriceRecordContext from '../../data/PriceRecord/PriceRecordsContext';
 import FocusContext from '../../data/Focus/FocusContext';
-import { PriceRecord } from '../../data/PriceRecord/PriceRecord';
 import { PriceRecordFunctions } from '../../data/PriceRecord/PriceRecordFunctions';
 
 function CreatePriceRecord(): JSX.Element {
-	const [record, setRecord] = useState<PriceRecord>(PriceRecordFunctions.default());
+	const [price, setPrice] = useState<string>('0.00');
+	const [name, setName] = useState<string>('');
 	const ref = useRef<HTMLInputElement>(null);
 	const records_context = useContext(PriceRecordContext);
 	const { focusEvent } = useContext(FocusContext);
@@ -20,26 +20,17 @@ function CreatePriceRecord(): JSX.Element {
 	}, [focusEvent]);
 
 	function resetRecord(): void {
-		setRecord(PriceRecordFunctions.default());
+		setPrice('0.00');
+		setName('');
 		ref.current.focus();
 	}
 
 	function add(): void {
-		const price = +Number(record.price).toFixed(2);
-		records_context.add({ ...record, price });
+		let new_record = PriceRecordFunctions.default()
+		new_record = PriceRecordFunctions.set_price( new_record, +price );
+		new_record = PriceRecordFunctions.set_name( new_record, name );
+		records_context.add(new_record);
 		resetRecord();
-	}
-
-	function setName(event): void {
-		const new_record = PriceRecordFunctions.set_name(record, event.target.value);
-		setRecord(new_record);
-	}
-
-	function setPrice(event): void {
-		if (/\.\d{3,}$/.test(event.target.value)) return;
-
-		const price = event.target.value;
-		setRecord({ ...record, price });
 	}
 
 	return <div className={css['create-price-record']}>
@@ -48,16 +39,16 @@ function CreatePriceRecord(): JSX.Element {
 				ref={ref}
 				type="text"
 				placeholder="enter a name"
-				value={record.name}
-				onChange={setName}
+				value={name}
+				onChange={(event) => setName(event.target.value) }
 			/>
 		</div>
 		<div className={css.price}>
 			<input
 				type="number"
 				placeholder="0.00"
-				value={record.price}
-				onChange={setPrice}
+				value={price}
+				onChange={(event) => setPrice(event.target.value) }
 			/>
 		</div>
 		<Button variant="primary" isSmall onClick={add} icon={plus} />
