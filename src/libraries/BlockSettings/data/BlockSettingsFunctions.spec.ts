@@ -19,7 +19,7 @@ describe('BlockSettingsFunctions', () => {
 		
 		test('returns an immutable object', () => {
 			const default_record = BlockSettingsFunctions.default();
-			expect(Object.isSealed(default_record)).toBe(true);
+			expect(Object.isFrozen(default_record)).toBe(true);
 		});
 	});
 
@@ -49,7 +49,7 @@ describe('BlockSettingsFunctions', () => {
 		test('returns an immutable object', () => {
 			const default_record = BlockSettingsFunctions.default();
 			const updated_record = BlockSettingsFunctions.toggleSetting( default_record, 'delete' )
-			expect(Object.isSealed(updated_record)).toBe(true);
+			expect(Object.isFrozen(updated_record)).toBe(true);
 		});
 
 		test('returns a new object', () => {

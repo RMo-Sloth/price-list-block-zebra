@@ -12,7 +12,7 @@ export class BlockSettingsFunctions {
 			edit_price: true
 		}
 
-		return Object.seal( record );
+		return Object.freeze( record );
 	}
 
 	static toggleSetting(
@@ -23,7 +23,7 @@ export class BlockSettingsFunctions {
 			[setting]: !record[setting]
 		};
 
-		return Object.seal( result );
+		return Object.freeze( result );
 	}
 
 }
