@@ -25,10 +25,9 @@ export class PriceRecordCollectionFunctions {
 		return PriceRecordCollectionFunctions.indexOf(records, record) + 1 === records.length;
 	}
 
-	static remove(records: PriceRecord[], removed_record: PriceRecord): PriceRecord[] {
-		return records.filter(
-			(record) => record.index !== removed_record.index
-		);
+	static remove(records: readonly PriceRecord[], record: PriceRecord): readonly PriceRecord[] {
+		const new_records = records.filter( ({index}) => index !== record.index );
+		return Object.freeze( new_records );
 	}
 
 	static moveDown(records: PriceRecord[], record: PriceRecord): PriceRecord[] {

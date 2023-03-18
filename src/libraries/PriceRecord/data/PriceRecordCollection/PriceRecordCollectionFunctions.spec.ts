@@ -87,13 +87,13 @@ describe('PriceRecordCollectionFunctions', () => {
 		test('returns true when first record is provided', () => {
 			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
 			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
-			expect( PriceRecordCollectionFunctions.isFirst( records, records[0] ) ).toBe(true);
+			expect(PriceRecordCollectionFunctions.isFirst(records, records[0])).toBe(true);
 		});
 
 		test('returns false when another record is provided', () => {
 			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
 			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
-			expect( PriceRecordCollectionFunctions.isFirst( records, records[1] ) ).toBe(false);
+			expect(PriceRecordCollectionFunctions.isFirst(records, records[1])).toBe(false);
 		});
 
 	});
@@ -104,15 +104,46 @@ describe('PriceRecordCollectionFunctions', () => {
 		test('returns true when the last record is provided', () => {
 			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
 			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
-			expect( PriceRecordCollectionFunctions.isLast( records, records[1] ) ).toBe(true);
+			expect(PriceRecordCollectionFunctions.isLast(records, records[1])).toBe(true);
 		});
-		
+
 		test('returns false when another record is provided', () => {
 			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
 			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
-			expect( PriceRecordCollectionFunctions.isLast( records, records[0] ) ).toBe(false);
+			expect(PriceRecordCollectionFunctions.isLast(records, records[0])).toBe(false);
 		});
 
 	});
+
+
+	describe('.remove(records, record) ', () => {
+
+		test('removed a record', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const record = records[1];
+			records = PriceRecordCollectionFunctions.remove(records, record);
+			expect(records.length).toBe(1);
+			expect( Object.is( record, records[0] )).toBe( false );
+		});
+
+		test('returns a new collection', () => {
+			const collection = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			const collection_2 = PriceRecordCollectionFunctions.remove(collection, collection[0]);
+			expect(Object.is(collection, collection_2)).toBe(false);
+		});
+
+		test('returns a frozen collection', () => {
+			let collection = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			collection = PriceRecordCollectionFunctions.remove(collection, collection[0]);
+			expect(Object.isFrozen(collection)).toBe(true);
+		});
+
+	});
+
+	describe('.moveDown(records, record) ', () => {
+
+	});
+
 
 });
