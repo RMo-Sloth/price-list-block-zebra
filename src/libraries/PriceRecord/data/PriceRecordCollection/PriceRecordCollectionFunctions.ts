@@ -26,19 +26,20 @@ export class PriceRecordCollectionFunctions {
 	}
 
 	static remove(records: readonly PriceRecord[], record: PriceRecord): readonly PriceRecord[] {
-		const new_records = records.filter( ({index}) => index !== record.index );
-		return Object.freeze( new_records );
+		const new_records = records.filter(({ index }) => index !== record.index);
+		return Object.freeze(new_records);
 	}
 
 	static moveDown(records: readonly PriceRecord[], record: PriceRecord): readonly PriceRecord[] {
 		const index = PriceRecordCollectionFunctions.indexOf(records, record);
 		const new_records = PriceRecordCollectionFunctions.swapPlaces(records, index, index + 1);
-		return Object.freeze( new_records );
+		return Object.freeze(new_records);
 	}
 
-	static moveUp(records: PriceRecord[], record: PriceRecord): PriceRecord[] {
+	static moveUp(records: readonly PriceRecord[], record: PriceRecord): readonly PriceRecord[] {
 		const index = PriceRecordCollectionFunctions.indexOf(records, record);
-		return PriceRecordCollectionFunctions.swapPlaces(records, index, index - 1);
+		const new_records = PriceRecordCollectionFunctions.swapPlaces(records, index, index - 1);
+		return Object.freeze(new_records);
 	}
 
 	static nextRecord(records: PriceRecord[], record: PriceRecord): PriceRecord | undefined {
@@ -52,7 +53,7 @@ export class PriceRecordCollectionFunctions {
 	}
 
 	private static indexOf(records: readonly PriceRecord[], record: PriceRecord): number {
-		return records.findIndex( ({index}) => index === record.index);
+		return records.findIndex(({ index }) => index === record.index);
 	}
 
 	private static latestId(records: readonly PriceRecord[]) {

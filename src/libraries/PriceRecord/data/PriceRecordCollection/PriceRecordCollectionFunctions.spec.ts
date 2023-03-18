@@ -124,7 +124,7 @@ describe('PriceRecordCollectionFunctions', () => {
 			const record = records[1];
 			records = PriceRecordCollectionFunctions.remove(records, record);
 			expect(records.length).toBe(1);
-			expect( Object.is( record, records[0] )).toBe( false );
+			expect(Object.is(record, records[0])).toBe(false);
 		});
 
 		test('returns a new collection', () => {
@@ -146,22 +146,23 @@ describe('PriceRecordCollectionFunctions', () => {
 		test('moves a record to a higher index position', () => {
 			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
 			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
-			const new_records = PriceRecordCollectionFunctions.moveDown( records, records[0] );
-			expect( Object.is( new_records[1], records[0] ) );
-			expect( Object.is( new_records[0], records[1] ) );
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const new_records = PriceRecordCollectionFunctions.moveDown(records, records[1]);
+			expect(Object.is(new_records[2], records[1]));
+			expect(Object.is(new_records[1], records[2]));
 		});
 
 		test('keeps a record in the last position', () => {
 			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
 			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
-			const new_records = PriceRecordCollectionFunctions.moveDown( records, records[0] );
-			expect( Object.is( new_records[1], records[1] ) );
+			const new_records = PriceRecordCollectionFunctions.moveDown(records, records[0]);
+			expect(Object.is(new_records[1], records[1]));
 		});
 
 		test('returns a new collection', () => {
 			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
 			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
-			const new_records = PriceRecordCollectionFunctions.moveDown( records, records[0] );
+			const new_records = PriceRecordCollectionFunctions.moveDown(records, records[0]);
 
 			expect(Object.is(records, new_records)).toBe(false);
 		});
@@ -170,18 +171,51 @@ describe('PriceRecordCollectionFunctions', () => {
 		test('returns a frozen collection', () => {
 			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
 			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
-			const new_records = PriceRecordCollectionFunctions.moveDown( records, records[0] );
+			const new_records = PriceRecordCollectionFunctions.moveDown(records, records[0]);
 			expect(Object.isFrozen(new_records)).toBe(true);
 		});
 
 	});
 
-	describe('', () => {
+	describe('.moveDown(records, record) ', () => {
+
+		test('moves a record to a lower index position', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const new_records = PriceRecordCollectionFunctions.moveUp(records, records[2]);
+			expect(Object.is(new_records[1], records[2]));
+			expect(Object.is(new_records[2], records[1]));
+		});
+
+		test('keeps a record in the first position', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const new_records = PriceRecordCollectionFunctions.moveUp(records, records[0]);
+			expect(Object.is(new_records[0], records[0]));
+		});
+
+		test('returns a new collection', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const new_records = PriceRecordCollectionFunctions.moveUp(records, records[0]);
+
+			expect(Object.is(records, new_records)).toBe(false);
+		});
+
+
+		test('returns a frozen collection', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const new_records = PriceRecordCollectionFunctions.moveUp(records, records[0]);
+			expect(Object.isFrozen(new_records)).toBe(true);
+		});
 
 	});
 
 
 });
 
+// test('', () => {
 
-// test('', () => {})
+// });
