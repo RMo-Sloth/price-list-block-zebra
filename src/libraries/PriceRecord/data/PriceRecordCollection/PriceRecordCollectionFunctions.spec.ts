@@ -81,4 +81,21 @@ describe('PriceRecordCollectionFunctions', () => {
 
 	});
 
+
+	describe('.isFirst(records, record) ', () => {
+
+		test('returns true when first record is provided', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			expect( PriceRecordCollectionFunctions.isFirst( records, records[0] ) ).toBe(true);
+		});
+
+		test('returns false when another record is provided', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			expect( PriceRecordCollectionFunctions.isFirst( records, records[1] ) ).toBe(false);
+		});
+
+	});
+
 });

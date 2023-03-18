@@ -17,7 +17,7 @@ export class PriceRecordCollectionFunctions {
 		return Object.freeze(new_records);
 	}
 
-	static isFirst(records: PriceRecord[], record: PriceRecord): boolean {
+	static isFirst(records: readonly PriceRecord[], record: PriceRecord): boolean {
 		return PriceRecordCollectionFunctions.indexOf(records, record) === 0;
 	}
 
