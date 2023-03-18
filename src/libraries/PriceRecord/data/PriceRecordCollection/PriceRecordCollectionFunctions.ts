@@ -47,7 +47,7 @@ export class PriceRecordCollectionFunctions {
 		return records[index + 1];
 	}
 
-	static previousRecord(records: PriceRecord[], record: PriceRecord): PriceRecord {
+	static previousRecord(records: readonly PriceRecord[], record: PriceRecord): PriceRecord | undefined {
 		const index = PriceRecordCollectionFunctions.indexOf(records, record);
 		return records[index - 1];
 	}

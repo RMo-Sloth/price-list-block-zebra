@@ -222,7 +222,6 @@ describe('PriceRecordCollectionFunctions', () => {
 
 			const new_record = PriceRecordCollectionFunctions.nextRecord(records, records[1]);
 			expect(Object.is(new_record, records[2])).toBe(true);
-			console.log(records[3]);
 
 			const new_record_2 = PriceRecordCollectionFunctions.nextRecord(records, records[0]);
 			expect(Object.is(new_record_2, records[1])).toBe(true);
@@ -233,6 +232,30 @@ describe('PriceRecordCollectionFunctions', () => {
 			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
 
 			const new_record = PriceRecordCollectionFunctions.nextRecord(records, records[1]);
+			expect( new_record ).toBe( undefined );
+		});
+
+	});
+
+
+	describe('previousRecord(records, record) ', () => {
+
+		test('returns a reference to the previous record', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+
+			const new_record = PriceRecordCollectionFunctions.previousRecord(records, records[2]);
+			expect(Object.is(new_record, records[1])).toBe(true);
+
+			const new_record_2 = PriceRecordCollectionFunctions.previousRecord(records, records[1]);
+			expect(Object.is(new_record_2, records[0])).toBe(true);
+		});
+
+		test('returns undefined for the first record', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const new_record = PriceRecordCollectionFunctions.previousRecord(records, records[0]);
 			expect( new_record ).toBe( undefined );
 		});
 
