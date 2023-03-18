@@ -4,14 +4,14 @@ import style from '../OrderButton.module.scss'
 import { arrowDown } from '@wordpress/icons';
 import { useEffect, useContext, useRef } from '@wordpress/element';
 import PriceRecordContext from '../../../../data/PriceRecord/PriceRecordsContext';
-import { PriceRecordsFunctions } from '../../../../data/PriceRecord/PriceRecordsFunctions';
+import { PriceRecordCollectionFunctions } from '../../../../data/PriceRecord/PriceRecordsFunctions';
 import FocusContext from '../../../../data/Focus/FocusContext';
 
 export function MoveDownButton(props): JSX.Element {
 	const ref = useRef<HTMLButtonElement>(null);
 	const records_context = useContext(PriceRecordContext);
 	const { focusEvent, setFocusEvent } = useContext(FocusContext);
-	const is_last = PriceRecordsFunctions.isLast(records_context.records, props.record);
+	const is_last = PriceRecordCollectionFunctions.isLast(records_context.records, props.record);
 
 	useEffect(() => {
 		if (focusEvent.name === 'focus_move_down' && focusEvent.options.record_index === props.record.index)

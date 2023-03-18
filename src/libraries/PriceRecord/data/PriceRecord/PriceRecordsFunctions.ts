@@ -1,8 +1,8 @@
 import { PriceRecord } from "./PriceRecord";
 
-export class PriceRecordsFunctions {
+export class PriceRecordCollectionFunctions {
 	static add(records: PriceRecord[], record: PriceRecord): PriceRecord[] {
-		const enhancedRecord = { ...record, index: PriceRecordsFunctions.latestId(records) + 1 };
+		const enhancedRecord = { ...record, index: PriceRecordCollectionFunctions.latestId(records) + 1 };
 		return [...records, enhancedRecord];
 	}
 
@@ -16,11 +16,11 @@ export class PriceRecordsFunctions {
 	}
 
 	static isFirst(records: PriceRecord[], record: PriceRecord): boolean {
-		return PriceRecordsFunctions.indexOf(records, record) === 0;
+		return PriceRecordCollectionFunctions.indexOf(records, record) === 0;
 	}
 
 	static isLast(records: PriceRecord[], record: PriceRecord): boolean {
-		return PriceRecordsFunctions.indexOf(records, record) + 1 === records.length;
+		return PriceRecordCollectionFunctions.indexOf(records, record) + 1 === records.length;
 	}
 
 	static remove(records: PriceRecord[], removed_record: PriceRecord): PriceRecord[] {
@@ -30,22 +30,22 @@ export class PriceRecordsFunctions {
 	}
 
 	static moveDown(records: PriceRecord[], record: PriceRecord): PriceRecord[] {
-		const index = PriceRecordsFunctions.indexOf(records, record);
-		return PriceRecordsFunctions.swapPlaces(records, index, index + 1);
+		const index = PriceRecordCollectionFunctions.indexOf(records, record);
+		return PriceRecordCollectionFunctions.swapPlaces(records, index, index + 1);
 	}
 
 	static moveUp(records: PriceRecord[], record: PriceRecord): PriceRecord[] {
-		const index = PriceRecordsFunctions.indexOf(records, record);
-		return PriceRecordsFunctions.swapPlaces(records, index, index - 1);
+		const index = PriceRecordCollectionFunctions.indexOf(records, record);
+		return PriceRecordCollectionFunctions.swapPlaces(records, index, index - 1);
 	}
 
 	static nextRecord(records: PriceRecord[], record: PriceRecord): PriceRecord | undefined {
-		const index = PriceRecordsFunctions.indexOf(records, record);
+		const index = PriceRecordCollectionFunctions.indexOf(records, record);
 		return records[index + 1];
 	}
 
 	static previousRecord(records: PriceRecord[], record: PriceRecord): PriceRecord | undefined {
-		const index = PriceRecordsFunctions.indexOf(records, record);
+		const index = PriceRecordCollectionFunctions.indexOf(records, record);
 		return records[index - 1];
 	}
 

@@ -4,13 +4,13 @@ import style from '../OrderButton.module.scss';
 import { arrowUp } from '@wordpress/icons';
 import { useContext, useEffect, useRef } from '@wordpress/element';
 import PriceRecordContext from '../../../../data/PriceRecord/PriceRecordsContext';
-import { PriceRecordsFunctions } from '../../../../data/PriceRecord/PriceRecordsFunctions';
+import { PriceRecordCollectionFunctions } from '../../../../data/PriceRecord/PriceRecordsFunctions';
 import FocusContext from '../../../../data/Focus/FocusContext';
 
 export function MoveUpButton(props): JSX.Element {
 	const ref = useRef(null);
 	const records_context = useContext(PriceRecordContext);
-	const is_first: boolean = PriceRecordsFunctions.isFirst(records_context.records, props.record);
+	const is_first: boolean = PriceRecordCollectionFunctions.isFirst(records_context.records, props.record);
 	const { focusEvent, setFocusEvent } = useContext(FocusContext);
 
 	useEffect(() => {

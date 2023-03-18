@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from '@wordpress/element';
-import { PriceRecordsFunctions } from './PriceRecordsFunctions';
+import { PriceRecordCollectionFunctions } from './PriceRecordsFunctions';
 import { PriceRecord } from "./PriceRecord";
 import { PriceRecordsContextAPI } from './PriceRecordsContextAPI';
 
@@ -30,27 +30,27 @@ export function PriceRecordContextProvider(props: Props): JSX.Element {
 	}, [records]);
 
 	function add(record: PriceRecord): void {
-		const new_records = PriceRecordsFunctions.add(records, record);
+		const new_records = PriceRecordCollectionFunctions.add(records, record);
 		setRecords(new_records);
 	}
 
 	function update(record: PriceRecord): void {
-		const new_records = PriceRecordsFunctions.update(records, record)
+		const new_records = PriceRecordCollectionFunctions.update(records, record)
 		setRecords(new_records);
 	}
 
 	function remove(record: PriceRecord): void {
-		const new_records = PriceRecordsFunctions.remove(records, record);
+		const new_records = PriceRecordCollectionFunctions.remove(records, record);
 		setRecords(new_records);
 	}
 
 	function move_down(record: PriceRecord): void {
-		const new_records = PriceRecordsFunctions.moveDown(records, record)
+		const new_records = PriceRecordCollectionFunctions.moveDown(records, record)
 		setRecords(new_records);
 	}
 
 	function move_up(record: PriceRecord): void {
-		const new_records = PriceRecordsFunctions.moveUp(records, record)
+		const new_records = PriceRecordCollectionFunctions.moveUp(records, record)
 		setRecords(new_records);
 	}
 
