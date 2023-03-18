@@ -143,7 +143,45 @@ describe('PriceRecordCollectionFunctions', () => {
 
 	describe('.moveDown(records, record) ', () => {
 
+		test('moves a record to a higher index position', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const new_records = PriceRecordCollectionFunctions.moveDown( records, records[0] );
+			expect( Object.is( new_records[1], records[0] ) );
+			expect( Object.is( new_records[0], records[1] ) );
+		});
+
+		test('keeps a record in the last position', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const new_records = PriceRecordCollectionFunctions.moveDown( records, records[0] );
+			expect( Object.is( new_records[1], records[1] ) );
+		});
+
+		test('returns a new collection', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const new_records = PriceRecordCollectionFunctions.moveDown( records, records[0] );
+
+			expect(Object.is(records, new_records)).toBe(false);
+		});
+
+
+		test('returns a frozen collection', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			const new_records = PriceRecordCollectionFunctions.moveDown( records, records[0] );
+			expect(Object.isFrozen(new_records)).toBe(true);
+		});
+
+	});
+
+	describe('', () => {
+
 	});
 
 
 });
+
+
+// test('', () => {})

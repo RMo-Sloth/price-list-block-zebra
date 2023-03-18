@@ -30,9 +30,10 @@ export class PriceRecordCollectionFunctions {
 		return Object.freeze( new_records );
 	}
 
-	static moveDown(records: PriceRecord[], record: PriceRecord): PriceRecord[] {
+	static moveDown(records: readonly PriceRecord[], record: PriceRecord): readonly PriceRecord[] {
 		const index = PriceRecordCollectionFunctions.indexOf(records, record);
-		return PriceRecordCollectionFunctions.swapPlaces(records, index, index + 1);
+		const new_records = PriceRecordCollectionFunctions.swapPlaces(records, index, index + 1);
+		return Object.freeze( new_records );
 	}
 
 	static moveUp(records: PriceRecord[], record: PriceRecord): PriceRecord[] {
