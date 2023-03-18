@@ -177,7 +177,7 @@ describe('PriceRecordCollectionFunctions', () => {
 
 	});
 
-	describe('.moveDown(records, record) ', () => {
+	describe('.moveUp(records, record) ', () => {
 
 		test('moves a record to a lower index position', () => {
 			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
