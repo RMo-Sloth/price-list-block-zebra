@@ -42,12 +42,12 @@ export class PriceRecordCollectionFunctions {
 		return Object.freeze(new_records);
 	}
 
-	static nextRecord(records: PriceRecord[], record: PriceRecord): PriceRecord | undefined {
+	static nextRecord(records: readonly PriceRecord[], record: PriceRecord): PriceRecord | undefined {
 		const index = PriceRecordCollectionFunctions.indexOf(records, record);
 		return records[index + 1];
 	}
 
-	static previousRecord(records: PriceRecord[], record: PriceRecord): PriceRecord | undefined {
+	static previousRecord(records: PriceRecord[], record: PriceRecord): PriceRecord {
 		const index = PriceRecordCollectionFunctions.indexOf(records, record);
 		return records[index - 1];
 	}
