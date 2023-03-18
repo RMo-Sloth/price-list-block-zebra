@@ -1,4 +1,4 @@
-import { PriceRecord } from "./PriceRecord";
+import { PriceRecord } from "../PriceRecord/PriceRecord";
 
 export class PriceRecordCollectionFunctions {
 	static add(records: PriceRecord[], record: PriceRecord): PriceRecord[] {

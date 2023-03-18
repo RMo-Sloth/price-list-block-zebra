@@ -4,7 +4,7 @@ import { trash } from '@wordpress/icons';
 import FocusContext from '../../../data/Focus/FocusContext';
 import { PriceRecord } from '../../../data/PriceRecord/PriceRecord';
 import PriceRecordContext from '../../../data/PriceRecord/PriceRecordsContext';
-import { PriceRecordCollectionFunctions } from '../../../data/PriceRecord/PriceRecordsFunctions';
+import { PriceRecordCollectionFunctions } from '../../../data/PriceRecordCollection/PriceRecordCollectionFunctions';
 import SettingsContext from '../../../data/Settings/SettingsContext';
 
 function DeletePriceRecord(props): JSX.Element {
