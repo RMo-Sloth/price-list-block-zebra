@@ -2,7 +2,7 @@ import { PriceRecord } from "./PriceRecord";
 
 export interface PriceRecordsContextAPI {
 	/** The state supplied by the Context */
-	records: PriceRecord[];
+	records: readonly PriceRecord[];
 	
 	/** Add a new record to the records stored in this Context. */
 	add: (record: PriceRecord) => void;

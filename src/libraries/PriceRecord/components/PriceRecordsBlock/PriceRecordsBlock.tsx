@@ -8,9 +8,9 @@ import { FocusContextProvider } from "../../data/Focus/FocusContext";
 
 type Props = {
 	isSelected: boolean,
-	price_records: PriceRecord[],
+	price_records: readonly PriceRecord[],
 	settings: SettingsRecord,
-	onChange: (records: PriceRecord[]) => void
+	onChange: (records: readonly PriceRecord[]) => void
 }
 
 export function PriceRecordsBlock({ isSelected, price_records, settings, onChange }: Props): JSX.Element {

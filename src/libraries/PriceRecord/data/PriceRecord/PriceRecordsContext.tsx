@@ -16,13 +16,13 @@ export default PriceRecordsContext;
 
 type Props = {
 	children: JSX.Element,
-	records: PriceRecord[],
-	on_update: (records: PriceRecord[]) => void
+	records: readonly PriceRecord[],
+	on_update: (records: readonly PriceRecord[]) => void
 }
 
 export function PriceRecordContextProvider(props: Props): JSX.Element {
 
-	const [records, setRecords] = useState([...props.records]);
+	const [records, setRecords] = useState( props.records );
 	const context: PriceRecordsContextAPI = { records, add, update, remove, move_down, move_up };
 
 	useEffect(() => {
