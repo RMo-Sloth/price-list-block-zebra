@@ -98,4 +98,21 @@ describe('PriceRecordCollectionFunctions', () => {
 
 	});
 
+
+	describe('.isLast(records, record) ', () => {
+
+		test('returns true when the last record is provided', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			expect( PriceRecordCollectionFunctions.isLast( records, records[1] ) ).toBe(true);
+		});
+		
+		test('returns false when another record is provided', () => {
+			let records = PriceRecordCollectionFunctions.add([], PriceRecordFunctions.default());
+			records = PriceRecordCollectionFunctions.add(records, PriceRecordFunctions.default());
+			expect( PriceRecordCollectionFunctions.isLast( records, records[0] ) ).toBe(false);
+		});
+
+	});
+
 });

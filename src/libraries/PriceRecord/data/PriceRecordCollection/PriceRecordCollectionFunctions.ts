@@ -21,7 +21,7 @@ export class PriceRecordCollectionFunctions {
 		return PriceRecordCollectionFunctions.indexOf(records, record) === 0;
 	}
 
-	static isLast(records: PriceRecord[], record: PriceRecord): boolean {
+	static isLast(records: readonly PriceRecord[], record: PriceRecord): boolean {
 		return PriceRecordCollectionFunctions.indexOf(records, record) + 1 === records.length;
 	}
 
