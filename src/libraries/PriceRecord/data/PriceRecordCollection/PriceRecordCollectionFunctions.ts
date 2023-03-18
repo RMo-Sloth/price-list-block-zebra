@@ -1,9 +1,11 @@
 import { PriceRecord } from "../PriceRecord/PriceRecord";
 
 export class PriceRecordCollectionFunctions {
-	static add(records: PriceRecord[], record: PriceRecord): PriceRecord[] {
+	static add(records: readonly PriceRecord[], record: PriceRecord): readonly PriceRecord[] {
+		// I should update the index through PriceRecordFunctions
 		const enhancedRecord = { ...record, index: PriceRecordCollectionFunctions.latestId(records) + 1 };
-		return [...records, enhancedRecord];
+		const result = [...records, enhancedRecord];
+		return Object.freeze( result );
 	}
 
 	static update(records: PriceRecord[], updated_record: PriceRecord): PriceRecord[] {
@@ -49,20 +51,20 @@ export class PriceRecordCollectionFunctions {
 		return records[index - 1];
 	}
 
-	private static indexOf(records: PriceRecord[], targetRecord: PriceRecord): number {
+	private static indexOf(records: readonly PriceRecord[], targetRecord: PriceRecord): number {
 		return records.findIndex(
 			(comparedRecord) => comparedRecord === targetRecord
 		);
 	}
 
-	private static latestId(records: PriceRecord[]) {
+	private static latestId(records: readonly PriceRecord[]) {
 		return records.reduce(
 			(prev, current) => Math.max(prev, current.index),
 			0
 		);
 	}
 
-	private static swapPlaces(records: PriceRecord[], index1: number, index2: number): PriceRecord[] {
+	private static swapPlaces(records: readonly PriceRecord[], index1: number, index2: number): PriceRecord[] {
 		const priceRecords = [...records];
 		const record1 = priceRecords[index1];
 		const record2 = priceRecords[index2];
