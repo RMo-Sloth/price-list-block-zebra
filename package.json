@@ -41,7 +41,7 @@
 		"packages-update": "wp-scripts packages-update",
 		"start": "wp-scripts build && wp-env start && wp-scripts start",
 		"stop": "wp-env stop",
-		"test": "jest",
+		"test": "jest --watchAll --runInBand",
 		"plugin-zip": "wp-scripts plugin-zip",
 		"create-translation-file": "wp-env run cli wp i18n make-pot ./wp-content/plugins/price-list-block-zebra ./wp-content/plugins/price-list-block-zebra/src/i18n/default.pot"
 	}
