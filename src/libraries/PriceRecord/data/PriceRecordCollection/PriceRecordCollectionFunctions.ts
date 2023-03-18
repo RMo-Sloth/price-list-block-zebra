@@ -4,17 +4,17 @@ import { PriceRecordFunctions } from "../PriceRecord/PriceRecordFunctions";
 export class PriceRecordCollectionFunctions {
 	static add(records: readonly PriceRecord[], record: PriceRecord): readonly PriceRecord[] {
 		const index = PriceRecordCollectionFunctions.latestId(records) + 1;
-		const new_record = PriceRecordFunctions.set_index( record, index );
-		return Object.freeze( [...records, new_record] );
+		const new_record = PriceRecordFunctions.set_index(record, index);
+		return Object.freeze([...records, new_record]);
 	}
 
-	static update(records: PriceRecord[], updated_record: PriceRecord): PriceRecord[] {
+	static update(records: readonly PriceRecord[], updated_record: PriceRecord): readonly PriceRecord[] {
+		const index = PriceRecordCollectionFunctions.indexOf(records, updated_record);
 		const new_records = [...records];
-		const index = records.findIndex(
-			(record) => record.index === updated_record.index
-		);
-		new_records[index] = updated_record;
-		return new_records;
+		if (index >= 0)
+			new_records.splice(index, 1, updated_record);
+
+		return Object.freeze(new_records);
 	}
 
 	static isFirst(records: PriceRecord[], record: PriceRecord): boolean {
@@ -51,10 +51,8 @@ export class PriceRecordCollectionFunctions {
 		return records[index - 1];
 	}
 
-	private static indexOf(records: readonly PriceRecord[], targetRecord: PriceRecord): number {
-		return records.findIndex(
-			(comparedRecord) => comparedRecord === targetRecord
-		);
+	private static indexOf(records: readonly PriceRecord[], record: PriceRecord): number {
+		return records.findIndex( ({index}) => index === record.index);
 	}
 
 	private static latestId(records: readonly PriceRecord[]) {
