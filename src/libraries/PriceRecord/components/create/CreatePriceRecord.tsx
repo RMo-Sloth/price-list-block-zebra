@@ -27,10 +27,16 @@ function CreatePriceRecord(): JSX.Element {
 
 	function add(): void {
 		let new_record = PriceRecordFunctions.default()
-		new_record = PriceRecordFunctions.set_price( new_record, +price );
-		new_record = PriceRecordFunctions.set_name( new_record, name );
+		new_record = PriceRecordFunctions.set_price(new_record, +price);
+		new_record = PriceRecordFunctions.set_name(new_record, name);
 		records_context.add(new_record);
 		resetRecord();
+	}
+
+	function onPriceInputChange(event) {
+		if (/\.\d{3,}$/.test(event.target.value)) return;
+
+		setPrice(event.target.value);
 	}
 
 	return <div className={css['create-price-record']}>
@@ -40,7 +46,7 @@ function CreatePriceRecord(): JSX.Element {
 				type="text"
 				placeholder="enter a name"
 				value={name}
-				onChange={(event) => setName(event.target.value) }
+				onChange={(event) => setName(event.target.value)}
 			/>
 		</div>
 		<div className={css.price}>
@@ -48,7 +54,7 @@ function CreatePriceRecord(): JSX.Element {
 				type="number"
 				placeholder="0.00"
 				value={price}
-				onChange={(event) => setPrice(event.target.value) }
+				onChange={onPriceInputChange}
 			/>
 		</div>
 		<Button variant="primary" isSmall onClick={add} icon={plus} />
