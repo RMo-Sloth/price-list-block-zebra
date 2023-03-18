@@ -1,11 +1,11 @@
 import { PriceRecord } from "../PriceRecord/PriceRecord";
+import { PriceRecordFunctions } from "../PriceRecord/PriceRecordFunctions";
 
 export class PriceRecordCollectionFunctions {
 	static add(records: readonly PriceRecord[], record: PriceRecord): readonly PriceRecord[] {
-		// I should update the index through PriceRecordFunctions
-		const enhancedRecord = { ...record, index: PriceRecordCollectionFunctions.latestId(records) + 1 };
-		const result = [...records, enhancedRecord];
-		return Object.freeze( result );
+		const index = PriceRecordCollectionFunctions.latestId(records) + 1;
+		const new_record = PriceRecordFunctions.set_index( record, index );
+		return Object.freeze( [...records, new_record] );
 	}
 
 	static update(records: PriceRecord[], updated_record: PriceRecord): PriceRecord[] {

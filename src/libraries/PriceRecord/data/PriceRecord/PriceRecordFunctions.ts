@@ -20,4 +20,9 @@ export class PriceRecordFunctions {
 		return Object.freeze( result );
 	}
 
+	static set_index(record: PriceRecord, index: number) {
+		const result = { ...record, index };
+		return Object.freeze( result );
+	}
+
 }

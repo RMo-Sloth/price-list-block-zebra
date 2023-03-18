@@ -41,7 +41,7 @@ describe('PriceRecordFunctions', () => {
 	});
 
 
-	describe('.set_price ', () => {
+	describe('.set_price( record, price) ', () => {
 
 		test('sets a new price', () => {
 			const default_record = PriceRecordFunctions.default();
@@ -71,6 +71,32 @@ describe('PriceRecordFunctions', () => {
 			const default_record = PriceRecordFunctions.default();
 			const new_record = PriceRecordFunctions.set_price(default_record, 10);
 			expect(Object.is(default_record, new_record)).toBe(false);
+		});
+
+	});
+
+
+	describe('.set_index(record, index) ', () => {
+
+		test('updates the index', () => {
+			const default_record = PriceRecordFunctions.default();
+			const new_record = PriceRecordFunctions.set_index(default_record, 10);
+			expect( new_record.index ).toBe( 10 );
+			
+			const new_record_2 = PriceRecordFunctions.set_index(default_record, 1);
+			expect( new_record_2.index ).toBe( 1 );
+		});
+
+		test('returns an immutable object', () => {
+			const default_record = PriceRecordFunctions.default();
+			const new_record = PriceRecordFunctions.set_index(default_record, 10);
+			expect( Object.isFrozen( new_record ) ).toBe( true );		
+		});
+
+		test('returns an newly created object', () => {
+			const default_record = PriceRecordFunctions.default();
+			const new_record = PriceRecordFunctions.set_index(default_record, 10);
+			expect( Object.is( default_record, new_record ) ).toBe( false );
 		});
 
 	});
