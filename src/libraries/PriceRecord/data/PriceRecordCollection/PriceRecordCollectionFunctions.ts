@@ -57,10 +57,7 @@ export class PriceRecordCollectionFunctions {
 	}
 
 	private static latestId(records: readonly PriceRecord[]) {
-		return records.reduce(
-			(prev, current) => Math.max(prev, current.index),
-			0
-		);
+		return records.reduce((prev, current) => Math.max(prev, current.index), 0);
 	}
 
 	private static swapPlaces(records: readonly PriceRecord[], index1: number, index2: number): PriceRecord[] {
