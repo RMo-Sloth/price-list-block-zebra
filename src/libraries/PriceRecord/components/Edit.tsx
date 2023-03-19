@@ -7,7 +7,7 @@ import SettingsContext from '../data/Settings/SettingsContext';
 import { PriceRecord } from "../data/PriceRecord/PriceRecord";
 import CreatePriceRecord from './create/CreatePriceRecord';
 import UpdatePriceRecord from './update/UpdatePriceRecord';
-import FocusContext from '../data/Focus/FocusContext';
+import FocusContext from '../context/Focus/FocusContext';
 
 export default function Edit(): JSX.Element {
 

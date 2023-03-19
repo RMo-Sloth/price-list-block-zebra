@@ -1,7 +1,7 @@
 import { Button } from '@wordpress/components';
 import { useEffect, useContext, useRef } from '@wordpress/element';
 import { trash } from '@wordpress/icons';
-import FocusContext from '../../../data/Focus/FocusContext';
+import FocusContext from '../../../context/Focus/FocusContext';
 import { PriceRecord } from '../../../data/PriceRecord/PriceRecord';
 import PriceRecordContext from '../../../data/PriceRecord/PriceRecordsContext';
 import { PriceRecordCollectionFunctions } from '../../../data/PriceRecordCollection/PriceRecordCollectionFunctions';

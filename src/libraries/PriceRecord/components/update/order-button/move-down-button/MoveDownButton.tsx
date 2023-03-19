@@ -5,7 +5,7 @@ import { arrowDown } from '@wordpress/icons';
 import { useEffect, useContext, useRef } from '@wordpress/element';
 import PriceRecordContext from '../../../../data/PriceRecord/PriceRecordsContext';
 import { PriceRecordCollectionFunctions } from '../../../../data/PriceRecordCollection/PriceRecordCollectionFunctions';
-import FocusContext from '../../../../data/Focus/FocusContext';
+import FocusContext from '../../../../context/Focus/FocusContext';
 
 export function MoveDownButton(props): JSX.Element {
 	const ref = useRef<HTMLButtonElement>(null);

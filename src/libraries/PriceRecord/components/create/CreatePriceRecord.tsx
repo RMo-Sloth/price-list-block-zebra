@@ -4,7 +4,7 @@ import { useState, useContext, useRef, useEffect } from '@wordpress/element';
 import css from './CreatePriceRecord.module.scss';
 import { plus } from '@wordpress/icons';
 import PriceRecordContext from '../../data/PriceRecord/PriceRecordsContext';
-import FocusContext from '../../data/Focus/FocusContext';
+import FocusContext from '../../context/Focus/FocusContext';
 import { PriceRecordFunctions } from '../../data/PriceRecord/PriceRecordFunctions';
 
 function CreatePriceRecord(): JSX.Element {

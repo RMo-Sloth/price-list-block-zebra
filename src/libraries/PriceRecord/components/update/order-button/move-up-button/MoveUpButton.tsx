@@ -5,7 +5,7 @@ import { arrowUp } from '@wordpress/icons';
 import { useContext, useEffect, useRef } from '@wordpress/element';
 import PriceRecordContext from '../../../../data/PriceRecord/PriceRecordsContext';
 import { PriceRecordCollectionFunctions } from '../../../../data/PriceRecordCollection/PriceRecordCollectionFunctions';
-import FocusContext from '../../../../data/Focus/FocusContext';
+import FocusContext from '../../../../context/Focus/FocusContext';
 
 export function MoveUpButton(props): JSX.Element {
 	const ref = useRef(null);

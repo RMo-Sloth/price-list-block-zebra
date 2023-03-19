@@ -4,7 +4,7 @@ import { PriceRecordContextProvider } from "../../data/PriceRecord/PriceRecordsC
 import SettingsContext from "../../data/Settings/SettingsContext";
 import { SettingsRecord } from "../../data/Settings/SettingsRecord";
 import { PriceRecord } from "../../data/PriceRecord/PriceRecord";
-import { FocusContextProvider } from "../../data/Focus/FocusContext";
+import { FocusContextProvider } from "../../context/Focus/FocusContext";
 
 type Props = {
 	isSelected: boolean,
