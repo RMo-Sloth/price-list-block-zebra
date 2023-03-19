@@ -1,8 +1,9 @@
 import { PriceRecord } from "../../data/PriceRecord/PriceRecord";
+import { PriceRecordCollection } from "../../data/PriceRecordCollection/PriceRecordCollection";
 
 export interface PriceRecordsContextAPI {
 	/** The state supplied by the Context */
-	records: readonly PriceRecord[];
+	records: PriceRecordCollection;
 	
 	/** Add a new record to the records stored in this Context. */
 	add: (record: PriceRecord) => void;

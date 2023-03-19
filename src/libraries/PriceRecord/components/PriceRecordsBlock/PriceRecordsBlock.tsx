@@ -3,14 +3,14 @@ import PreviewInEditor from "../PreviewInEditor";
 import { PriceRecordContextProvider } from "../../context/PriceRecord/PriceRecordsContext";
 import SettingsContext from "../../context/BlockSettings/SettingsContext";
 import { SettingsRecord } from "../../data/Settings/SettingsRecord";
-import { PriceRecord } from "../../data/PriceRecord/PriceRecord";
 import { FocusContextProvider } from "../../context/Focus/FocusContext";
+import { PriceRecordCollection } from "../../data/PriceRecordCollection/PriceRecordCollection";
 
 type Props = {
 	isSelected: boolean,
-	price_records: readonly PriceRecord[],
+	price_records: PriceRecordCollection,
 	settings: SettingsRecord,
-	onChange: (records: readonly PriceRecord[]) => void
+	onChange: (records: PriceRecordCollection) => void
 }
 
 export function PriceRecordsBlock({ isSelected, price_records, settings, onChange }: Props): JSX.Element {

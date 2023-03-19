@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from '@wordpress/element';
 import { PriceRecordCollectionFunctions } from '../../data/PriceRecordCollection/PriceRecordCollectionFunctions';
 import { PriceRecord } from "../../data/PriceRecord/PriceRecord";
 import { PriceRecordsContextAPI } from './PriceRecordsContextAPI';
+import { PriceRecordCollection } from '../../data/PriceRecordCollection/PriceRecordCollection';
 
 const PriceRecordsContext = createContext<PriceRecordsContextAPI>({
 	records: [],
@@ -16,8 +17,8 @@ export default PriceRecordsContext;
 
 type Props = {
 	children: JSX.Element,
-	records: readonly PriceRecord[],
-	on_update: (records: readonly PriceRecord[]) => void
+	records: PriceRecordCollection,
+	on_update: (records: PriceRecordCollection) => void
 }
 
 export function PriceRecordContextProvider(props: Props): JSX.Element {
