@@ -28,3 +28,6 @@ node_modules/
 
 # build folder
 build
+
+# translation file
+default.pot
