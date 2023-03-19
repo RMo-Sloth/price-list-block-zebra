@@ -3,7 +3,7 @@ import { useEffect, useContext, useRef } from '@wordpress/element';
 import { trash } from '@wordpress/icons';
 import FocusContext from '../../../context/Focus/FocusContext';
 import { PriceRecord } from '../../../data/PriceRecord/PriceRecord';
-import PriceRecordContext from '../../../data/PriceRecord/PriceRecordsContext';
+import PriceRecordContext from '../../../context/PriceRecord/PriceRecordsContext';
 import { PriceRecordCollectionFunctions } from '../../../data/PriceRecordCollection/PriceRecordCollectionFunctions';
 import SettingsContext from '../../../data/Settings/SettingsContext';
 

@@ -4,7 +4,7 @@ import DeletePriceRecord from './delete/DeletePriceRecord';
 import OrderButton from './order-button/OrderButton';
 import PriceInput from './price-input/PriceInput';
 import { useContext } from '@wordpress/element';
-import PriceRecordContext from '../../data/PriceRecord/PriceRecordsContext';
+import PriceRecordContext from '../../context/PriceRecord/PriceRecordsContext';
 import { PriceRecord } from "../../data/PriceRecord/PriceRecord";
 import DescriptionInput from './description-input/DescriptionInput';
 

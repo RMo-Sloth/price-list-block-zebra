@@ -1,6 +1,6 @@
 import Edit from "../Edit";
 import PreviewInEditor from "../PreviewInEditor";
-import { PriceRecordContextProvider } from "../../data/PriceRecord/PriceRecordsContext";
+import { PriceRecordContextProvider } from "../../context/PriceRecord/PriceRecordsContext";
 import SettingsContext from "../../data/Settings/SettingsContext";
 import { SettingsRecord } from "../../data/Settings/SettingsRecord";
 import { PriceRecord } from "../../data/PriceRecord/PriceRecord";

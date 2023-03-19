@@ -3,7 +3,7 @@ import { Button } from '@wordpress/components';
 import style from '../OrderButton.module.scss';
 import { arrowUp } from '@wordpress/icons';
 import { useContext, useEffect, useRef } from '@wordpress/element';
-import PriceRecordContext from '../../../../data/PriceRecord/PriceRecordsContext';
+import PriceRecordContext from '../../../../context/PriceRecord/PriceRecordsContext';
 import { PriceRecordCollectionFunctions } from '../../../../data/PriceRecordCollection/PriceRecordCollectionFunctions';
 import FocusContext from '../../../../context/Focus/FocusContext';
 
