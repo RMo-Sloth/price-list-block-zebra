@@ -1,7 +1,7 @@
 import Edit from "../Edit";
 import PreviewInEditor from "../PreviewInEditor";
 import { PriceRecordContextProvider } from "../../context/PriceRecord/PriceRecordsContext";
-import SettingsContext from "../../data/Settings/SettingsContext";
+import SettingsContext from "../../context/BlockSettings/SettingsContext";
 import { SettingsRecord } from "../../data/Settings/SettingsRecord";
 import { PriceRecord } from "../../data/PriceRecord/PriceRecord";
 import { FocusContextProvider } from "../../context/Focus/FocusContext";

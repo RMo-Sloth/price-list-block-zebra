@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from '@wordpress/element';
 import FocusContext from '../../../context/Focus/FocusContext';
-import SettingsContext from '../../../data/Settings/SettingsContext';
+import SettingsContext from '../../../context/BlockSettings/SettingsContext';
 // @ts-ignore
 import css from './DescriptionInput.module.scss';
 

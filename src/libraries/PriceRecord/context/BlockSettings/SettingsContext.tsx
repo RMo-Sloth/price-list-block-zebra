@@ -1,5 +1,5 @@
 import { createContext } from "@wordpress/element";
-import { SettingsRecord } from "./SettingsRecord";
+import { SettingsRecord } from "../../data/Settings/SettingsRecord";
 
 const SettingsContext = createContext<SettingsRecord>({
 	add: false,

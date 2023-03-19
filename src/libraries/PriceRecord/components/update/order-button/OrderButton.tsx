@@ -4,7 +4,7 @@ import { useContext } from '@wordpress/element';
 import { MoveDownButton } from './move-down-button/MoveDownButton';
 import { MoveUpButton } from './move-up-button/MoveUpButton';
 import { PriceRecord } from "../../../data/PriceRecord/PriceRecord";
-import SettingsContext from '../../../data/Settings/SettingsContext';
+import SettingsContext from '../../../context/BlockSettings/SettingsContext';
 
 export default function OrderButton({ record }: { record: PriceRecord }): JSX.Element {
 	const settings = useContext(SettingsContext);

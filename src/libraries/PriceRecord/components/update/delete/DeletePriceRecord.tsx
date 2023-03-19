@@ -5,7 +5,7 @@ import FocusContext from '../../../context/Focus/FocusContext';
 import { PriceRecord } from '../../../data/PriceRecord/PriceRecord';
 import PriceRecordContext from '../../../context/PriceRecord/PriceRecordsContext';
 import { PriceRecordCollectionFunctions } from '../../../data/PriceRecordCollection/PriceRecordCollectionFunctions';
-import SettingsContext from '../../../data/Settings/SettingsContext';
+import SettingsContext from '../../../context/BlockSettings/SettingsContext';
 
 function DeletePriceRecord(props): JSX.Element {
 	const ref = useRef<HTMLButtonElement>(null);
