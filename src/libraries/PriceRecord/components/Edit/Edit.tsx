@@ -1,13 +1,13 @@
 import { useContext, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 // @ts-ignore
-import style from './editor.module.scss';
-import PriceRecordContext from '../context/PriceRecord/PriceRecordsContext';
-import SettingsContext from '../context/BlockSettings/SettingsContext';
-import { PriceRecord } from "../data/PriceRecord/PriceRecord";
-import CreatePriceRecord from './create/CreatePriceRecord';
-import UpdatePriceRecord from './update/UpdatePriceRecord';
-import FocusContext from '../context/Focus/FocusContext';
+import style from './edit.module.scss';
+import PriceRecordContext from '../../context/PriceRecord/PriceRecordsContext';
+import SettingsContext from '../../context/BlockSettings/SettingsContext';
+import { PriceRecord } from "../../data/PriceRecord/PriceRecord";
+import CreatePriceRecord from '../create/CreatePriceRecord';
+import UpdatePriceRecord from '../update/UpdatePriceRecord';
+import FocusContext from '../../context/Focus/FocusContext';
 
 export default function Edit(): JSX.Element {
 

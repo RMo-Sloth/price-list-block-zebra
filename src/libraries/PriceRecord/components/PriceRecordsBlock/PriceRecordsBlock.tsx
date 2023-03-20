@@ -1,4 +1,4 @@
-import Edit from "../Edit";
+import Edit from "../Edit/Edit";
 import EditorPreview from "../EditorPreview/EditorPreview";
 import { PriceRecordContextProvider } from "../../context/PriceRecord/PriceRecordsContext";
 import SettingsContext from "../../context/BlockSettings/SettingsContext";
