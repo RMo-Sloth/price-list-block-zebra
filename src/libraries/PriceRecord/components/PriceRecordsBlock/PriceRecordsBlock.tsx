@@ -1,5 +1,5 @@
 import Edit from "../Edit";
-import PreviewInEditor from "../PreviewInEditor";
+import EditorPreview from "../EditorPreview/EditorPreview";
 import { PriceRecordContextProvider } from "../../context/PriceRecord/PriceRecordsContext";
 import SettingsContext from "../../context/BlockSettings/SettingsContext";
 import { SettingsRecord } from "../../data/Settings/SettingsRecord";
@@ -19,7 +19,7 @@ export function PriceRecordsBlock({ isSelected, price_records, settings, onChang
 	return <PriceRecordContextProvider records={price_records} on_update={onChange} >
 		<SettingsContext.Provider value={settings}>
 			<FocusContextProvider>
-				{is_editable ? <Edit /> : <PreviewInEditor />}
+				{is_editable ? <Edit /> : <EditorPreview />}
 			</FocusContextProvider>
 		</SettingsContext.Provider>
 	</PriceRecordContextProvider>
