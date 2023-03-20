@@ -6,11 +6,11 @@ import { PriceRecordCollection } from '../../data/PriceRecordCollection/PriceRec
 
 const PriceRecordsContext = createContext<PriceRecordsContextAPI>({
 	records: [],
-	add: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
-	update: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
-	remove: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
-	move_down: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
-	move_up: record => { console.warn( 'This is an useless fallback implementation. Did you provide a Context.Provider?' ) },
+	add: record => { console.warn('This is an useless fallback implementation. Did you provide a Context.Provider?') },
+	update: record => { console.warn('This is an useless fallback implementation. Did you provide a Context.Provider?') },
+	remove: record => { console.warn('This is an useless fallback implementation. Did you provide a Context.Provider?') },
+	move_down: record => { console.warn('This is an useless fallback implementation. Did you provide a Context.Provider?') },
+	move_up: record => { console.warn('This is an useless fallback implementation. Did you provide a Context.Provider?') },
 });
 export default PriceRecordsContext;
 
@@ -23,11 +23,11 @@ type Props = {
 
 export function PriceRecordContextProvider(props: Props): JSX.Element {
 
-	const [records, setRecords] = useState( props.records );
+	const [records, setRecords] = useState(props.records);
 	const context: PriceRecordsContextAPI = { records, add, update, remove, move_down, move_up };
 
 	useEffect(() => {
-		props.on_update([...records]);
+		props.on_update(records);
 	}, [records]);
 
 	function add(record: PriceRecord): void {
@@ -55,5 +55,5 @@ export function PriceRecordContextProvider(props: Props): JSX.Element {
 		setRecords(new_records);
 	}
 
-	return <PriceRecordsContext.Provider value={ context } > {props.children} </PriceRecordsContext.Provider>;
+	return <PriceRecordsContext.Provider value={context} >{props.children}</PriceRecordsContext.Provider>;
 }
