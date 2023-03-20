@@ -1,8 +1,8 @@
 import { registerBlockType } from '@wordpress/blocks';
 import Save from './components/Save/Save';
-import Editor from './components/Edit/Editor';
+import Edit from './components/Edit/Edit';
 
 registerBlockType( 'price-list-block-zebra/price-list-block-zebra', {
-	edit: Editor,
+	edit: Edit,
 	save: Save,
 } );
