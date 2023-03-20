@@ -3,6 +3,7 @@ import { PriceRecordFunctions } from "../PriceRecord/PriceRecordFunctions";
 import { PriceRecordCollection } from "./PriceRecordCollection";
 
 export class PriceRecordCollectionFunctions {
+
 	static add(records: PriceRecordCollection, record: PriceRecord): PriceRecordCollection {
 		const index = PriceRecordCollectionFunctions.latestId(records) + 1;
 		const new_record = PriceRecordFunctions.set_index(record, index);
@@ -11,10 +12,7 @@ export class PriceRecordCollectionFunctions {
 
 	static update(records: PriceRecordCollection, updated_record: PriceRecord): PriceRecordCollection {
 		const index = PriceRecordCollectionFunctions.indexOf(records, updated_record);
-		const new_records = [...records];
-		if (index >= 0)
-			new_records.splice(index, 1, updated_record);
-
+		const new_records = PriceRecordCollectionFunctions.replace( records, records[index], updated_record );
 		return Object.freeze(new_records);
 	}
 
@@ -32,14 +30,14 @@ export class PriceRecordCollectionFunctions {
 	}
 
 	static moveDown(records: PriceRecordCollection, record: PriceRecord): PriceRecordCollection {
-		const index = PriceRecordCollectionFunctions.indexOf(records, record);
-		const new_records = PriceRecordCollectionFunctions.swapPlaces(records, index, index + 1);
+		const next_record = PriceRecordCollectionFunctions.nextRecord(records, record);
+		const new_records = PriceRecordCollectionFunctions.replace(records, record, next_record);
 		return Object.freeze(new_records);
 	}
 
 	static moveUp(records: PriceRecordCollection, record: PriceRecord): PriceRecordCollection {
-		const index = PriceRecordCollectionFunctions.indexOf(records, record);
-		const new_records = PriceRecordCollectionFunctions.swapPlaces(records, index, index - 1);
+		const previous_record = PriceRecordCollectionFunctions.previousRecord(records, record);
+		const new_records = PriceRecordCollectionFunctions.replace(records, record, previous_record);
 		return Object.freeze(new_records);
 	}
 
@@ -61,14 +59,13 @@ export class PriceRecordCollectionFunctions {
 		return records.reduce((prev, current) => Math.max(prev, current.index), 0);
 	}
 
-	private static swapPlaces(records: PriceRecordCollection, index1: number, index2: number): PriceRecord[] {
-		const priceRecords = [...records];
-		const record1 = priceRecords[index1];
-		const record2 = priceRecords[index2];
-
-		priceRecords[index1] = record2;
-		priceRecords[index2] = record1;
-
-		return priceRecords;
+	/** Replaces records that exists. If one record matches it will be replaced by the other one. When both records match they will switch in the array. When no records match nothing will happen */
+	private static replace(records: PriceRecordCollection, record_1: PriceRecord, record_2: PriceRecord): PriceRecordCollection {
+		// NOTE: the records are matched by reference, so objects with the same values and different reference won't match.
+		return records.map(record => {
+			if (Object.is(record, record_1)) return record_2;
+			else if (Object.is(record, record_2)) return record_1;
+			else return record;
+		});
 	}
 }
