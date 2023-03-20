@@ -12,7 +12,7 @@ export default function BlockDevelopmentPanel() {
 		>
 			<p>{__('For questions about WordPress Block Development and professional Wordpress Block development, visit:', 'price-list-block-zebra')}</p>
 			<a
-				href={__('https://waardwebsites.nl/contact', 'price-list-block-zebra')}
+				href='https://waardwebsites.nl/contact'
 				style={{ display: 'block', margin: 'auto', width: '75%', }}
 			>
 				<img
