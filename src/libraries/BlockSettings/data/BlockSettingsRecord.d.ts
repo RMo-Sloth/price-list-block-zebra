@@ -1,7 +1,7 @@
 export interface BlockSettingsRecord {
-	add: boolean;
-	delete: boolean;
-	edit_description: boolean;
-	edit_price: boolean;
-	order_items: boolean;
+	readonly add: boolean;
+	readonly delete: boolean;
+	readonly edit_description: boolean;
+	readonly edit_price: boolean;
+	readonly order_items: boolean;
 }
