@@ -1,10 +1,10 @@
 export interface PriceRecord {
 	/** The name of the product */
-	name: string;
+	readonly name: string;
 	
 	/** The price of the product */
-	price: number;
+	readonly price: number;
 	
 	/** An unique record identifier */
-	index: number;
+	readonly index: number;
 }
