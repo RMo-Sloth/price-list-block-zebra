@@ -35,7 +35,7 @@
 		"start": "wp-scripts build && wp-env start && wp-scripts start",
 		"stop": "wp-env stop",
 		"test": "jest --watchAll --runInBand",
-		"plugin-zip": "wp-scripts plugin-zip",
+		"plugin-zip": "wp-scripts build && wp-scripts plugin-zip",
 		"i18n": "wp-env run cli wp i18n make-pot ./wp-content/plugins/price-list-block-zebra ./wp-content/plugins/price-list-block-zebra/default.pot"
 	}
 }
