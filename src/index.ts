@@ -1,8 +1,9 @@
 import { registerBlockType } from '@wordpress/blocks';
 import Save from './components/Save/Save';
 import Edit from './components/Edit/Edit';
+import meta_data from './block.json'
 
-registerBlockType( 'price-list-block-zebra/price-list-block-zebra', {
+registerBlockType( meta_data.name, {
 	edit: Edit,
 	save: Save,
 } );
