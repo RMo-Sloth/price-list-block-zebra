@@ -26,12 +26,5 @@ Donations for developing and maintaining this block are most welcome. Make a don
 For those interested, the source code is [available on GitHub](https://github.com/RMo-Sloth/price-list-block-zebra). A good understanding of React, TypeScript and SASS is indispensible to understand the codebase.
 
 == Changelog ==
-= 1.1.0 =
-Features
-* 
-
-Bugfixes
-* Explicitly added @wordpress/env as dev-dependency
-
 = 1.0.0 =
 * Initial release
