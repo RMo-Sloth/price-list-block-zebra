@@ -33,3 +33,6 @@ Features
 Bugfixes:
 * Fetch blockname from block.json instead of duplicating the value.
 * Explicitly added @wordpress/env as dev-dependency
+
+Other
+* Tested up to Wordpress version 6.6.2 ( previously 6.0.3 )
