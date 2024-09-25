@@ -31,4 +31,5 @@ Features
 * Initial release
 
 Bugfixes:
+* Fetch blockname from block.json instead of duplicating the value.
 * Explicitly added @wordpress/env as dev-dependency
