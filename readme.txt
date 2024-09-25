@@ -3,7 +3,7 @@ Contributors: robmo
 Donate Link: https://donate.stripe.com/8wMg1r5QEaOb2oodQQ
 Tags: block
 Tested up to: 6.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,5 +26,9 @@ Donations for developing and maintaining this block are most welcome. Make a don
 For those interested, the source code is [available on GitHub](https://github.com/RMo-Sloth/price-list-block-zebra). A good understanding of React, TypeScript and SASS is indispensible to understand the codebase.
 
 == Changelog ==
-= 1.0.0 =
+= 1.0 =
+Features
 * Initial release
+
+Bugfixes:
+* Explicitly added @wordpress/env as dev-dependency
