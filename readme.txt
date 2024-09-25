@@ -2,8 +2,8 @@
 Contributors: robmo
 Donate Link: https://donate.stripe.com/8wMg1r5QEaOb2oodQQ
 Tags: block
-Tested up to: 6.1
-Stable tag: 1.0.2
+Tested up to: 6.6.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
