@@ -30,12 +30,14 @@ For those interested, the source code is [available on GitHub](https://github.co
 Features
 * Initial release
 
+= 1.2.0 =
+New features
+* Enabled a block preview in the gutenberg editor
+
 Bugfixes:
 * Fetch blockname from block.json instead of duplicating the value.
 * Explicitly added @wordpress/env as dev-dependency
 
 Other
 * Tested up to Wordpress version 6.6.2 ( previously 6.0.3 )
-
-= 1.1 =
 * Removed the self-promotion in the sidebar ( it wasn't effective )
