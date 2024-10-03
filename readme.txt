@@ -36,3 +36,6 @@ Bugfixes:
 
 Other
 * Tested up to Wordpress version 6.6.2 ( previously 6.0.3 )
+
+= 1.1 =
+* Removed the self-promotion in the sidebar ( it wasn't effective )
