@@ -35,7 +35,7 @@
 		}
 	},
 	"name": "price-list-block-zebra/price-list-block-zebra",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"title": "Price List",
 	"category": "text", 
 	"icon": "editor-justify",
