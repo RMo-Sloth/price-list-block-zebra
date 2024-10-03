@@ -34,6 +34,62 @@
 			}
 		}
 	},
+	"example": {
+		"attributes": {
+			"price_records": [
+					{
+						"name": "Espresso",
+						"price": 2.20,
+						"index": 1
+					},
+					{
+						"name": "Americano",
+						"price": 2.50,
+						"index": 2
+					},
+					{
+						"name": "Latte",
+						"price": 3.00,
+						"index": 3
+					},
+					{
+						"name": "Cappuccino",
+						"price": 2.80,
+						"index": 4
+					},
+					{
+						"name": "Mocha",
+						"price": 3.50,
+						"index": 5
+					},
+					{
+						"name": "Macchiato",
+						"price": 2.70,
+						"index": 6
+					},
+					{
+						"name": "Flat White",
+						"price": 3.20,
+						"index": 7
+					},
+					{
+						"name": "Iced Coffee",
+						"price": 2.90,
+						"index": 8
+					},
+					{
+						"name": "Cold Brew",
+						"price": 3.60,
+						"index": 9
+					},
+					{
+						"name": "Affogato",
+						"price": 4.00,
+						"index": 10
+					}]
+		}
+
+	},
 	"name": "price-list-block-zebra/price-list-block-zebra",
 	"version": "1.1.0",
 	"title": "Price List",
